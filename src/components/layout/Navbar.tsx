@@ -4,9 +4,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { navLinks } from "@/data/navigation";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Navbar() {
-  const [lang, setLang] = useState<"mr" | "en">("mr");
+const {lang, setLang} = useLanguage()
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 

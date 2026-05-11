@@ -20,3 +20,19 @@ export interface SiteConfig {
   url: string;
   orgName: string;
 }
+
+export interface Extrainfo {
+  name:string;
+  description:string;
+  btn1:string,
+  btn2:string
+}
+
+export interface trust {
+  name:string
+}
+
+export interface moreInfo {
+  desc:string,
+  btn:string
+}
