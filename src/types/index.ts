@@ -34,5 +34,49 @@ export interface trust {
 
 export interface moreInfo {
   desc:string,
+  name:string
   btn:string
+}
+
+export interface history {
+  name :string
+  desc: string
+}
+
+export interface work {
+  name:string
+  desc:string
+}
+
+export interface shivkalin {
+  name:string
+  desc:string
+}
+
+export interface card {
+  name:string
+  desc:string
+}
+
+export interface prashansapatr{
+  name:string
+}
+export interface feedback {
+  name:string
+  desc:string
+}
+
+
+export interface FooterInfo {
+  trustName: string;
+  homeTitle: string;
+  homeLinks: string[];
+  aboutTitle: string;
+  aboutLinks: string[];
+  contactTitle: string;
+  email: string;
+  phone: string;
+  address: string;
+  rights: string;
+  tagline: string;
 }
