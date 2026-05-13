@@ -1,4 +1,4 @@
-import { card, Extrainfo, feedback, history, moreInfo, prashansapatr, shivkalin, trust, work ,FooterInfo} from "@/types";
+import { card, Extrainfo, feedback, history, moreInfo, prashansapatr, shivkalin, trust, work ,FooterInfo, cardtext} from "@/types";
 
 export const ExtraInfo:Record<"mr" | "en",Extrainfo[]> = {
 
@@ -104,6 +104,21 @@ export const FooterData: Record<"mr" | "en", FooterInfo[]> = {
 };
 
 
+
+
+export const CardText:Record<"mr"|"en", cardtext[]> = {
+    mr:[{name:"कृषी", desc:" समृद्ध शेती, सशक्त शेतकरी आणि उज्ज्वल भविष्य."},
+        {name:"क्रीडा",desc:""},
+        {name:"सामाजिक",desc:""},
+        {name:"सांस्कृतिक" , desc:""}
+    ],
+    en:[{name:"Agricultural" ,desc:"" },
+        {name:"Sports", desc:""},
+        {name:"Social",desc:""},
+        {name:"Cultural",desc:""}
+    ]
+
+}
 
 
 // सरनोबत येसाजी कंक ट्रस्ट.

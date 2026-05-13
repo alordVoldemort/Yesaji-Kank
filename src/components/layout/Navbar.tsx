@@ -22,12 +22,12 @@ const {lang, setLang} = useLanguage()
 
   return (
     <nav
-      className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${fontClass} ${
+      className={`fixed  z-50 w-full transition-all duration-300 ${fontClass} ${
         scrolled ? "bg-white shadow-md" : "bg-transparent shadow-none"
       }`}
     >
       {/* ── Single row: logo | menu (center) | lang toggle ── */}
-      <div className="mx-auto flex h-[70px] items-center justify-between px-6 md:px-12">
+      <div className="mx-auto flex h-[70px] items-center justify-between px-2 md:px-12">
 
         {/* Left: logo + org name */}
         <Link href="/" className="flex items-center gap-3 shrink-0">

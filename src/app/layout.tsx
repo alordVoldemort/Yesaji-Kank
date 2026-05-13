@@ -45,8 +45,8 @@ export default function RootLayout({
     >
       <body>
         <LanguaugeProvider>
-        <Navbar />
-        {children}
+        <Navbar/>
+        {children }
         <Footer />
          </LanguaugeProvider>
       </body>
