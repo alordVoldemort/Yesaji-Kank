@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { navLinks } from "@/data/navigation";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -10,11 +10,24 @@ export default function Navbar() {
 const {lang, setLang} = useLanguage()
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [mobileOpenDropdown, setMobileOpenDropdown] = useState<string | null>(null);
+  const dropdownRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setOpenDropdown(null);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   const items = navLinks[lang];
@@ -45,19 +58,57 @@ const {lang, setLang} = useLanguage()
         </Link>
 
         {/* Center: menu items */}
-        <ul className="hidden md:flex items-center gap-3 text-sm">
+        <ul ref={dropdownRef} className={`hidden md:flex items-center text-sm ${lang === "mr" ? "gap-18" : "gap-10"}`}>
           {items.map((item) => (
-            <li key={item.href}>
-              <Link
-                href={item.href}
-                className="nav-btn relative inline-flex items-center px-2 py-1 whitespace-nowrap text-[13px] font-medium text-gray-800 transition-colors duration-300 group"
-              >
-                {/* top-left bracket */}
-                <span className="pointer-events-none absolute top-[1px] left-[1px] w-[5px] h-[5px] border-t border-l border-gray-500 group-hover:border-[#d4a017] transition-colors duration-300 z-20" />
-                {/* bottom-right bracket */}
-                <span className="pointer-events-none absolute bottom-[1px] right-[1px] w-[5px] h-[5px] border-b border-r border-gray-500 group-hover:border-[#d4a017] transition-colors duration-300 z-20" />
-                <span className="relative z-10">{item.label}</span>
-              </Link>
+            <li key={item.href} className="relative">
+              {item.children ? (
+                <>
+                  <button
+                    onClick={() => setOpenDropdown(openDropdown === item.href ? null : item.href)}
+                    className={`nav-btn relative inline-flex items-center gap-1 px-2 h-[30px] whitespace-nowrap leading-none font-medium text-gray-800 transition-colors duration-300 group ${lang === "mr" ? "text-[15px]" : "text-[13px]"}`}
+                  >
+                    {/* top-left bracket */}
+                    <span className="pointer-events-none absolute top-[1px] left-[1px] w-[5px] h-[5px] border-t border-l border-gray-500 group-hover:border-[#d4a017] transition-colors duration-300 z-20" />
+                    {/* bottom-right bracket */}
+                    <span className="pointer-events-none absolute bottom-[1px] right-[1px] w-[5px] h-[5px] border-b border-r border-gray-500 group-hover:border-[#d4a017] transition-colors duration-300 z-20" />
+                    <span className="relative z-10">{item.label}</span>
+                    <svg
+                      className={`w-3 h-3 transition-transform duration-200 ${openDropdown === item.href ? "rotate-180" : ""}`}
+                      fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  {openDropdown === item.href && (
+                    <div className="absolute top-full left-0 mt-2 w-56 bg-white shadow-lg border border-gray-100 rounded-sm z-50">
+                      <ul className="py-1">
+                        {item.children.map((child) => (
+                          <li key={child.href}>
+                            <Link
+                              href={child.href}
+                              onClick={() => setOpenDropdown(null)}
+                              className={`block px-4 py-2 text-gray-700 hover:text-[#d4a017] hover:bg-orange-50 transition-colors duration-200 ${lang === "mr" ? "text-[14px]" : "text-[13px]"}`}
+                            >
+                              {child.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </>
+              ) : (
+                <Link
+                  href={item.href}
+                  className={`nav-btn relative inline-flex items-center px-2 h-[30px] whitespace-nowrap leading-none font-medium text-gray-800 transition-colors duration-300 group ${lang === "mr" ? "text-[15px]" : "text-[13px]"}`}
+                >
+                  {/* top-left bracket */}
+                  <span className="pointer-events-none absolute top-[1px] left-[1px] w-[5px] h-[5px] border-t border-l border-gray-500 group-hover:border-[#d4a017] transition-colors duration-300 z-20" />
+                  {/* bottom-right bracket */}
+                  <span className="pointer-events-none absolute bottom-[1px] right-[1px] w-[5px] h-[5px] border-b border-r border-gray-500 group-hover:border-[#d4a017] transition-colors duration-300 z-20" />
+                  <span className="relative z-10">{item.label}</span>
+                </Link>
+              )}
             </li>
           ))}
         </ul>
@@ -137,13 +188,45 @@ const {lang, setLang} = useLanguage()
           <ul className="flex flex-col text-sm text-gray-800">
             {items.map((item) => (
               <li key={item.href}>
-                <Link
-                  href={item.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="block px-6 py-3 border-b border-gray-100 hover:text-orange-500 transition duration-300"
-                >
-                  {item.label}
-                </Link>
+                {item.children ? (
+                  <>
+                    <button
+                      onClick={() => setMobileOpenDropdown(mobileOpenDropdown === item.href ? null : item.href)}
+                      className="w-full flex items-center justify-between px-6 py-3 border-b border-gray-100 hover:text-orange-500 transition duration-300"
+                    >
+                      <span>{item.label}</span>
+                      <svg
+                        className={`w-3 h-3 transition-transform duration-200 ${mobileOpenDropdown === item.href ? "rotate-180" : ""}`}
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+                    {mobileOpenDropdown === item.href && (
+                      <ul className="bg-orange-50">
+                        {item.children.map((child) => (
+                          <li key={child.href}>
+                            <Link
+                              href={child.href}
+                              onClick={() => { setMenuOpen(false); setMobileOpenDropdown(null); }}
+                              className="block pl-10 pr-6 py-2.5 border-b border-orange-100 text-gray-700 hover:text-orange-500 transition duration-300"
+                            >
+                              {child.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </>
+                ) : (
+                  <Link
+                    href={item.href}
+                    onClick={() => setMenuOpen(false)}
+                    className="block px-6 py-3 border-b border-gray-100 hover:text-orange-500 transition duration-300"
+                  >
+                    {item.label}
+                  </Link>
+                )}
               </li>
             ))}
             <li className="flex items-center gap-2 px-6 py-3 text-gray-700">
