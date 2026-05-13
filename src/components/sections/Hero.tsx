@@ -209,10 +209,10 @@ export default function Hero() {
                 />
 
                 {/* --- HOVER OVERLAY (Semi-transparent black box with top border) --- */}
-                <div className="absolute bottom-0 left-0 right-0 h-[40%] bg-[#5252529E]    opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-center p-8">
+                <div className="absolute bottom-0 left-0 right-0 h-[40%] bg-[#5252529E] opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-center p-8">
                   
                   {/* Title from CardTexts data */}
-                  <h3 className="text-white text-1xl md:text-2xl  mb-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  <h3 className="text-white text-1xl md:text-2xl mb-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                     {CardTexts[i]?.name}
                   </h3>
                   
@@ -239,19 +239,48 @@ export default function Hero() {
           {shivkalins.map((item, i) => <p key={i}>{item.desc}</p>)}
         </div>
 
-        {/* Armor Scroll Cards */}
+        {/* --- Updated Armor Scroll Cards (With Hover Effect) --- */}
         <div className={`flex flex-wrap justify-center gap-8 py-20 px-4 ${fontClass}`}>
           {Cards.map((item, index) => (
-            <div key={index} className="relative w-[320px] h-[450px] flex flex-col items-center group">
-              <div className="absolute inset-0 z-0">
-                <Image src={oldcard} alt="scroll background" fill className="object-contain drop-shadow-2xl" />
+            <div key={index} className="group relative w-[360px] h-[500px] flex flex-col items-center cursor-pointer">
+              
+              {/* Background Swapping */}
+              <div className="absolute inset-0 z-0 transition-opacity duration-500 group-hover:opacity-0">
+                <Image src={oldcard} alt="scroll bg" fill className="object-contain drop-shadow-2xl" />
               </div>
-              <div className="mt-24 w-44 h-44 relative rounded-full overflow-hidden">
-                <Image src={circleImages[index]} alt={item.name} fill className="object-cover" />
+              <div className="absolute inset-0 z-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                <Image src={oldcard1} alt="scroll bg hover" fill className="object-contain drop-shadow-2xl" />
               </div>
-              <div className="mt-auto mb-20 px-6 text-center inset-0 relative">
-                <h3 className="text-2xl font-bold text-[#2d1b0d] tracking-tight">{item.name}</h3>
+
+              {/* DEFAULT VIEW (Centered Large Icon + Bottom Title) */}
+              <div className="relative z-10 flex flex-col items-center h-full w-full transition-all duration-500 group-hover:opacity-0 group-hover:scale-95">
+                <div className="mt-28 w-44 h-44 relative rounded-full overflow-hidden">
+                  <Image src={circleImages[index]} alt={item.name} fill className="object-cover" />
+                </div>
+                <div className="mt-auto mb-20 px-6 text-center">
+                  <h3 className="text-2xl font-bold text-[#2d1b0d] tracking-tight">{item.name}</h3>
+                </div>
               </div>
+
+              {/* HOVER VIEW (Top Icon + Middle Desc + Bottom Title) */}
+              <div className="absolute inset-0 z-20 flex flex-col items-center p-14 opacity-0 transition-all duration-700 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0">
+                <div className="mt-10 w-24 h-24 relative rounded-full overflow-hidden">
+                  <Image src={circleImages[index]} alt={item.name} fill className="object-cover" />
+                </div>
+                
+                <div className="flex-1 flex items-center justify-center mt-4">
+                  <p className="text-center text-[#1a0f08] text-[15px] md:text-[17px] font-medium leading-relaxed px-4">
+                    {item.desc || "Information about the collection goes here."}
+                  </p>
+                </div>
+
+                <div className="mt-auto mb-10">
+                  <h3 className="text-3xl md:text-4xl font-bold text-[#1a0f08] tracking-tight">
+                    {item.name}
+                  </h3>
+                </div>
+              </div>
+
             </div>
           ))}
         </div>
