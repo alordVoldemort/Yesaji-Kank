@@ -80,3 +80,8 @@ export interface FooterInfo {
   rights: string;
   tagline: string;
 }
+
+export interface cardtext {
+  name:string,
+  desc:string
+}

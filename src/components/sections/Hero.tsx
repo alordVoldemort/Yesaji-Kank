@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { heroTexts } from "@/data/site-data";
 import extrainfo from "../../../public/MainPage/extrainfo.png"
-import { ExtraInfo, MoreInfo, Trust, History, Work, Shivkalin, Card, Prashansapatr, Feedback } from "@/data/mainpage";
+import { ExtraInfo, MoreInfo, Trust, History, Work, Shivkalin, Card, Prashansapatr, Feedback, CardText } from "@/data/mainpage";
 import { useLanguage } from "@/context/LanguageContext";
 import trust from "../../../public/MainPage/Trust.svg"
 import moreinfo from "../../../public/MainPage/MoreInfo.svg"
@@ -15,6 +15,8 @@ import child from "../../../public/MainPage/child.svg"
 import women from "../../../public/MainPage/women.svg"
 import oldcard from "../../../public/MainPage/oldcard.svg"
 import feedback from "../../../public/MainPage/feedback.svg"
+import oldcard1 from "../../../public/MainPage/oldcard1.svg"
+
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
@@ -30,6 +32,7 @@ export default function Hero() {
   const Cards = Card[lang]
   const PrashansaPatrs = Prashansapatr[lang]
   const testimonials = Feedback[lang];
+  const CardTexts = CardText[lang]
 
   // Double the list for seamless infinite scrolling
   const scrollList = [...testimonials, ...testimonials];
@@ -69,7 +72,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-white/20" />
 
         {/* Content */}
-        <div className="relative z-10 flex flex-col items-center gap-4 -mt-16">
+        <div className="relative z-10 flex flex-col items-center gap-4 mt-46">
           <p
             className={`${current.font} text-5xl md:text-6xl font-bold tracking-wide transition-all duration-500 ${visible ? "opacity-100 text-gray-950" : "opacity-0 text-white"
               }`}
@@ -118,7 +121,7 @@ export default function Hero() {
         </div>
       </section>
 
-      <section className="bg-[linear-gradient(177.14deg,_#838366_0.89%,_#EED5B1_49.41%,_#7E868E_97.93%)] h-auto overflow-hidden">
+      <section className="bg-[linear-gradient(177.14deg,_#838366_0.89%,_#EED5B1_49.41%,_#7E868E_97.93%)] h-auto overflow-hidden pb-20">
         {/* Trust Section */}
         <div className="flex justify-center items-center relative">
           <Image src={trust} alt="trust" width={220} className="pt-5" />
@@ -184,7 +187,7 @@ export default function Hero() {
           {works.map((item, i) => <p key={i}>{item.desc}</p>)}
         </div>
 
-        {/* Work Gallery */}
+        {/* --- Updated Work Gallery Section --- */}
         <div className="max-w-7xl mx-auto px-6 mt-20 pb-20">
           <div className="flex flex-wrap md:flex-nowrap justify-center gap-5">
             {[
@@ -193,8 +196,31 @@ export default function Hero() {
               { src: child, alt: "Education" },
               { src: women, alt: "Training" }
             ].map((item, i) => (
-              <div key={i} className="relative flex-1 min-w-[240px] aspect-[4/5] rounded-[24px] overflow-hidden">
-                <Image src={item.src} alt={item.alt} fill className="object-cover transition-transform duration-500 hover:scale-105" />
+              <div 
+                key={i} 
+                className="group relative flex-1 min-w-[240px] aspect-[4/5] rounded-[24px] overflow-hidden shadow-2xl cursor-pointer"
+              >
+                {/* Background Image */}
+                <Image 
+                  src={item.src} 
+                  alt={item.alt} 
+                  fill 
+                  className="object-cover transition-transform duration-700 group-hover:scale-110" 
+                />
+
+                {/* --- HOVER OVERLAY (Semi-transparent black box with top border) --- */}
+                <div className="absolute bottom-0 left-0 right-0 h-[40%] bg-[#5252529E]    opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-center p-8">
+                  
+                  {/* Title from CardTexts data */}
+                  <h3 className="text-white text-1xl md:text-2xl  mb-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                    {CardTexts[i]?.name}
+                  </h3>
+                  
+                  {/* Description from CardTexts data */}
+                  <p className="text-white/90 text-sm md:text-base leading-relaxed transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
+                    {CardTexts[i]?.desc || (lang === 'mr' ? "समृद्ध शेती, सशक्त शेतकरी आणि उज्ज्वल भविष्य." : "Prosperous farming, empowered farmers and a bright future.")}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -248,7 +274,6 @@ export default function Hero() {
                 key={index}
                 className="relative w-[350px] md:w-[450px] min-h-[280px] flex-shrink-0 flex flex-col"
               >
-                {/* Background Parchment */}
                 <div className="absolute inset-0 z-0">
                   <Image
                     src={feedback}
@@ -258,7 +283,6 @@ export default function Hero() {
                   />
                 </div>
 
-                {/* Text Content */}
                 <div className="relative z-10 p-10 md:p-14 flex flex-col h-full">
                   <h4 className="text-xl md:text-2xl font-bold text-[#2d1b0d] mb-4 border-b border-[#8b5e34]/20 pb-2">
                     {item.name}
