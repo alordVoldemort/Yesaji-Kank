@@ -5,26 +5,28 @@ import { Phone, MapPin, Mail,  } from "lucide-react"; // Re-added social & mail 
 import { useLanguage } from "@/context/LanguageContext";
 import { FooterData } from "@/data/mainpage";
 import map from "../../../public/MainPage/map.svg";
-
+import logo from "../../../public/main_logo.png"
+import facebook from "../../../public/Footer/facebook.svg"
+import instagram from "../../../public/Footer/instagram.svg"
 export default function Footer() {
   const { lang, fontClass } = useLanguage();
   const items = FooterData[lang];
 
   return (
-    <footer className={`bg-[#232323] text-white pt-16 pb-8 px-6 md:px-20 ${fontClass}`}>
+    <footer className={`bg-[#232323] text-white pt-6 pb-8 px-2 md:px-2 ${fontClass}`}>
       {items.map((item, index) => (
-        <div key={index} className="max-w-7xl mx-auto">
+        <div key={index} className="max-w-7xl ">
           
           {/* 1. Brand Header */}
-          <div className="flex items-center gap-4 mb-12">
+          <div className="flex items-center  gap-4 mb-12 ml-4">
             <Image 
-              src="/logo.png" 
+              src={logo} 
               alt="Logo" 
               width={48} 
               height={48} 
               className="rounded-full border border-white/20 shadow-lg" 
             />
-            <h2 className="text-xl md:text-2xl font-bold tracking-wide">
+            <h2 className="text-[2px] md:text-[12px] font-bold ">
               {item.trustName}
             </h2>
           </div>
@@ -34,8 +36,8 @@ export default function Footer() {
             
             {/* Social Column - Keeping structure to match image */}
             <div className="flex gap-4">
-              {/* <Instagram className="w-7 h-7 cursor-pointer hover:text-orange-400 transition-all" />
-              <Facebook className="w-7 h-7 cursor-pointer hover:text-blue-500 transition-all" /> */}
+               <Image src={instagram} alt="instagram" className="w-7 h-7 cursor-pointer hover:text-orange-400 transition-all" /> 
+              <Image src={facebook} alt="facebook" className="w-7 h-7 cursor-pointer hover:text-blue-500 transition-all" /> 
             </div>
 
             {/* Home Menu */}
@@ -83,7 +85,7 @@ export default function Footer() {
                   src={map} 
                   alt="Trust Map" 
                   fill 
-                  className="object-cover" 
+                  className="object-cover " 
                 />
               </div>
           </div>
