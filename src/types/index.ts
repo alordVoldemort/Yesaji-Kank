@@ -20,3 +20,63 @@ export interface SiteConfig {
   url: string;
   orgName: string;
 }
+
+export interface Extrainfo {
+  name:string;
+  description:string;
+  btn1:string,
+  btn2:string
+}
+
+export interface trust {
+  name:string
+}
+
+export interface moreInfo {
+  desc:string,
+  name:string
+  btn:string
+}
+
+export interface history {
+  name :string
+  desc: string
+}
+
+export interface work {
+  name:string
+  desc:string
+}
+
+export interface shivkalin {
+  name:string
+  desc:string
+}
+
+export interface card {
+  name:string
+  desc:string
+}
+
+export interface prashansapatr{
+  name:string
+}
+export interface feedback {
+  name:string
+  desc:string
+}
+
+
+export interface FooterInfo {
+  trustName: string;
+  homeTitle: string;
+  homeLinks: string[];
+  aboutTitle: string;
+  aboutLinks: string[];
+  contactTitle: string;
+  email: string;
+  phone: string;
+  address: string;
+  rights: string;
+  tagline: string;
+}
