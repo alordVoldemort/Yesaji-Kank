@@ -16,7 +16,7 @@ import women from "../../../public/MainPage/women.svg"
 import oldcard from "../../../public/MainPage/oldcard.svg"
 import feedback from "../../../public/MainPage/feedback.svg"
 import oldcard1 from "../../../public/MainPage/oldcard1.svg"
-
+import flag from "../../../public/MainPage/flag.svg"
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
@@ -58,7 +58,7 @@ export default function Hero() {
 
   return (
     <div>
-      <section className="relative flex h-screen flex-col items-center justify-center text-center px-4 overflow-hidden">
+      <section className="relative flex h-auto flex-col items-center justify-center text-center px-4 overflow-hidden">
         {/* GIF background */}
         <Image
           src="/hero_vi.gif"
@@ -96,7 +96,7 @@ export default function Hero() {
                 "linear-gradient(to right, transparent 0%, #f97316 40%, #ea580c 50%, #f97316 60%, transparent 100%)",
             }}
           />
-          <div className="relative w-fit ">
+          <div className="relative w-fit mb-4">
             <Image
               src={extrainfo}
               alt="extrainfo"
@@ -158,7 +158,7 @@ export default function Hero() {
         </div>
 
         {/* History Header */}
-        <div className="flex justify-center items-center relative mt-10">
+        <div className="flex justify-center items-center relative mt-29">
           <Image src={trust} alt="trust" width={220} className="pt-5" />
           <div className="absolute">
             {Histories.map((item, i) => (
@@ -166,29 +166,37 @@ export default function Hero() {
             ))}
           </div>
         </div>
-        <div className="text-center mt-2 px-10">
+        <div className="text-center mt-4 max-w-2xl  mx-auto px-10">
           {Histories.map((item, i) => <p key={i}>{item.desc}</p>)}
         </div>
 
         <div>
-          <Image src={Home} alt="Home" width={434} className="mx-auto mt-4" />
+          <Image src={Home} alt="Home" width={434} className="mx-auto mt-24" />
         </div>
 
         {/* Work Header */}
-        <div className="flex justify-center items-center relative mt-10">
-          <Image src={trust} alt="trust" width={220} className="pt-5" />
-          <div className="absolute">
-            {works.map((item, i) => (
-              <p key={i} className={`mt-5 font-bold text-[20px] ${fontClass}`}>{item.name}</p>
-            ))}
+
+        <div className="relative flex flex-col items-center mt-28 mb-10">
+          <div className="absolute top-[-50px] z-0 opacity-80 pointer-events-none">
+            <Image src={flag} alt="Crossed Maratha Flags" width={500} height={500} />
+          </div>
+          <div className="relative z-10 flex justify-center items-center mt-15">
+            <Image src={trust} alt="Title Scroll" width={240} className="pt-5" />
+            <div className="absolute inset-0 flex items-center justify-center pt-5">
+              {works.map((item, i) => (
+                <p key={i} className={`font-bold text-[22px] ${fontClass} text-black`}>{item.name}</p>
+              ))}
+            </div>
+          </div>
+          <div className="relative z-10 text-center mt-16 max-w-2xl px-6">
+            {works.map((item, i) => <p key={i} className="text-[#3d2b1f] font-semibold leading-relaxed">{item.desc}</p>)}
           </div>
         </div>
-        <div className="text-center mt-14 px-10">
-          {works.map((item, i) => <p key={i}>{item.desc}</p>)}
-        </div>
+
+
 
         {/* --- Updated Work Gallery Section --- */}
-        <div className="max-w-7xl mx-auto px-6 mt-20 pb-20">
+        <div className="max-w-7xl mx-auto px-6 mt-25 pb-20">
           <div className="flex flex-wrap md:flex-nowrap justify-center gap-5">
             {[
               { src: card, alt: "Agriculture" },
@@ -235,8 +243,8 @@ export default function Hero() {
             ))}
           </div>
         </div>
-        <div className="text-center mt-14 px-10">
-          {shivkalins.map((item, i) => <p key={i}>{item.desc}</p>)}
+        <div className="text-center mt-14 max-w-2xl mx-auto  px-10">
+          {shivkalins.map((item, i) => <p key={i} className="font-semibold">{item.desc}</p>)}
         </div>
 
         {/* --- Updated Armor Scroll Cards (With Hover Effect) --- */}
@@ -275,7 +283,7 @@ export default function Hero() {
                 </div>
 
                 <div className="mt-auto mb-10">
-                  <h3 className="text-3xl md:text-4xl font-bold text-[#1a0f08] tracking-tight">
+                  <h3 className="text-3xl md:text-2xl font-bold text-[#1a0f08] tracking-tight">
                     {item.name}
                   </h3>
                 </div>
