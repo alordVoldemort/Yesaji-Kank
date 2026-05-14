@@ -17,7 +17,7 @@ export const navLinks: Record<"mr" | "en", NavItem[]> = {
     { label: "स्वराज्य योगदान", href: "/heritage" },
     { label: "गॅलरी", href: "/weapons" },
     { label: "देणगी", href: "/donation" },
-    { label: "संपर्क", href: "/gallery" },
+    { label: "संपर्क", href: "/contact" },
   ],
   en: [
     {
@@ -35,6 +35,6 @@ export const navLinks: Record<"mr" | "en", NavItem[]> = {
     { label: "Swarajya Contribution", href: "/heritage" },
     { label: "Gallery", href: "/weapons" },
     { label: "Donation", href: "/shivaji-era" },
-    { label: "Contact", href: "/gallery" },
+    { label: "Contact", href: "/contact" },
   ],
 };

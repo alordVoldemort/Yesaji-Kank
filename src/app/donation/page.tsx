@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useLanguage } from "@/context/LanguageContext";
 import { useState } from "react";
 
 export default function DonationPage() {
@@ -13,6 +14,8 @@ export default function DonationPage() {
     paymentMethod: "upi",
     acceptTerms: false,
   });
+
+  const { lang } = useLanguage();
 
   const [activeTab, setActiveTab] = useState("donation");
 
@@ -33,58 +36,51 @@ export default function DonationPage() {
   return (
     <main className="w-full overflow-hidden bg-[#d8c7a8]">
       {/* ================= HERO SECTION ================= */}
-<section className="relative w-full h-[788px]">
+      <section className="relative w-full h-[420px] sm:h-[520px] md:h-[650px] lg:h-[788px]">
+        {/* Hero Background */}
+        <Image
+          src="/donation-hero.png"
+          alt="Donation Hero"
+          fill
+          priority
+          className="object-cover object-center"
+        />
 
-  {/* Hero Background */}
-  <Image
-    src="/donation-hero.png"
-    alt="Donation Hero"
-    fill
-    priority
-    className="object-cover object-center"
-  />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-[#D9D9D96E]" />
 
-  {/* Overlay */}
-  <div className="absolute inset-0 bg-[#D9D9D96E]" />
-
-  {/* Hero Content */}
-<div className="absolute inset-0 flex flex-col items-center justify-start pt-[38px]">
-
-  {/* देणगी Image */}
-  <div className="relative w-[520px] md:w-[800px] h-[200px] md:h-[380px]">
-
-    <Image
-      src="/donation-text.png"
-      alt="देणगी"
-      fill
-      className="object-contain"
-      priority
-    />
-
-  </div>
-
-</div>
-
-</section>
+        {/* Hero Content */}
+        <div className="absolute inset-0 flex flex-col items-center justify-start pt-[38px]">
+          {/* देणगी Image */}
+          <div className="relative w-[260px] sm:w-[360px] md:w-[520px] lg:w-[800px] h-[120px] sm:h-[180px] md:h-[240px] lg:h-[380px]">
+            <Image
+              src="/donation-text.png"
+              alt="देणगी"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
+        </div>
+      </section>
 
       {/* ================= SCROLL SECTION ================= */}
       <section className="relative bg-[#d8c7a8] py-10 md:py-16 px-4 flex flex-col items-center overflow-hidden">
         {/* Heading */}
         <h2 className="text-[36px] md:text-[64px] font-bold text-black text-center leading-none">
-          देणगीसाठी तपशील
+          {lang === "mr" ? "देणगीसाठी तपशील" : "Donation Details"}
         </h2>
-
         {/* Subtitle */}
         <p className="text-[15px] md:text-[22px] text-[#4b2d18] mt-4 mb-10 text-center">
-          स्वराज्यप्रती कर्तव्याची देणगी
+          {lang === "mr"
+            ? "स्वराज्यप्रती कर्तव्याची देणगी"
+            : "Donation for Swarajya"}
         </p>
 
         {/* Scroll Container */}
-        <div className="relative w-full flex items-center justify-center h-[620px] overflow-hidden">
+        <div className="relative w-full flex items-center justify-center h-[320px] sm:h-[420px] md:h-[520px] lg:h-[620px] overflow-hidden">
           {/* Rotated Scroll */}
-          <div
-            className="relative w-[650px] h-[1100px] rotate-90"
-          >
+          <div className="relative w-[340px] sm:w-[480px] md:w-[580px] lg:w-[650px] h-[620px] sm:h-[820px] md:h-[980px] lg:h-[1100px] rotate-90">
             <Image
               src="/scroll.png"
               alt="Scroll"
@@ -94,126 +90,185 @@ export default function DonationPage() {
             />
           </div>
 
-       {/* Text Content Image */}
-<div className="absolute inset-0 flex items-center justify-center z-10">
+          {/* Text Content */}
+          <div className="absolute inset-0 flex items-center justify-center z-10 px-6">
+            <div
+  className={`
+    text-center
+    text-white
+    font-bold
+    leading-[1.5]
+    space-y-4
+    sm:space-y-5
+    md:space-y-6
+    ${
+      lang === "mr"
+        ? "max-w-[280px] sm:max-w-[420px] md:max-w-[620px] lg:max-w-[900px]"
+        : "max-w-[240px] sm:max-w-[360px] md:max-w-[520px] lg:max-w-[760px]"
+    }
+  `}
+>
+              {/* Paragraph 1 */}
+              <div>
+                <p className="text-[6px] sm:text-[8px] md:text-[11px] lg:text-[14px]">
+                  {lang === "mr" ? (
+                    "मराठा साम्राज्याचा इतिहास लिहिताना हिदंवी स्वराज्याचे सरनोबत 'येसाजी कंक' हे नाव अत्यंत सन्मानाने आणि"
+                  ) : (
+                    <>
+                      While writing the history of the Maratha Empire, the name
+                      of Sarnobat 'Yesaji Kank' is
+                      <br />
+                      remembered with great respect and honor. Songs of his
+                      bravery and valor
+                    </>
+                  )}
+                </p>
 
-  <div className="relative w-[560px] md:w-[700px] h-[320px] md:h-[420px]">
+                <p className="text-[6px] sm:text-[8px] md:text-[11px] lg:text-[14px]">
+                  {lang === "mr" ? (
+                    "आवर्जून घेतले जाते त्यांचे शौर्य आणि पराक्रमाचे पोवाडे आजही गायले जातात."
+                  ) : (
+                    <>are still sung today.</>
+                  )}
+                </p>
+              </div>
 
-    <Image
-      src="/मराठा साम्राज्याचा.png"
-      alt="मराठा साम्राज्याचा"
-      fill
-      priority
-      className="object-contain"
-    />
+              {/* Paragraph 2 */}
+              <div>
+                <p className="text-[6px] sm:text-[8px] md:text-[11px] lg:text-[14px]">
+                  {lang === "mr" ? (
+                    "सरसेनापती येसाजी कंक ट्रस्ट मार्फत दरवर्षी ऐतिहासिक, सामाजिक, सांस्कृतिक, कृषी तसेच क्रीडा क्षेत्रांमध्ये"
+                  ) : (
+                    <>
+                      Through the Sarsenapati Yesaji Kank Trust, historical,
+                      social, cultural, agricultural and sports
+                    </>
+                  )}
+                </p>
 
-  </div>
+                <p className="text-[6px] sm:text-[8px] md:text-[11px] lg:text-[14px]">
+                  {lang === "mr" ? (
+                    "विविध उपक्रम राबवले जातात."
+                  ) : (
+                    <>activities are organized every year.</>
+                  )}
+                </p>
+              </div>
 
-</div>
+              <div>
+                <p className="text-[6px] sm:text-[8px] md:text-[11px] lg:text-[14px]">
+                  {lang === "mr" ? (
+                    "येसाजी कंक यांचा गौरवशाली इतिहास व स्वराज्यातील योगदान सर्वांपर्यंत पोहोचावा या साठी कंक वाडा, भुतोंडे"
+                  ) : (
+                    <>
+                      To spread the glorious history and contribution of Yesaji
+                      Kank in Swarajya to everyone,
+                      <br />
+                      at Kank Wada, Bhutonde the work of building a grand
+                      memorial of
+                    </>
+                  )}
+                </p>
 
+                <p className="text-[6px] sm:text-[8px] md:text-[11px] lg:text-[14px]">
+                  {lang === "mr" ? (
+                    "या परिसरात 'सरनोबत येसाजी कंक' यांचे भव्य स्मारक उभे करण्याचे कार्य सुरू आहे."
+                  ) : (
+                    <>'Sarnobat Yesaji Kank' is underway.</>
+                  )}
+                </p>
+              </div>
+
+              {/* Paragraph 4 */}
+              <div>
+                <p className="text-[6px] sm:text-[8px] md:text-[11px] lg:text-[14px]">
+                  {lang === "mr"
+                    ? "या पुण्यकार्यात आपल्याला योगदान करायची इच्छा असल्यास खालील माहितीचा आधार घ्यावा."
+                    : "If you wish to contribute to this noble cause, please refer to the information below."}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Bottom Buttons */}
-{/* Bottom Buttons */}
-<div className="flex flex-col items-center mt-5 md:mt-8">
-
-  {/* Tabs */}
-  <div className="flex items-center gap-10 md:gap-16">
-
-    {/* Online Donation */}
-    <button
-      onClick={() => setActiveTab("donation")}
-      className="
+        <div className="flex flex-col items-center mt-5 md:mt-8">
+          {/* Tabs */}
+          <div className="flex items-center gap-10 md:gap-16">
+            {/* Online Donation */}
+            <button
+              onClick={() => setActiveTab("donation")}
+              className="
         flex
         items-center
         gap-3
       "
-    >
+            >
+              <div className="relative w-[22px] h-[22px] md:w-[28px] md:h-[28px]">
+                <Image
+                  src="/ऑनलाइन देणगी फॉर्म.svg"
+                  alt="ऑनलाइन देणगी फॉर्म"
+                  fill
+                  priority
+                  className="object-contain"
+                />
+              </div>
 
-      <div className="relative w-[22px] h-[22px] md:w-[28px] md:h-[28px]">
-
-        <Image
-          src="/ऑनलाइन देणगी फॉर्म.svg"
-          alt="ऑनलाइन देणगी फॉर्म"
-          fill
-          priority
-          className="object-contain"
-        />
-
-      </div>
-
-      <span
-        className={`
+              <span
+                className={`
           text-[15px]
           md:text-[18px]
           font-medium
           transition
-          ${
-            activeTab === "donation"
-              ? "text-[#000]"
-              : "text-[#2e2417]"
-          }
+          ${activeTab === "donation" ? "text-[#000]" : "text-[#2e2417]"}
         `}
-      >
-        ऑनलाइन देणगी फॉर्म
-      </span>
+              >
+                {lang === "mr" ? "ऑनलाइन देणगी फॉर्म" : "Online Donation Form"}
+              </span>
+            </button>
 
-    </button>
-
-    {/* Bank Details */}
-    <button
-      onClick={() => setActiveTab("bank")}
-      className="
+            {/* Bank Details */}
+            <button
+              onClick={() => setActiveTab("bank")}
+              className="
         flex
         items-center
         gap-3
       "
-    >
+            >
+              <div className="relative w-[22px] h-[22px] md:w-[28px] md:h-[28px]">
+                <Image
+                  src="/बँक तपशील.svg"
+                  alt="बँक तपशील"
+                  fill
+                  priority
+                  className="object-contain"
+                />
+              </div>
 
-      <div className="relative w-[22px] h-[22px] md:w-[28px] md:h-[28px]">
-
-        <Image
-          src="/बँक तपशील.svg"
-          alt="बँक तपशील"
-          fill
-          priority
-          className="object-contain"
-        />
-
-      </div>
-
-      <span
-        className={`
+              <span
+                className={`
           text-[15px]
           md:text-[18px]
           font-medium
           transition
-          ${
-            activeTab === "bank"
-              ? "text-[#e17843]"
-              : "text-[#2e2417]"
-          }
+          ${activeTab === "bank" ? "text-[#e17843]" : "text-[#2e2417]"}
         `}
-      >
-        बँक तपशील
-      </span>
+              >
+                {lang === "mr" ? "बँक तपशील" : "Bank Details"}
+              </span>
+            </button>
+          </div>
 
-    </button>
-
-  </div>
-
-  {/* Single Separate Line */}
-  <div className="w-[420px] md:w-[560px] h-[1px] bg-[#3d2b1f] mt-[14px]" />
-
-</div>
-
+          {/* Single Separate Line */}
+          <div className="w-[420px] md:w-[560px] h-[1px] bg-[#3d2b1f] mt-[14px]" />
+        </div>
       </section>
       {/* ================= DONATION FORM ================= */}
       {activeTab === "donation" && (
-<section className="bg-[#d8c7a8] px-4 pb-24">
-
-  <div
-    className="
+        <section className="bg-[#d8c7a8] px-4 pb-24">
+          <div
+            className="
       max-w-[760px]
       mx-auto
       bg-[#f7f7f7]
@@ -225,50 +280,44 @@ export default function DonationPage() {
       md:px-14
       py-10
     "
-  >
-
-    {/* Heading */}
-    <div className="text-center">
-
-      <h2
-        className="
+          >
+            {/* Heading */}
+            <div className="text-center">
+              <h2
+                className="
           text-[28px]
           md:text-[36px]
           font-medium
           text-[#222]
         "
-      >
-        देणगी फॉर्म
-      </h2>
+              >
+                {lang === "mr" ? "देणगी फॉर्म" : "Donation Form"}
+              </h2>
 
-      <p className="text-[#555] mt-6 text-[17px]">
-        वैयक्तिक माहिती
-      </p>
+              <p className="text-[#555] mt-6 text-[17px]">
+                {lang === "mr" ? "वैयक्तिक माहिती" : "Personal Information"}
+              </p>
+            </div>
 
-    </div>
+            {/* Form */}
+            <form onSubmit={handleSubmit} className="mt-10">
+              {/* Top Fields */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8">
+                {/* Full Name */}
+                <div>
+                  <label className="text-[15px] text-[#333] font-medium">
+                    {lang === "mr" ? "पूर्ण नाव *" : "Full Name *"}
+                  </label>
 
-    {/* Form */}
-    <form
-      onSubmit={handleSubmit}
-      className="mt-10"
-    >
-
-      {/* Top Fields */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8">
-
-        {/* Full Name */}
-        <div>
-          <label className="text-[15px] text-[#333] font-medium">
-            पूर्ण नाव *
-          </label>
-
-          <input
-            type="text"
-            name="fullName"
-            value={formData.fullName}
-            onChange={handleChange}
-            placeholder="आपले पूर्ण नाव"
-            className="
+                  <input
+                    type="text"
+                    name="fullName"
+                    value={formData.fullName}
+                    onChange={handleChange}
+                    placeholder={
+                      lang === "mr" ? "आपले पूर्ण नाव" : "Your Full Name"
+                    }
+                    className="
               w-full
               mt-2
               h-[42px]
@@ -280,22 +329,24 @@ export default function DonationPage() {
               outline-none
               text-[14px]
             "
-          />
-        </div>
+                  />
+                </div>
 
-        {/* Mobile */}
-        <div>
-          <label className="text-[15px] text-[#333] font-medium">
-            मोबाईल क्रमांक *
-          </label>
+                {/* Mobile */}
+                <div>
+                  <label className="text-[15px] text-[#333] font-medium">
+                    {lang === "mr" ? "मोबाईल क्रमांक *" : "Mobile Number *"}
+                  </label>
 
-          <input
-            type="tel"
-            name="mobile"
-            value={formData.mobile}
-            onChange={handleChange}
-            placeholder="मोबाईल क्रमांक"
-            className="
+                  <input
+                    type="tel"
+                    name="mobile"
+                    value={formData.mobile}
+                    onChange={handleChange}
+                    placeholder={
+                      lang === "mr" ? "मोबाईल क्रमांक" : "Mobile Number"
+                    }
+                    className="
               w-full
               mt-2
               h-[42px]
@@ -307,22 +358,22 @@ export default function DonationPage() {
               outline-none
               text-[14px]
             "
-          />
-        </div>
+                  />
+                </div>
 
-        {/* Email */}
-        <div>
-          <label className="text-[15px] text-[#333] font-medium">
-            ईमेल आयडी *
-          </label>
+                {/* Email */}
+                <div>
+                  <label className="text-[15px] text-[#333] font-medium">
+                    {lang === "mr" ? "ईमेल आयडी *" : "Email ID *"}
+                  </label>
 
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="ईमेल आयडी"
-            className="
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder={lang === "mr" ? "ईमेल आयडी" : "Email ID"}
+                    className="
               w-full
               mt-2
               h-[42px]
@@ -334,22 +385,22 @@ export default function DonationPage() {
               outline-none
               text-[14px]
             "
-          />
-        </div>
+                  />
+                </div>
 
-        {/* Address */}
-        <div>
-          <label className="text-[15px] text-[#333] font-medium">
-            पत्ता *
-          </label>
+                {/* Address */}
+                <div>
+                  <label className="text-[15px] text-[#333] font-medium">
+                    {lang === "mr" ? "पत्ता *" : "Address *"}
+                  </label>
 
-          <input
-            type="text"
-            name="city"
-            value={formData.city}
-            onChange={handleChange}
-            placeholder="पत्ता"
-            className="
+                  <input
+                    type="text"
+                    name="city"
+                    value={formData.city}
+                    onChange={handleChange}
+                    placeholder={lang === "mr" ? "पत्ता" : "Address"}
+                    className="
               w-full
               mt-2
               h-[42px]
@@ -361,37 +412,33 @@ export default function DonationPage() {
               outline-none
               text-[14px]
             "
-          />
-        </div>
+                  />
+                </div>
+              </div>
 
-      </div>
+              {/* Divider */}
+              <div className="border-t border-[#e5cba8] my-10"></div>
 
-      {/* Divider */}
-      <div className="border-t border-[#e5cba8] my-10"></div>
+              {/* Donation Details */}
+              <div className="text-center mb-10">
+                <h3 className="text-[22px] text-[#333] font-medium">
+                  {lang === "mr" ? "देणगी तपशील" : "Donation Details"}
+                </h3>
+              </div>
 
-      {/* Donation Details */}
-      <div className="text-center mb-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8">
+                {/* Amount */}
+                <div>
+                  <label className="text-[15px] text-[#333] font-medium">
+                    {lang === "mr" ? "देणगी रक्कम ₹" : "Donation Amount ₹"}
+                  </label>
 
-        <h3 className="text-[22px] text-[#333] font-medium">
-          देणगी तपशील
-        </h3>
-
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8">
-
-        {/* Amount */}
-        <div>
-          <label className="text-[15px] text-[#333] font-medium">
-            देणगी रक्कम ₹
-          </label>
-
-          <input
-            type="number"
-            name="amount"
-            value={formData.amount}
-            onChange={handleChange}
-            className="
+                  <input
+                    type="number"
+                    name="amount"
+                    value={formData.amount}
+                    onChange={handleChange}
+                    className="
               w-full
               mt-2
               h-[42px]
@@ -403,17 +450,19 @@ export default function DonationPage() {
               outline-none
               text-[14px]
             "
-          />
-        </div>
+                  />
+                </div>
 
-        {/* Purpose */}
-        <div>
-          <label className="text-[15px] text-[#333] font-medium">
-            देणगीचे उद्देश (ऐच्छिक)
-          </label>
+                {/* Purpose */}
+                <div>
+                  <label className="text-[15px] text-[#333] font-medium">
+                    {lang === "mr"
+                      ? "देणगीचे उद्देश (ऐच्छिक)"
+                      : "Purpose of Donation (Optional)"}
+                  </label>
 
-          <select
-            className="
+                  <select
+                    className="
               w-full
               mt-2
               h-[42px]
@@ -425,113 +474,121 @@ export default function DonationPage() {
               outline-none
               text-[14px]
             "
-          >
-            <option>निवडा</option>
-          </select>
-        </div>
+                  >
+                    <option>{lang === "mr" ? "निवडा" : "Select"}</option>
+                  </select>
+                </div>
+              </div>
 
-      </div>
+              {/* Payment Method */}
+              <div className="mt-10">
+                <label className="text-[15px] text-[#333] font-medium">
+                  {lang === "mr" ? "पेमेंट पद्धत *" : "Payment Method *"}
+                </label>
 
-      {/* Payment Method */}
-      <div className="mt-10">
+                <div className="flex flex-col md:flex-row gap-4 mt-5">
+                  {/* UPI */}
+                  <label
+                    className="
+        flex-1
+        flex
+        items-center
+        justify-center
+        gap-2
+        min-h-[48px]
+        border
+        border-[#f0a47d]
+        rounded-[8px]
+        text-[13px]
+        md:text-[14px]
+        text-[#444]
+        cursor-pointer
+        px-3
+        text-center
+      "
+                  >
+                    <input type="radio" name="paymentMethod" value="upi" />
+                    {lang === "mr" ? "यूपीआय" : "UPI"}
+                  </label>
 
-        <label className="text-[15px] text-[#333] font-medium">
-          पेमेंट पद्धत *
-        </label>
+                  {/* Card */}
+                  <label
+                    className="
+        flex-1
+        flex
+        items-center
+        justify-center
+        gap-2
+        min-h-[48px]
+        border
+        border-[#f0a47d]
+        rounded-[8px]
+        text-[13px]
+        md:text-[14px]
+        text-[#444]
+        cursor-pointer
+        px-3
+        text-center
+      "
+                  >
+                    <input type="radio" name="paymentMethod" value="card" />
+                    {lang === "mr"
+                      ? "डेबिट/क्रेडिट कार्ड"
+                      : "Debit/Credit Card"}
+                  </label>
 
-        <div className="flex flex-wrap gap-5 mt-5">
+                  {/* Net Banking */}
+                  <label
+                    className="
+        flex-1
+        flex
+        items-center
+        justify-center
+        gap-2
+        min-h-[48px]
+        border
+        border-[#f0a47d]
+        rounded-[8px]
+        text-[13px]
+        md:text-[14px]
+        text-[#444]
+        cursor-pointer
+        px-3
+        text-center
+      "
+                  >
+                    <input
+                      type="radio"
+                      name="paymentMethod"
+                      value="netbanking"
+                    />
+                    {lang === "mr" ? "नेट बँकिंग" : "Net Banking"}
+                  </label>
+                </div>
+              </div>
 
-          {/* UPI */}
-          <label
-            className="
-              flex
-              items-center
-              justify-center
-              gap-2
-              w-[132px]
-              h-[42px]
-              border
-              border-[#f0a47d]
-              rounded-[8px]
-              text-[14px]
-              text-[#444]
-              cursor-pointer
-            "
-          >
-            <input type="radio" name="paymentMethod" value="upi" />
-            Upi
-          </label>
+              {/* Divider */}
+              <div className="border-t border-[#e5cba8] my-10"></div>
 
-          {/* Card */}
-          <label
-            className="
-              flex
-              items-center
-              justify-center
-              gap-2
-              w-[132px]
-              h-[42px]
-              border
-              border-[#f0a47d]
-              rounded-[8px]
-              text-[14px]
-              text-[#444]
-              cursor-pointer
-            "
-          >
-            <input type="radio" name="paymentMethod" value="card" />
-            डेबिट/क्रेडिट कार्ड
-          </label>
+              {/* Terms */}
+              <label className="flex items-center gap-3 text-[14px] text-[#555]">
+                <input
+                  type="checkbox"
+                  name="acceptTerms"
+                  checked={formData.acceptTerms}
+                  onChange={handleChange}
+                />
+                {lang === "mr"
+                  ? "दिलेली माहिती बरोबर आहे आणि ट्रस्टच्या नियमांसह सहमत आहे."
+                  : "I confirm that the information provided is correct and I agree to the trust's terms and conditions."}
+              </label>
 
-          {/* Net Banking */}
-          <label
-            className="
-              flex
-              items-center
-              justify-center
-              gap-2
-              w-[132px]
-              h-[42px]
-              border
-              border-[#f0a47d]
-              rounded-[8px]
-              text-[14px]
-              text-[#444]
-              cursor-pointer
-            "
-          >
-            <input type="radio" name="paymentMethod" value="netbanking" />
-            नेट बँकिंग
-          </label>
-
-        </div>
-
-      </div>
-
-      {/* Divider */}
-      <div className="border-t border-[#e5cba8] my-10"></div>
-
-      {/* Terms */}
-      <label className="flex items-center gap-3 text-[14px] text-[#555]">
-
-        <input
-          type="checkbox"
-          name="acceptTerms"
-          checked={formData.acceptTerms}
-          onChange={handleChange}
-        />
-
-        दिलेली माहिती बरोबर आहे आणि ट्रस्टच्या नियमांसह सहमत आहे.
-
-      </label>
-
-      {/* Buttons */}
-<div className="flex items-center justify-center gap-7 mt-12">
-
-  {/* Cancel */}
-  <button
-    type="button"
-    className="
+              {/* Buttons */}
+              <div className="flex items-center justify-center gap-7 mt-12">
+                {/* Cancel */}
+                <button
+                  type="button"
+                  className="
       w-[120px]
       h-[44px]
       border
@@ -545,29 +602,25 @@ export default function DonationPage() {
       gap-2
       bg-white
     "
-  >
+                >
+                  {/* SVG */}
+                  <div className="relative w-[18px] h-[18px]">
+                    <Image
+                      src="/रद्द.svg"
+                      alt="रद्द"
+                      fill
+                      priority
+                      className="object-contain"
+                    />
+                  </div>
 
-    {/* SVG */}
-    <div className="relative w-[18px] h-[18px]">
+                  <span>{lang === "mr" ? "रद्द" : "Cancel"}</span>
+                </button>
 
-      <Image
-        src="/रद्द.svg"
-        alt="रद्द"
-        fill
-        priority
-        className="object-contain"
-      />
-
-    </div>
-
-    <span>रद्द</span>
-
-  </button>
-
-  {/* Submit */}
-  <button
-    type="submit"
-    className="
+                {/* Submit */}
+                <button
+                  type="submit"
+                  className="
       w-[120px]
       h-[44px]
       bg-[#C05621]
@@ -581,39 +634,31 @@ export default function DonationPage() {
       gap-2
       transition
     "
-  >
+                >
+                  {/* SVG */}
+                  <div className="relative w-[18px] h-[18px]">
+                    <Image
+                      src="/देणगी.svg"
+                      alt="देणगी"
+                      fill
+                      priority
+                      className="object-contain"
+                    />
+                  </div>
 
-    {/* SVG */}
-    <div className="relative w-[18px] h-[18px]">
+                  <span>{lang === "mr" ? "देणगी" : "Donate"}</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+      )}
 
-      <Image
-        src="/देणगी.svg"
-        alt="देणगी"
-        fill
-        priority
-        className="object-contain"
-      />
-
-    </div>
-
-    <span>देणगी</span>
-
-  </button>
-
-</div>
-    </form>
-
-  </div>
-
-</section>
-)}
-
-{/* ================= BANK DETAILS CARD ================= */}
-{activeTab === "bank" && (
-<section className="bg-[#d8c7a8] px-4 pb-24">
-
-  <div
-    className="
+      {/* ================= BANK DETAILS CARD ================= */}
+      {activeTab === "bank" && (
+        <section className="bg-[#d8c7a8] px-4 pb-24">
+          <div
+            className="
       max-w-[760px]
       mx-auto
       bg-[#f7f7f7]
@@ -623,33 +668,28 @@ export default function DonationPage() {
       md:px-14
       py-10
     "
-  >
+          >
+            {/* Heading */}
+            <div className="text-center">
+              <h2 className="text-[32px] font-medium text-[#222]">
+                {lang === "mr" ? "बँक खाते तपशील" : "Bank Account Details"}
+              </h2>
 
-    {/* Heading */}
-    <div className="text-center">
+              <p className="text-[#555] mt-5 text-[17px]">
+                {lang === "mr" ? "बँक खाते माहिती" : "Bank Account Information"}
+              </p>
+            </div>
 
-      <h2 className="text-[32px] font-medium text-[#222]">
-        बँक खाते तपशील
-      </h2>
+            {/* Bank Fields */}
+            <div className="mt-10 flex flex-col gap-6">
+              {/* Bank Name */}
+              <div>
+                <label className="text-[13px] text-[#666]">
+                  {lang === "mr" ? "बँक नाव / Bank Name" : "Bank Name"}
+                </label>
 
-      <p className="text-[#555] mt-5 text-[17px]">
-        बँक खाते माहिती
-      </p>
-
-    </div>
-
-    {/* Bank Fields */}
-    <div className="mt-10 flex flex-col gap-6">
-
-      {/* Bank Name */}
-      <div>
-
-        <label className="text-[13px] text-[#666]">
-          बँक नाव / Bank Name
-        </label>
-
-        <div
-          className="
+                <div
+                  className="
             mt-2
             flex
             items-center
@@ -660,13 +700,12 @@ export default function DonationPage() {
             overflow-hidden
             bg-white
           "
-        >
-
-          <input
-            type="text"
-            value="State Bank of India"
-            readOnly
-            className="
+                >
+                  <input
+                    type="text"
+                    value="State Bank of India"
+                    readOnly
+                    className="
               w-full
               px-4
               h-[48px]
@@ -674,10 +713,10 @@ export default function DonationPage() {
               text-[15px]
               bg-transparent
             "
-          />
+                  />
 
-          <button
-            className="
+                  <button
+                    className="
               w-[99px]
               h-[36px]
               bg-[#C05621]
@@ -694,23 +733,22 @@ export default function DonationPage() {
               mr-2
               transition
             "
-          >
-            कॉपी करा
-          </button>
+                  >
+                    {lang === "mr" ? "कॉपी करा" : "Copy"}
+                  </button>
+                </div>
+              </div>
 
-        </div>
+              {/* Account Holder */}
+              <div>
+                <label className="text-[13px] text-[#666]">
+                  {lang === "mr"
+                    ? "खाते धारक / Account Holder"
+                    : "Account Holder"}
+                </label>
 
-      </div>
-
-      {/* Account Holder */}
-      <div>
-
-        <label className="text-[13px] text-[#666]">
-          खाते धारक / Account Holder
-        </label>
-
-        <div
-          className="
+                <div
+                  className="
             mt-2
             flex
             items-center
@@ -721,13 +759,12 @@ export default function DonationPage() {
             overflow-hidden
             bg-white
           "
-        >
-
-          <input
-            type="text"
-            value="Sarsenapati Yesaji Kank Trust"
-            readOnly
-            className="
+                >
+                  <input
+                    type="text"
+                    value="Sarsenapati Yesaji Kank Trust"
+                    readOnly
+                    className="
               w-full
               px-4
               h-[48px]
@@ -735,10 +772,10 @@ export default function DonationPage() {
               text-[15px]
               bg-transparent
             "
-          />
+                  />
 
-          <button
-            className="
+                  <button
+                    className="
               w-[99px]
               h-[36px]
               bg-[#C05621]
@@ -755,23 +792,22 @@ export default function DonationPage() {
               mr-2
               transition
             "
-          >
-            कॉपी करा
-          </button>
+                  >
+                    {lang === "mr" ? "कॉपी करा" : "Copy"}
+                  </button>
+                </div>
+              </div>
 
-        </div>
+              {/* Account Number */}
+              <div>
+                <label className="text-[13px] text-[#666]">
+                  {lang === "mr"
+                    ? "खाते क्रमांक / Account Number"
+                    : "Account Number"}
+                </label>
 
-      </div>
-
-      {/* Account Number */}
-      <div>
-
-        <label className="text-[13px] text-[#666]">
-          खाते क्रमांक / Account Number
-        </label>
-
-        <div
-          className="
+                <div
+                  className="
             mt-2
             flex
             items-center
@@ -782,13 +818,12 @@ export default function DonationPage() {
             overflow-hidden
             bg-white
           "
-        >
-
-          <input
-            type="text"
-            value="1234567890"
-            readOnly
-            className="
+                >
+                  <input
+                    type="text"
+                    value="1234567890"
+                    readOnly
+                    className="
               w-full
               px-4
               h-[48px]
@@ -796,10 +831,10 @@ export default function DonationPage() {
               text-[15px]
               bg-transparent
             "
-          />
+                  />
 
-          <button
-            className="
+                  <button
+                    className="
               w-[99px]
               h-[36px]
               bg-[#C05621]
@@ -816,23 +851,20 @@ export default function DonationPage() {
               mr-2
               transition
             "
-          >
-            कॉपी करा
-          </button>
+                  >
+                    {lang === "mr" ? "कॉपी करा" : "Copy"}
+                  </button>
+                </div>
+              </div>
 
-        </div>
+              {/* IFSC */}
+              <div>
+                <label className="text-[13px] text-[#666]">
+                  {lang === "mr" ? "IFSC कोड" : "IFSC Code"}
+                </label>
 
-      </div>
-
-      {/* IFSC */}
-      <div>
-
-        <label className="text-[13px] text-[#666]">
-          IFSC कोड / IFSC Code
-        </label>
-
-        <div
-          className="
+                <div
+                  className="
             mt-2
             flex
             items-center
@@ -843,13 +875,12 @@ export default function DonationPage() {
             overflow-hidden
             bg-white
           "
-        >
-
-          <input
-            type="text"
-            value="SBIN0001234"
-            readOnly
-            className="
+                >
+                  <input
+                    type="text"
+                    value="SBIN0001234"
+                    readOnly
+                    className="
               w-full
               px-4
               h-[48px]
@@ -857,10 +888,10 @@ export default function DonationPage() {
               text-[15px]
               bg-transparent
             "
-          />
+                  />
 
-          <button
-            className="
+                  <button
+                    className="
               w-[99px]
               h-[36px]
               bg-[#C05621]
@@ -877,23 +908,20 @@ export default function DonationPage() {
               mr-2
               transition
             "
-          >
-            कॉपी करा
-          </button>
+                  >
+                    {lang === "mr" ? "कॉपी करा" : "Copy"}
+                  </button>
+                </div>
+              </div>
 
-        </div>
+              {/* Branch */}
+              <div>
+                <label className="text-[13px] text-[#666]">
+                  {lang === "mr" ? "शाखा" : "Branch"}
+                </label>
 
-      </div>
-
-      {/* Branch */}
-      <div>
-
-        <label className="text-[13px] text-[#666]">
-          शाखा / Branch
-        </label>
-
-        <div
-          className="
+                <div
+                  className="
             mt-2
             flex
             items-center
@@ -904,13 +932,12 @@ export default function DonationPage() {
             overflow-hidden
             bg-white
           "
-        >
-
-          <input
-            type="text"
-            value="Bhutonde Branch"
-            readOnly
-            className="
+                >
+                  <input
+                    type="text"
+                    value="Bhutonde Branch"
+                    readOnly
+                    className="
               w-full
               px-4
               h-[48px]
@@ -918,10 +945,10 @@ export default function DonationPage() {
               text-[15px]
               bg-transparent
             "
-          />
+                  />
 
-          <button
-            className="
+                  <button
+                    className="
               w-[99px]
               h-[36px]
               bg-[#C05621]
@@ -938,19 +965,16 @@ export default function DonationPage() {
               mr-2
               transition
             "
-          >
-            कॉपी करा
-          </button>
+                  >
+                    {lang === "mr" ? "कॉपी करा" : "Copy"}
+                  </button>
+                </div>
+              </div>
+            </div>
 
-        </div>
-
-      </div>
-
-    </div>
-
-    {/* Info Box */}
-    <div
-      className="
+            {/* Info Box */}
+            <div
+              className="
         mt-10
         bg-[#f6dfd2]
         border-l-4
@@ -961,20 +985,19 @@ export default function DonationPage() {
         text-[14px]
         text-[#5a4638]
       "
-    >
-      तुमचे योगदान सरसेनापती येसाजी कंक यांच्या इतिहास
-      आणि वारसा जपण्याच्या मिशनसाठी मोलाचे ठरेल
-    </div>
+            >
+              {lang === "mr"
+                ? "तुमचे योगदान सरसेनापती येसाजी कंक यांच्या इतिहास आणि वारसा"
+                : "Your donation will support the mission to preserve the history and legacy of Yesaji Kank."}
+            </div>
 
-    {/* Footer */}
-    <p className="text-center text-[#777] text-[13px] mt-10">
-      देणगीविषयी कोणत्याही प्रश्नासाठी कृपया ट्रस्ट कार्यालयाशी संपर्क साधा
-    </p>
-
-  </div>
-
-</section>
-)}
+            {/* Footer */}
+            {lang === "mr"
+              ? "देणगीविषयी कोणत्याही प्रश्नासाठी कृपया ट्रस्ट कार्यालयाशी संपर्क साधा"
+              : "For any donation related queries, please contact the trust office."}
+          </div>
+        </section>
+      )}
     </main>
   );
 }
