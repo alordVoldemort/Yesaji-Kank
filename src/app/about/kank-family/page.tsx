@@ -21,9 +21,9 @@ export default function KankFamilyPage() {
   const t = lang === "en" ? content.en : content.mr;
 
   return (
-    <main className={`min-h-screen pt-20 overflow-hidden ${fontClass}`} style={{ background: "linear-gradient(135deg, #838366 0%, #EED5B1 50%, #7E868E 100%)" }}>
+    <main className={`min-h-screen overflow-hidden ${fontClass}`} style={{ background: "linear-gradient(135deg, #838366 0%, #EED5B1 50%, #7E868E 100%)" }}>
       {/* Hero Section */}
-      <div className="relative w-full h-[50vh] md:h-[85vh] overflow-hidden">
+      <div className="relative w-full h-[50vh] md:h-[85vh] overflow-hidden mt-[70px]">
         <Image
           src="/yasaji_kank_gharane.png"
           alt="कंक घराणे"
@@ -52,7 +52,7 @@ export default function KankFamilyPage() {
       </div>
 
       {/* History Cards */}
-      <section className="relative max-w-7xl mx-auto px-4 md:px-8 py-16 flex flex-col gap-20">
+      <section className="relative max-w-7xl mx-auto px-4 md:px-8 py-16 flex flex-col gap-4 md:gap-20">
         {/* Card 1 */}
         <div className="relative">
           {/* Ropes hanging into card */}
@@ -60,13 +60,19 @@ export default function KankFamilyPage() {
           {/* Paper Background */}
           <div className="relative overflow-hidden rounded-md z-20">
             <Image
+              src="/moblieviewbg.png"
+              alt="background"
+              fill
+              className="object-fill md:hidden"
+            />
+            <Image
               src="/gharanebg.png"
               alt="background"
               fill
-              className="object-fill"
+              className="object-fill hidden md:block"
             />
 
-            <div className="relative z-10 grid md:grid-cols-[4fr_1fr] gap-6 items-end px-12 md:px-24 py-16 md:py-20">
+            <div className="relative z-10 grid md:grid-cols-[2fr_1fr] lg:grid-cols-[4fr_1fr] gap-6 items-center px-12 md:px-24 py-16 md:py-20">
               {/* Text */}
               <div>
                 <p className="text-[#3f2a1c] text-sm md:text-base leading-[2.0] font-medium">
@@ -75,13 +81,13 @@ export default function KankFamilyPage() {
               </div>
 
               {/* Image */}
-              <div className="flex justify-end items-end self-end">
+              <div className="flex justify-center items-center order-first md:order-none">
                 <Image
                   src="/firstcardimg.png"
                   alt="historic"
                   width={350}
                   height={350}
-                  className="object-contain grayscale opacity-90"
+                  className="object-contain grayscale opacity-90 w-32 md:w-full lg:w-[280px] max-w-[180px] md:max-w-[320px] lg:max-w-[280px]"
                 />
               </div>
             </div>
@@ -96,7 +102,7 @@ export default function KankFamilyPage() {
             alt="rope"
             width={90}
             height={50}
-            className="absolute -top-18 left-10 z-10 hidden md:block"
+            className="absolute -top-10 md:-top-18 -left-6 md:left-0 z-10"
             style={{
               transform: "rotate(-40deg)",
               transformOrigin: "top center",
@@ -107,7 +113,7 @@ export default function KankFamilyPage() {
             alt="rope"
             width={90}
             height={50}
-            className="absolute -top-18 right-10 z-10 hidden md:block"
+            className="absolute -top-10 md:-top-18 right-10 z-10"
             style={{
               transform: "rotate(-42deg)",
               transformOrigin: "top center",
@@ -117,21 +123,27 @@ export default function KankFamilyPage() {
           {/* Paper */}
           <div className="relative overflow-hidden rounded-md z-20">
             <Image
+              src="/moblieviewbg.png"
+              alt="background"
+              fill
+              className="object-fill md:hidden"
+            />
+            <Image
               src="/gharanebg.png"
               alt="background"
               fill
-              className="object-fill"
+              className="object-fill hidden md:block"
             />
 
-            <div className="relative z-10 grid md:grid-cols-[1fr_3fr] gap-4 items-center px-10 md:px-20 py-14 md:py-18">
+            <div className="relative z-10 grid md:grid-cols-[1fr_1fr] lg:grid-cols-[1fr_3fr] gap-4 items-center px-10 md:px-20 py-14 md:py-18">
               {/* Image — bottom-left corner */}
-              <div className="flex justify-start items-end self-end">
+              <div className="flex justify-center md:justify-center items-center md:self-center">
                 <Image
                   src="/secondcardimg.png"
                   alt="historic"
                   width={220}
                   height={220}
-                  className="object-contain grayscale opacity-90"
+                  className="object-contain grayscale opacity-90 w-32 md:w-56 lg:w-[220px]"
                 />
               </div>
               {/* Text */}
@@ -152,7 +164,7 @@ export default function KankFamilyPage() {
             alt="rope"
             width={90}
             height={50}
-            className="absolute -top-18 left-10 z-10 hidden md:block"
+            className="absolute -top-10 md:-top-18 -left-6 md:left-0 z-10"
             style={{
               transform: "rotate(-40deg)",
               transformOrigin: "top center",
@@ -163,7 +175,7 @@ export default function KankFamilyPage() {
             alt="rope"
             width={90}
             height={50}
-            className="absolute -top-18 right-10 z-10 hidden md:block"
+            className="absolute -top-10 md:-top-18 right-10 z-10"
             style={{
               transform: "rotate(-42deg)",
               transformOrigin: "top center",
@@ -173,13 +185,19 @@ export default function KankFamilyPage() {
           {/* Paper */}
           <div className="relative overflow-hidden rounded-md z-20">
             <Image
+              src="/moblieviewbg.png"
+              alt="background"
+              fill
+              className="object-fill md:hidden"
+            />
+            <Image
               src="/gharanebg.png"
               alt="background"
               fill
-              className="object-fill"
+              className="object-fill hidden md:block"
             />
 
-            <div className="relative z-10 grid md:grid-cols-[4fr_1fr] gap-6 items-center px-10 md:px-20 py-14 md:py-18">
+            <div className="relative z-10 grid md:grid-cols-[2fr_1fr] lg:grid-cols-[4fr_1fr] gap-6 items-center px-10 md:px-20 py-14 md:py-18">
               {/* Text */}
               <div className="flex items-center self-center">
                 <p className="text-[#3f2a1c] text-sm md:text-base leading-[2.0] font-medium">
@@ -187,13 +205,13 @@ export default function KankFamilyPage() {
                 </p>
               </div>
               {/* Image — right center */}
-              <div className="flex justify-end items-center self-center">
+              <div className="flex justify-center md:justify-center items-center md:self-center order-first md:order-none">
                 <Image
                   src="/thirdcardimg.png"
                   alt="historic"
                   width={160}
                   height={160}
-                  className="object-contain grayscale opacity-90"
+                  className="object-contain grayscale opacity-90 w-28 md:w-48 lg:w-[160px]"
                 />
               </div>
             </div>
