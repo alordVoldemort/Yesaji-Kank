@@ -10,6 +10,8 @@ export interface HeroText {
 }
 
 export interface Feature {
+
+  
   title: string;
   titleEn: string;
   description: string;
