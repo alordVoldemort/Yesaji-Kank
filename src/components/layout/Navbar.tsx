@@ -36,7 +36,7 @@ const {lang, setLang} = useLanguage()
   return (
     <nav
       className={`fixed  z-50 w-full transition-all duration-300 ${fontClass} ${
-        scrolled ? "bg-white shadow-md" : "bg-transparent shadow-none"
+        scrolled ? "bg-white shadow-md" : "bg-white shadow-sm"
       }`}
     >
       {/* ── Single row: logo | menu (center) | lang toggle ── */}
