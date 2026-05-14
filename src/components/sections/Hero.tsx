@@ -1,38 +1,50 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { heroTexts } from "@/data/site-data";
-import extrainfo from "../../../public/MainPage/extrainfo.png"
-import { ExtraInfo, MoreInfo, Trust, History, Work, Shivkalin, Card, Prashansapatr, Feedback, CardText } from "@/data/mainpage";
+import extrainfo from "../../../public/MainPage/extrainfo.png";
+import {
+  ExtraInfo,
+  MoreInfo,
+  Trust,
+  History,
+  Work,
+  Shivkalin,
+  Card,
+  Prashansapatr,
+  Feedback,
+  CardText,
+} from "@/data/mainpage";
 import { useLanguage } from "@/context/LanguageContext";
-import trust from "../../../public/MainPage/Trust.svg"
-import moreinfo from "../../../public/MainPage/MoreInfo.svg"
-import Home from "../../../public/MainPage/home.svg"
-import card from "../../../public/MainPage/card.svg"
-import mvp from "../../../public/MainPage/mpl.svg"
-import child from "../../../public/MainPage/child.svg"
-import women from "../../../public/MainPage/women.svg"
-import oldcard from "../../../public/MainPage/oldcard.svg"
-import feedback from "../../../public/MainPage/feedback.svg"
-import oldcard1 from "../../../public/MainPage/oldcard1.svg"
-import flag from "../../../public/MainPage/flag.svg"
+import trust from "../../../public/MainPage/Trust.svg";
+import moreinfo from "../../../public/MainPage/MoreInfo.svg";
+import Home from "../../../public/MainPage/home.svg";
+import card from "../../../public/MainPage/card.svg";
+import mvp from "../../../public/MainPage/mpl.svg";
+import child from "../../../public/MainPage/child.svg";
+import women from "../../../public/MainPage/women.svg";
+import oldcard from "../../../public/MainPage/oldcard.svg";
+import feedback from "../../../public/MainPage/feedback.svg";
+import oldcard1 from "../../../public/MainPage/oldcard1.svg";
+import flag from "../../../public/MainPage/flag.svg";
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
   const [visible, setVisible] = useState(true);
-  const { lang, fontClass } = useLanguage()
+  const { lang, fontClass } = useLanguage();
 
-  const items = ExtraInfo[lang]
-  const trusts = Trust[lang]
-  const moreInfo = MoreInfo[lang]
-  const Histories = History[lang]
-  const works = Work[lang]
-  const shivkalins = Shivkalin[lang]
-  const Cards = Card[lang]
-  const PrashansaPatrs = Prashansapatr[lang]
+  const items = ExtraInfo[lang];
+  const trusts = Trust[lang];
+  const moreInfo = MoreInfo[lang];
+  const Histories = History[lang];
+  const works = Work[lang];
+  const shivkalins = Shivkalin[lang];
+  const Cards = Card[lang];
+  const PrashansaPatrs = Prashansapatr[lang];
   const testimonials = Feedback[lang];
-  const CardTexts = CardText[lang]
+  const CardTexts = CardText[lang];
 
   // Double the list for seamless infinite scrolling
   const scrollList = [...testimonials, ...testimonials];
@@ -53,8 +65,8 @@ export default function Hero() {
   const circleImages = [
     "./MainPage/weapon.svg",
     "./MainPage/coin.svg",
-    "./MainPage/letter.svg"
-  ]
+    "./MainPage/letter.svg",
+  ];
 
   return (
     <div>
@@ -74,8 +86,9 @@ export default function Hero() {
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center gap-4 mt-46">
           <p
-            className={`${current.font} text-5xl md:text-6xl font-bold tracking-wide transition-all duration-500 ${visible ? "opacity-100 text-gray-950" : "opacity-0 text-white"
-              }`}
+            className={`${current.font} text-5xl md:text-6xl font-bold tracking-wide transition-all duration-500 ${
+              visible ? "opacity-100 text-gray-950" : "opacity-0 text-white"
+            }`}
           >
             {current.text}
           </p>
@@ -104,18 +117,20 @@ export default function Hero() {
               className=" rounded-[28px]"
             />
             <div className="absolute flex flex-col inset-0 ">
-              {
-                items.map((item, index) => (
-                  <div key={index} >
-                    <p className="font-bold mt-9 ">"{item.name}"</p>
-                    <p>{item.description}</p>
-                    <div className="flex gap-4 justify-center mt-8 ">
-                      <button className="w-[133px]  h-[35px] bg-white border border rounded-[6px] text-orange-500 font-semibold transistion-all  duration-300 hover:bg-orange-500 hover:text-white">{item.btn1}</button>
-                      <button className="w-[133px]  h-[35px] bg-white border border rounded-[6px] text-orange-500 font-semibold transistion-all  duration-300 hover:bg-orange-500 hover:text-white">{item.btn2}</button>
-                    </div>
+              {items.map((item, index) => (
+                <div key={index}>
+                  <p className="font-bold mt-9 ">"{item.name}"</p>
+                  <p>{item.description}</p>
+                  <div className="flex gap-4 justify-center mt-8 ">
+                    <button className="w-[133px]  h-[35px] bg-white border border rounded-[6px] text-orange-500 font-semibold transistion-all  duration-300 hover:bg-orange-500 hover:text-white">
+                      {item.btn1}
+                    </button>
+                    <button className="w-[133px]  h-[35px] bg-white border border rounded-[6px] text-orange-500 font-semibold transistion-all  duration-300 hover:bg-orange-500 hover:text-white">
+                      {item.btn2}
+                    </button>
                   </div>
-                ))
-              }
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -127,7 +142,9 @@ export default function Hero() {
           <Image src={trust} alt="trust" width={220} className="pt-5" />
           <div className="absolute">
             {trusts.map((item, i) => (
-              <p key={i} className={`mt-5 font-bold text-[20px] ${fontClass}`}>{item.name}</p>
+              <p key={i} className={`mt-5 font-bold text-[20px] ${fontClass}`}>
+                {item.name}
+              </p>
             ))}
           </div>
         </div>
@@ -135,7 +152,13 @@ export default function Hero() {
         {/* More Info Section */}
         <div className="flex justify-center mt-20">
           <div className="relative w-[500px] group cursor-pointer">
-            <Image src={moreinfo} alt="parchment" width={500} height={450} className="block drop-shadow-xl" />
+            <Image
+              src={moreinfo}
+              alt="parchment"
+              width={500}
+              height={450}
+              className="block drop-shadow-xl"
+            />
             <div className="absolute inset-0 flex flex-col items-center justify-center p-16 md:p-20">
               {moreInfo.map((item, index) => (
                 <div key={index} className="flex flex-col items-center w-full">
@@ -148,7 +171,20 @@ export default function Hero() {
                   <button className="bg-[#bd512a] text-white pl-8 pr-12 py-3.5 rounded-full text-[15px] font-bold shadow-lg flex items-center justify-between min-w-[190px] transition-all duration-600 ease-in-out -translate-x-20 group-hover:translate-x-0 group-hover:scale-110">
                     <span>{item.btn}</span>
                     <span className="absolute right-4">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor" className="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="2.5"
+                        stroke="currentColor"
+                        className="w-5 h-5"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                        />
+                      </svg>
                     </span>
                   </button>
                 </div>
@@ -162,12 +198,16 @@ export default function Hero() {
           <Image src={trust} alt="trust" width={220} className="pt-5" />
           <div className="absolute">
             {Histories.map((item, i) => (
-              <p key={i} className={`mt-5 font-bold text-[20px] ${fontClass}`}>{item.name}</p>
+              <p key={i} className={`mt-5 font-bold text-[20px] ${fontClass}`}>
+                {item.name}
+              </p>
             ))}
           </div>
         </div>
         <div className="text-center mt-4 max-w-2xl  mx-auto px-10">
-          {Histories.map((item, i) => <p key={i}>{item.desc}</p>)}
+          {Histories.map((item, i) => (
+            <p key={i}>{item.desc}</p>
+          ))}
         </div>
 
         <div>
@@ -178,22 +218,42 @@ export default function Hero() {
 
         <div className="relative flex flex-col items-center mt-28 mb-10">
           <div className="absolute top-[-50px] z-0 opacity-80 pointer-events-none">
-            <Image src={flag} alt="Crossed Maratha Flags" width={500} height={500} />
+            <Image
+              src={flag}
+              alt="Crossed Maratha Flags"
+              width={500}
+              height={500}
+            />
           </div>
           <div className="relative z-10 flex justify-center items-center mt-15">
-            <Image src={trust} alt="Title Scroll" width={240} className="pt-5" />
+            <Image
+              src={trust}
+              alt="Title Scroll"
+              width={240}
+              className="pt-5"
+            />
             <div className="absolute inset-0 flex items-center justify-center pt-5">
               {works.map((item, i) => (
-                <p key={i} className={`font-bold text-[22px] ${fontClass} text-black`}>{item.name}</p>
+                <p
+                  key={i}
+                  className={`font-bold text-[22px] ${fontClass} text-black`}
+                >
+                  {item.name}
+                </p>
               ))}
             </div>
           </div>
           <div className="relative z-10 text-center mt-16 max-w-2xl px-6">
-            {works.map((item, i) => <p key={i} className="text-[#3d2b1f] font-semibold leading-relaxed">{item.desc}</p>)}
+            {works.map((item, i) => (
+              <p
+                key={i}
+                className="text-[#3d2b1f] font-semibold leading-relaxed"
+              >
+                {item.desc}
+              </p>
+            ))}
           </div>
         </div>
-
-
 
         {/* --- Updated Work Gallery Section --- */}
         <div className="max-w-7xl mx-auto px-6 mt-25 pb-20">
@@ -202,35 +262,46 @@ export default function Hero() {
               { src: card, alt: "Agriculture" },
               { src: mvp, alt: "Events" },
               { src: child, alt: "Education" },
-              { src: women, alt: "Training" }
+              { src: women, alt: "Training" },
             ].map((item, i) => (
-              <div 
-                key={i} 
+              <div
+                key={i}
                 className="group relative flex-1 min-w-[240px] aspect-[4/5] rounded-[24px] overflow-hidden shadow-2xl cursor-pointer"
               >
                 {/* Background Image */}
-                <Image 
-                  src={item.src} 
-                  alt={item.alt} 
-                  fill 
-                  className="object-cover transition-transform duration-700 group-hover:scale-110" 
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
 
                 {/* --- HOVER OVERLAY (Semi-transparent black box with top border) --- */}
                 <div className="absolute bottom-0 left-0 right-0 h-[40%] bg-[#5252529E] opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-center p-8">
-                  
                   {/* Title from CardTexts data */}
                   <h3 className="text-white text-1xl md:text-2xl mb-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                     {CardTexts[i]?.name}
                   </h3>
-                  
+
                   {/* Description from CardTexts data */}
                   <p className="text-white/90 text-sm md:text-base leading-relaxed transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
-                    {CardTexts[i]?.desc || (lang === 'mr' ? "समृद्ध शेती, सशक्त शेतकरी आणि उज्ज्वल भविष्य." : "Prosperous farming, empowered farmers and a bright future.")}
+                    {CardTexts[i]?.desc ||
+                      (lang === "mr"
+                        ? "समृद्ध शेती, सशक्त शेतकरी आणि उज्ज्वल भविष्य."
+                        : "Prosperous farming, empowered farmers and a bright future.")}
                   </p>
+
                 </div>
               </div>
             ))}
+          </div>
+          {/* सर्व पहा button — aligned to the right, links to our-work page */}
+          <div className="flex justify-end mt-4 pr-1">
+            <Link href="/our-work">
+              <button className="flex items-center gap-1 bg-[#3d2b1f] hover:bg-[#5a3e2b] text-[#f5e6d0] text-sm font-semibold px-5 py-2 rounded-full shadow transition-colors duration-300">
+                सर्व पहा <span className="text-base">→</span>
+              </button>
+            </Link>
           </div>
         </div>
 
@@ -239,43 +310,75 @@ export default function Hero() {
           <Image src={trust} alt="trust" width={220} className="pt-5" />
           <div className="absolute">
             {shivkalins.map((item, i) => (
-              <p key={i} className={`mt-5 font-bold text-[20px] ${fontClass}`}>{item.name}</p>
+              <p key={i} className={`mt-5 font-bold text-[20px] ${fontClass}`}>
+                {item.name}
+              </p>
             ))}
           </div>
         </div>
         <div className="text-center mt-14 max-w-2xl mx-auto  px-10">
-          {shivkalins.map((item, i) => <p key={i} className="font-semibold">{item.desc}</p>)}
+          {shivkalins.map((item, i) => (
+            <p key={i} className="font-semibold">
+              {item.desc}
+            </p>
+          ))}
         </div>
 
         {/* --- Updated Armor Scroll Cards (With Hover Effect) --- */}
-        <div className={`flex flex-wrap justify-center gap-8 py-20 px-4 ${fontClass}`}>
+        <div
+          className={`flex flex-wrap justify-center gap-8 py-20 px-4 ${fontClass}`}
+        >
           {Cards.map((item, index) => (
-            <div key={index} className="group relative w-[360px] h-[500px] flex flex-col items-center cursor-pointer">
-              
+            <div
+              key={index}
+              className="group relative w-[360px] h-[500px] flex flex-col items-center cursor-pointer"
+            >
               {/* Background Swapping */}
               <div className="absolute inset-0 z-0 transition-opacity duration-500 group-hover:opacity-0">
-                <Image src={oldcard} alt="scroll bg" fill className="object-contain drop-shadow-2xl" />
+                <Image
+                  src={oldcard}
+                  alt="scroll bg"
+                  fill
+                  className="object-contain drop-shadow-2xl"
+                />
               </div>
               <div className="absolute inset-0 z-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                <Image src={oldcard1} alt="scroll bg hover" fill className="object-contain drop-shadow-2xl" />
+                <Image
+                  src={oldcard1}
+                  alt="scroll bg hover"
+                  fill
+                  className="object-contain drop-shadow-2xl"
+                />
               </div>
 
               {/* DEFAULT VIEW (Centered Large Icon + Bottom Title) */}
               <div className="relative z-10 flex flex-col items-center h-full w-full transition-all duration-500 group-hover:opacity-0 group-hover:scale-95">
                 <div className="mt-28 w-44 h-44 relative rounded-full overflow-hidden">
-                  <Image src={circleImages[index]} alt={item.name} fill className="object-cover" />
+                  <Image
+                    src={circleImages[index]}
+                    alt={item.name}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
                 <div className="mt-auto mb-20 px-6 text-center">
-                  <h3 className="text-2xl font-bold text-[#2d1b0d] tracking-tight">{item.name}</h3>
+                  <h3 className="text-2xl font-bold text-[#2d1b0d] tracking-tight">
+                    {item.name}
+                  </h3>
                 </div>
               </div>
 
               {/* HOVER VIEW (Top Icon + Middle Desc + Bottom Title) */}
               <div className="absolute inset-0 z-20 flex flex-col items-center p-14 opacity-0 transition-all duration-700 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0">
                 <div className="mt-10 w-24 h-24 relative rounded-full overflow-hidden">
-                  <Image src={circleImages[index]} alt={item.name} fill className="object-cover" />
+                  <Image
+                    src={circleImages[index]}
+                    alt={item.name}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
-                
+
                 <div className="flex-1 flex items-center justify-center mt-4">
                   <p className="text-center text-[#1a0f08] text-[15px] md:text-[17px] font-medium leading-relaxed px-4">
                     {item.desc || "Information about the collection goes here."}
@@ -288,7 +391,6 @@ export default function Hero() {
                   </h3>
                 </div>
               </div>
-
             </div>
           ))}
         </div>
@@ -298,7 +400,9 @@ export default function Hero() {
           <Image src={trust} alt="trust" width={220} className="pt-5" />
           <div className="absolute">
             {PrashansaPatrs.map((item, i) => (
-              <p key={i} className={`mt-5 font-bold text-[20px] ${fontClass}`}>{item.name}</p>
+              <p key={i} className={`mt-5 font-bold text-[20px] ${fontClass}`}>
+                {item.name}
+              </p>
             ))}
           </div>
         </div>
@@ -332,14 +436,17 @@ export default function Hero() {
             ))}
           </div>
         </div>
-
       </section>
 
       {/* Animation CSS */}
       <style jsx global>{`
         @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
         }
         .animate-marquee {
           animation: marquee 40s linear infinite;
