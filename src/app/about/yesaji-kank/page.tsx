@@ -5,7 +5,8 @@ import card from "../../../../public/Yesaji Kankabadal/card.svg"
 import soldier from "../../../../public/Yesaji Kankabadal/soldier.svg"
 import sun from "../../../../public/Yesaji Kankabadal/sun.svg"
 import { useLanguage } from "@/context/LanguageContext";
-
+import name  from "../../../../public/Yesaji Kankabadal/name.svg"
+import dot from "../../../../public/Yesaji Kankabadal/dot.svg"
 export const Info = {
     mr: [{
         name: "येसाजी कंक बदल माहिती",
@@ -32,24 +33,37 @@ export default function YesajiKankPage() {
     return (
         <div className={`min-h-screen bg-white ${fontClass}`}>
             {/* Top Section: Elephant Image */}
-            <div className="w-full flex justify-center bg-white">
+            <div className="w-full relative flex justify-center bg-white">
+                {/* 1. The Background Elephant Image */}
                 <Image 
                     src={first} 
                     alt="Yesaji Kank vs Elephant" 
                     className="w-full h-auto"
                     priority 
                 />
+
+                {/* 2. The Name Overlay (Positioned Absolute) */}
+                <div className="absolute top-[8%] md:top-[12%] left-1/2 -translate-x-1/2 w-[180px] md:w-[350px] lg:w-[450px]">
+                    <Image 
+                        src={name} 
+                        alt="Yesaji Kank Name" 
+                        className="w-full h-auto"
+                    />
+                </div>
+
+                <div className="absolute top-[8%] md:top-[19%] right-[-140] -translate-x-1/2 w-[180px] md:w-[350px] lg:w-[450px]">
+                    <Image
+                    src={dot }
+                    alt="dot"/>
+                </div>
             </div>
+
 
             {/* Bottom Section: Scroll and Soldiers */}
             <div className="relative w-full bg-[#9c7b52] py-12 md:py-24 flex items-center justify-center">
                 
                 <div className="container mx-auto px-4 flex flex-row items-center justify-center gap-6 max-w-7xl">
                     
-                    {/* Left Soldier */}
-                    <div className="hidden lg:block w-1/5">
-                        <Image src={soldier} alt="Soldier Left" className="w-full h-auto" />
-                    </div>
 
                     {/* Middle Card (Scroll) */}
                     <div className="relative   flex justify-center">
@@ -88,10 +102,6 @@ export default function YesajiKankPage() {
                         </div>
                     </div>
 
-                    {/* Right Soldier */}
-                    <div className="hidden lg:block w-1/5">
-                        <Image src={soldier} alt="Soldier Right" className="w-full h-auto" />
-                    </div>
                 </div>
             </div>
         </div>
