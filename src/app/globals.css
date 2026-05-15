@@ -109,7 +109,6 @@
 }
 
 /* Prevent body scroll behind the fullscreen hero */
-html,
 body {
   margin: 0;
   padding: 0;
