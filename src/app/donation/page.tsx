@@ -93,21 +93,14 @@ export default function DonationPage() {
           {/* Text Content */}
           <div className="absolute inset-0 flex items-center justify-center z-10 px-6">
             <div
-  className={`
-    text-center
-    text-white
-    font-bold
-    leading-[1.5]
-    space-y-4
-    sm:space-y-5
-    md:space-y-6
-    ${
-      lang === "mr"
-        ? "max-w-[280px] sm:max-w-[420px] md:max-w-[620px] lg:max-w-[900px]"
-        : "max-w-[240px] sm:max-w-[360px] md:max-w-[520px] lg:max-w-[760px]"
-    }
-  `}
->
+              className={`text-center text-white font-bold leading-[1.5] space-y-4 sm:space-y-5 md:space-y-6
+             ${
+               lang === "mr"
+               ? "max-w-[280px] sm:max-w-[420px] md:max-w-[620px] lg:max-w-[900px]"
+               : "max-w-[240px] sm:max-w-[360px] md:max-w-[520px] lg:max-w-[760px]"
+              }
+          `}
+            >
               {/* Paragraph 1 */}
               <div>
                 <p className="text-[6px] sm:text-[8px] md:text-[11px] lg:text-[14px]">
