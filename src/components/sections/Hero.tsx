@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { heroTexts } from "@/data/site-data";
 import extrainfo from "../../../public/MainPage/extrainfo.png";
 import {
@@ -21,7 +21,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import trust from "../../../public/MainPage/Trust.svg";
 import moreinfo from "../../../public/MainPage/MoreInfo.svg";
 import Home from "../../../public/MainPage/home.svg";
-import HistoryImg from "../../../public/MainPage/historyimg.jpg";
+import WadaGallery from "@/components/sections/WadaGallery";
 import card from "../../../public/MainPage/card.svg";
 import mvp from "../../../public/MainPage/mpl.svg";
 import child from "../../../public/MainPage/child.svg";
@@ -36,10 +36,6 @@ export default function Hero() {
   const [visible, setVisible] = useState(true);
   const { lang, fontClass } = useLanguage();
   
-  // Add state for scroll zoom
-  const [historyZoom, setHistoryZoom] = useState(1);
-  const historyImageRef = useRef(null);
-
   const items = ExtraInfo[lang];
   const trusts = Trust[lang];
   const moreInfo = MoreInfo[lang];
@@ -63,38 +59,6 @@ export default function Hero() {
       }, 600);
     }, 7000);
     return () => clearInterval(interval);
-  }, []);
-
-  // Add scroll listener for zoom effect
-  useEffect(() => {
-    const handleScroll = () => {
-      if (historyImageRef.current) {
-        const rect = historyImageRef.current.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-        
-        // Calculate how far the image is in the viewport
-        const imageCenter = rect.top + rect.height / 2;
-        const distanceFromCenter = Math.abs(windowHeight / 2 - imageCenter);
-        const maxDistance = windowHeight / 2;
-        
-        // Calculate zoom factor based on scroll position
-        // Image zooms in when it comes into view and scrolls past
-        let zoomFactor = 1;
-        if (distanceFromCenter < maxDistance) {
-          // Normalize distance (0 at center, 1 at edge)
-          const progress = 1 - (distanceFromCenter / maxDistance);
-          // Zoom from 1 to 1.3 (30% max zoom)
-          zoomFactor = 1 + (progress * 0.3);
-        }
-        
-        setHistoryZoom(zoomFactor);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial call
-    
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const current = heroTexts[index];
@@ -258,85 +222,13 @@ export default function Hero() {
   </div>
 </div>
 
-      {/* History Section */}
-      <div className="relative w-full min-h-[892px] overflow-hidden mt-6">
-
-     {/* GIF Background */}
-    <Image
-    src="/historybg.gif"
-    alt="History Background"
-    fill
-    unoptimized
-    priority
-    className="object-cover opacity-40"
-    />
-
-    {/* White Overlay */}
-    <div className="absolute inset-0 bg-white/55" />
-
-    {/* Main Content */}
-    <div className="relative z-10 flex flex-col items-center pt-10">
-
-    {/* History Header */}
-    <div className="flex justify-center items-center relative">
-      <Image
-        src={trust}
-        alt="trust"
-        width={341}
-        className="w-auto h-auto"
+      {/* ═══ ऐतिहासिक वाडा – Cinematic Gallery ═══ */}
+      </section>
+      <WadaGallery
+        title={Histories[0]?.name ?? "ऐतिहासिक वाडा"}
+        description={Histories[0]?.desc ?? ""}
       />
-
-      <div className="absolute">
-        {Histories.map((item, i) => (
-          <p
-            key={i}
-            className={`font-bold text-[22px] text-black ${fontClass}`}
-          >
-            {item.name}
-          </p>
-        ))}
-      </div>
-    </div>
-
-    {/* Description */}
-    <div className="text-center mt-6 max-w-3xl mx-auto px-10">
-      {Histories.map((item, i) => (
-        <p
-          key={i}
-          className="text-[#2E1B0E] text-[18px] leading-[1.7]"
-          style={{
-            fontFamily: "IBM Plex Sans Devanagari",
-          }}
-        >
-          {item.desc}
-        </p>
-      ))}
-    </div>
-
-    {/* Center Image - No animation, just ref for scroll zoom */}
-<div className="sticky top-28 z-20 flex justify-center mt-16 pointer-events-none">
-  <div
-    ref={historyImageRef}
-    style={{
-      transform: `scale(${historyZoom})`,
-      transition: 'transform 0.1s ease-out',
-      willChange: 'transform'
-    }}
-  >
-    <Image
-      src={HistoryImg}
-      alt="Historic Wada"
-      width={650}
-      height={420}
-      className="object-cover shadow-2xl"
-    />
-  </div>
-</div>
-  </div>
-
-  {/* Bottom White Fade */}
-  <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-white to-transparent" />
-      </div>
+      <section className="bg-[linear-gradient(177.14deg,_#838366_0.89%,_#EED5B1_49.41%,_#7E868E_97.93%)] h-auto overflow-hidden">
         
         {/* Work Header */}
         <div className="relative flex flex-col items-center mt-28 mb-10">
