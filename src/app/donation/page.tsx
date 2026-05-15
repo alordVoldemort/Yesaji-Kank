@@ -107,7 +107,6 @@ export default function DonationPage() {
     paymentMethod: "upi",
     acceptTerms: false,
   });
-const [showPopup, setShowPopup] = useState(false);
   const [errors, setErrors] = useState({
   fullName: "",
   mobile: "",
