@@ -40,7 +40,7 @@ const {lang, setLang} = useLanguage()
       }`}
     >
       {/* ── Single row: logo | menu (center) | lang toggle ── */}
-      <div className="mx-auto flex h-[70px] items-center justify-between px-2 md:px-12">
+      <div className="mx-auto flex h-[64px] sm:h-[68px] lg:h-[70px] items-center justify-between px-3 sm:px-5 md:px-6 lg:px-10 xl:px-12 max-w-[1600px]">
 
         {/* Left: logo + org name */}
         <Link href="/" className="flex items-center gap-3 shrink-0">
@@ -52,20 +52,28 @@ const {lang, setLang} = useLanguage()
             className="rounded-full object-contain"
             priority
           />
-          <span className="font-semibold text-base leading-tight text-gray-800 hidden lg:block">
+          <span className="font-semibold text-[13px] xl:text-base leading-tight text-gray-800 hidden xl:block whitespace-nowrap">
             सरनोबत येसाजी कंक ट्रस्ट
           </span>
         </Link>
 
         {/* Center: menu items */}
-        <ul ref={dropdownRef} className={`hidden md:flex items-center text-sm ${lang === "mr" ? "gap-18" : "gap-10"}`}>
+        <ul
+  ref={dropdownRef}
+  className={`hidden lg:flex items-center text-sm flex-1 justify-center ${
+    lang === "mr"
+      ? "gap-4 xl:gap-8 2xl:gap-12"
+      : "gap-3 xl:gap-6 2xl:gap-10"
+  }`}
+>
           {items.map((item) => (
             <li key={item.href} className="relative">
               {item.children ? (
                 <>
                   <button
                     onClick={() => setOpenDropdown(openDropdown === item.href ? null : item.href)}
-                    className={`nav-btn relative inline-flex items-center gap-1 px-2 h-[30px] whitespace-nowrap leading-none font-medium text-gray-800 transition-colors duration-300 group ${lang === "mr" ? "text-[15px]" : "text-[13px]"}`}
+                    className={`nav-btn relative inline-flex items-center gap-1 px-2 h-[30px] whitespace-nowrap leading-none font-medium text-gray-800 transition-colors duration-300 group 
+                      ${lang === "mr"? "text-[13px] xl:text-[15px]": "text-[12px] xl:text-[13px]"}`}
                   >
                     {/* top-left bracket */}
                     <span className="pointer-events-none absolute top-[1px] left-[1px] w-[5px] h-[5px] border-t border-l border-gray-500 group-hover:border-[#d4a017] transition-colors duration-300 z-20" />
@@ -114,9 +122,9 @@ const {lang, setLang} = useLanguage()
         </ul>
 
         {/* Right: language toggle + hamburger */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 lg:gap-3 shrink-0">
           {/* Language toggle — desktop */}
-          <div className="text-sm hidden md:flex items-center gap-2 text-gray-700 shrink-0">
+          <div className="text-sm hidden lg:flex items-center gap-2 text-gray-700 shrink-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-4 h-4 text-gray-500 shrink-0"
@@ -159,7 +167,7 @@ const {lang, setLang} = useLanguage()
 
           {/* Hamburger — mobile */}
           <button
-            className="md:hidden flex flex-col justify-center gap-[5px] p-1"
+            className="lg:hidden flex flex-col justify-center gap-[5px] p-1"
             onClick={() => setMenuOpen((prev) => !prev)}
             aria-label="Toggle menu"
           >
@@ -184,7 +192,7 @@ const {lang, setLang} = useLanguage()
 
       {/* Mobile dropdown */}
       {menuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-md">
+        <div className="lg:hidden absolute top-full left-0 w-full bg-white shadow-md max-h-[calc(100vh-70px)] overflow-y-auto">
           <ul className="flex flex-col text-sm text-gray-800">
             {items.map((item) => (
               <li key={item.href}>
@@ -192,7 +200,7 @@ const {lang, setLang} = useLanguage()
                   <>
                     <button
                       onClick={() => setMobileOpenDropdown(mobileOpenDropdown === item.href ? null : item.href)}
-                      className="w-full flex items-center justify-between px-6 py-3 border-b border-gray-100 hover:text-orange-500 transition duration-300"
+                      className="w-full flex items-center justify-between px-4 sm:px-6 py-3 border-b border-gray-100 hover:text-orange-500 transition duration-300"
                     >
                       <span>{item.label}</span>
                       <svg
