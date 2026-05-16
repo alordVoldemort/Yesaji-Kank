@@ -3,7 +3,7 @@ import { card, Extrainfo, feedback, history, moreInfo, prashansapatr, shivkalin,
 export const ExtraInfo:Record<"mr" | "en",Extrainfo[]> = {
 
     mr:[
-        {name: "आमचेकौतकु करायला महाराज ठाम आहेत.",description:"- येसाजी कंक (कुतबुशहाचेबक्षीस नाकारताना)",btn1:"सपंर्क  ",btn2:"अधिक माहिती" }
+        {name: "आमचेकौतकु करायला महाराज ठाम आहेत.",description:" येसाजी कंक (कुतबुशहाचेबक्षीस नाकारताना)",btn1:"सपंर्क  ",btn2:"अधिक माहिती" }
     ],
     en:[
         {name :"The Maharaj is firm to praise us.", description:"Yesaji Kank (While rejecting Qutbash's reward)", btn1:"More Info", btn2:"Contact us"}
