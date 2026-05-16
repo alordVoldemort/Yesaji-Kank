@@ -30,12 +30,14 @@ import oldcard from "../../../public/MainPage/oldcard.svg";
 import feedback from "../../../public/MainPage/feedback.svg";
 import oldcard1 from "../../../public/MainPage/oldcard1.svg";
 import flag from "../../../public/MainPage/flag.svg";
+import prevBtn from "../../../public/MainPage/prev.svg";
+import nextBtn from "../../../public/MainPage/next.svg";
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
   const [visible, setVisible] = useState(true);
   const { lang, fontClass } = useLanguage();
-  
+
   const items = ExtraInfo[lang];
   const trusts = Trust[lang];
   const moreInfo = MoreInfo[lang];
@@ -85,9 +87,9 @@ export default function Hero() {
         <div className="absolute inset-0 bg-white/20" />
 
         {/* Content */}
-        <div className="relative z-10 flex flex-col items-center gap-4 mt-46">
+        <div className="relative z-10 flex flex-col items-center gap-4 mt-32 sm:mt-36 md:mt-40 lg:mt-46 px-4">
           <p
-            className={`${current.font} text-5xl md:text-6xl font-bold tracking-wide transition-all duration-500 ${
+            className={`${current.font} text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-wide transition-all duration-500 ${
               visible ? "opacity-100 text-gray-950" : "opacity-0 text-white"
             }`}
           >
@@ -104,48 +106,47 @@ export default function Hero() {
           />
 
           <div
-            className="w-120 h-[4px] rounded-full"
+            className="w-[90%] sm:w-[500px] md:w-[600px] h-[4px] rounded-full"
             style={{
               background:
                 "linear-gradient(to right, transparent 0%, #f97316 40%, #ea580c 50%, #f97316 60%, transparent 100%)",
             }}
           />
-          <div className="relative w-[469px] h-[220px] mb-4 overflow-hidden rounded-[39px] shadow-[0_20px_40px_rgba(0,0,0,0.25)]">
+          <div className="relative w-full max-w-[469px] mx-auto min-h-[240px] sm:min-h-[240px] md:min-h-[240px] lg:min-h-[220px] mb-4 overflow-hidden rounded-[20px] sm:rounded-[28px] md:rounded-[34px] lg:rounded-[39px]">
             {/* Background Image */}
             <Image
               src={extrainfo}
               alt="extrainfo"
               fill
-              priority
-              className="object-cover rounded-[39px]"
+              className="object-cover"
             />
 
             {/* Dark Overlay */}
-            <div className="absolute inset-0 bg-black/5 rounded-[39px]" />
+            <div className="absolute inset-0 bg-black/5" />
 
             {/* Content */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center px-8 py-6">
+            <div className="absolute inset-0 flex flex-col items-center justify-center px-3 sm:px-5 md:px-6 lg:px-8 py-4 sm:py-5 md:py-6">
               {items.map((item, index) => (
                 <div key={index} className="w-full text-center">
                   {/* Heading */}
-                  <h2 className="text-[20px] md:text-[20px] font-bold text-[#1F1F1F] leading-tight">
+                  <h2 className="text-[18px] sm:text-[18px] md:text-[19px] lg:text-[20px] font-bold text-[#1F1F1F] leading-tight px-2">
                     "{item.name}"
                   </h2>
 
                   {/* Subtitle */}
-                  <p className="mt-2 text-[16px] text-[#3B3B3B]">
+                  <p className="mt-1 sm:mt-2 text-[13px] sm:text-[15px] md:text-[17px] lg:text-[18px] font-medium text-[#1F1F1F] px-2">
                     - {item.description}
                   </p>
 
                   {/* Buttons */}
-                  <div className="flex items-center justify-center gap-4 mt-10">
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 md:gap-4 mt-3 sm:mt-5 md:mt-6 lg:mt-6 w-full px-2">
                     {/* Contact Button */}
-                    <button className="w-[184px] h-[50px] rounded-[6px] border border-[#C05621] bg-[#F5F5F5] text-[#C05621] text-[18px] font-semibold transition-all duration-300 hover:bg-[#C05621] hover:text-white">
+                    <button className="w-full sm:w-[150px] md:w-[165px] lg:w-[184px] h-[38px] sm:h-[42px] md:h-[46px] lg:h-[50px] rounded-[6px] border border-[#C05621] bg-[#F5F5F5] text-[#C05621] text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] font-semibold transition-all duration-300 hover:bg-[#C05621] hover:text-white whitespace-nowrap px-3">
                       {item.btn1}
                     </button>
 
                     {/* More Info Button */}
-                    <button className="w-[184px] h-[50px] rounded-[6px] bg-[#C05621] border border-[#C05621] text-white text-[18px] font-semibold transition-all duration-300 hover:bg-[#A3471B]">
+                    <button className="w-full sm:w-[150px] md:w-[165px] lg:w-[184px] h-[38px] sm:h-[42px] md:h-[46px] lg:h-[50px] rounded-[6px] bg-[#C05621] border border-[#C05621] text-white text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] font-semibold transition-all duration-300 hover:bg-[#A3471B] whitespace-nowrap px-3">
                       {item.btn2}
                     </button>
                   </div>
@@ -156,80 +157,101 @@ export default function Hero() {
         </div>
       </section>
 
-      <section className="bg-[linear-gradient(177.14deg,_#838366_0.89%,_#EED5B1_49.41%,_#7E868E_97.93%)] h-auto overflow-hidden pb-20">
+      <section className="bg-[linear-gradient(177.14deg,_#838366_0.89%,_#EED5B1_49.41%,_#7E868E_97.93%)] h-auto overflow-hidden pb-10">
         {/* Trust Section */}
-        <div className="flex justify-center items-center relative">
-          <Image src={trust} alt="trust" width={341} className="pt-5" />
-          <div className="absolute">
+        <div className="flex justify-center items-center relative px-4">
+          <Image
+            src={trust}
+            alt="trust"
+            width={341}
+            className="pt-5 w-[160px] sm:w-[220px] md:w-[280px] lg:w-[341px] h-auto"
+          />
+          <div className="absolute inset-0 flex items-center justify-center">
             {trusts.map((item, i) => (
-              <p key={i} className={`mt-5 font-bold text-[36px] ${fontClass}`}>
+              <p
+                key={i}
+                className={`mt-5 font-bold text-[22px] sm:text-[28px] md:text-[32px] lg:text-[36px] text-center px-3 sm:px-4 ${fontClass}`}
+              >
                 {item.name}
               </p>
             ))}
           </div>
         </div>
 
-       {/* More Info Section */}
-<div className="flex justify-center -mt-16 px-4">
-  <div className="relative w-full max-w-[1100px]">
+        {/* More Info Section - More compact mobile version */}
+        <div className="flex justify-center -mt-6 sm:-mt-8 md:-mt-12 lg:-mt-16 px-3 sm:px-4">
+          <div className="relative w-full max-w-[1100px] mx-auto">
+            {/* Background Scroll */}
+            <div className="relative w-full">
+              {/* Mobile: More compact aspect ratio */}
+              <div className="block sm:hidden">
+                <Image
+                  src={moreinfo}
+                  alt="parchment"
+                  width={500}
+                  height={500}
+                  className="w-full h-auto object-cover drop-shadow-xl"
+                  style={{ aspectRatio: "1/1" }}
+                />
+              </div>
 
-    {/* Background Scroll */}
-    <Image
-      src={moreinfo}
-      alt="parchment"
-      width={1100}
-      height={670}
-      className="w-full h-auto object-contain drop-shadow-xl"
-    />
+              {/* Desktop: Horizontal version */}
+              <div className="hidden sm:block">
+                <Image
+                  src={moreinfo}
+                  alt="parchment"
+                  width={1100}
+                  height={670}
+                  className="w-full h-auto object-contain drop-shadow-xl"
+                />
+              </div>
+            </div>
 
-    {/* Content */}
-    <div className="absolute inset-0 flex flex-col items-center justify-center">
-      <div className="max-w-[720px] text-left mt-6 px-10">
-        <p
-          className="text-[#2E1B0E] text-[20px] font-normal leading-[1.7] tracking-normal"
-          style={{
-            fontFamily: "IBM Plex Sans Devanagari",
-          }}
-        >
-          स्वराज्याचे सरनोबत येसाजी कंक यांच्या शौर्य, साहस, शिस्त आणि
-          विवेकबुद्धी या अनेक पैलूंचा आदर्श ठेवून, जनसेवेचे कार्य हाती
-          घेतलेले महाराष्ट्रातील ऐतिहासिक व सामाजिक वारसा जपणारे
-          <br />
-          "सरनोबत येसाजी कंक ट्रस्ट".
-        </p>
-      </div>
+            {/* Content - Centered with less spacing */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center px-3 sm:px-4 md:px-6">
+              <div className="w-full max-w-[92%] sm:max-w-[85%] md:max-w-[80%] lg:max-w-[720px] text-center lg:text-left">
+                <p
+                  className="text-[#2E1B0E] text-[13px] sm:text-[14px] md:text-[16px] lg:text-[20px] font-medium sm:font-normal leading-[1.4] sm:leading-[1.6] px-2 sm:px-0"
+                  style={{
+                    fontFamily: "IBM Plex Sans Devanagari",
+                  }}
+                >
+                  स्वराज्याचे सरनोबत येसाजी कंक यांच्या शौर्य, साहस, शिस्त आणि
+                  विवेकबुद्धी या अनेक पैलूंचा आदर्श ठेवून, जनसेवेचे कार्य हाती
+                  घेतलेले महाराष्ट्रातील ऐतिहासिक व सामाजिक वारसा जपणारे
+                  <br className="hidden sm:block" />
+                  "सरनोबत येसाजी कंक ट्रस्ट".
+                </p>
+              </div>
 
-      {/* Button */}
-      <button className="mt-10 w-[210px] h-[47px] rounded-[45px] border border-white bg-[#BD512A] text-white text-[15px] font-bold flex items-center justify-center gap-6 shadow-lg transition-all duration-300 hover:bg-[#a94822] hover:scale-105">
-        <span>अधिक वाचा...</span>
+              <button className="mt-2 sm:mt-4 md:mt-6 lg:mt-10 w-[120px] sm:w-[170px] md:w-[190px] lg:w-[210px] h-[32px] sm:h-[40px] md:h-[44px] lg:h-[47px] rounded-[45px] border border-white bg-[#BD512A] text-white text-[11px] sm:text-[13px] md:text-[14px] lg:text-[15px] font-bold flex items-center justify-center gap-2 sm:gap-4 shadow-lg transition-all duration-300 hover:bg-[#a94822] hover:scale-105">
+                <span>अधिक वाचा...</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2.5}
+                  stroke="currentColor"
+                  className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
 
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={2.5}
-          stroke="currentColor"
-          className="w-5 h-5"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-          />
-        </svg>
-      </button>
-    </div>
-  </div>
-</div>
-
-      {/* ═══ ऐतिहासिक वाडा – Cinematic Gallery ═══ */}
+        {/* ═══ ऐतिहासिक वाडा – Cinematic Gallery ═══ */}
       </section>
       <WadaGallery
         title={Histories[0]?.name ?? "ऐतिहासिक वाडा"}
         description={Histories[0]?.desc ?? ""}
       />
       <section className="bg-[linear-gradient(177.14deg,_#838366_0.89%,_#EED5B1_49.41%,_#7E868E_97.93%)] h-auto overflow-hidden">
-        
         {/* Work Header */}
         <div className="relative flex flex-col items-center mt-28 mb-10">
           <div className="absolute top-[-50px] z-0 opacity-80 pointer-events-none">
@@ -244,14 +266,14 @@ export default function Hero() {
             <Image
               src={trust}
               alt="Title Scroll"
-              width={240}
+              width={300}
               className="pt-5"
             />
             <div className="absolute inset-0 flex items-center justify-center pt-5">
               {works.map((item, i) => (
                 <p
                   key={i}
-                  className={`font-bold text-[22px] ${fontClass} text-black`}
+                  className={`font-bold text-[28px] sm:text-[32px] md:text-[36px] ${fontClass} text-black`}
                 >
                   {item.name}
                 </p>
@@ -262,7 +284,7 @@ export default function Hero() {
             {works.map((item, i) => (
               <p
                 key={i}
-                className="text-[#3d2b1f] font-semibold leading-relaxed"
+                className="text-[#3d2b1f] font-medium text-[16px] sm:text-[18px] md:text-[20px] leading-relaxed"
               >
                 {item.desc}
               </p>
@@ -281,7 +303,7 @@ export default function Hero() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="group relative flex-1 min-w-[240px] aspect-[4/5] rounded-[24px] overflow-hidden shadow-2xl cursor-pointer"
+                className="group relative w-full sm:w-[48%] lg:flex-1 min-w-[220px] aspect-[4/5] rounded-[24px] overflow-hidden shadow-2xl cursor-pointer"
               >
                 {/* Background Image */}
                 <Image
@@ -294,12 +316,12 @@ export default function Hero() {
                 {/* --- HOVER OVERLAY (Semi-transparent black box with top border) --- */}
                 <div className="absolute bottom-0 left-0 right-0 h-[40%] bg-[#5252529E] opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-center p-8">
                   {/* Title from CardTexts data */}
-                  <h3 className="text-white text-1xl md:text-2xl mb-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  <h3 className="text-white text-[20px] md:text-[24px] font-bold mb-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                     {CardTexts[i]?.name}
                   </h3>
 
                   {/* Description from CardTexts data */}
-                  <p className="text-white/90 text-sm md:text-base leading-relaxed transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
+                  <p className="text-white/90 text-[14px] md:text-[16px] leading-relaxed transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
                     {CardTexts[i]?.desc ||
                       (lang === "mr"
                         ? "समृद्ध शेती, सशक्त शेतकरी आणि उज्ज्वल भविष्य."
@@ -312,7 +334,7 @@ export default function Hero() {
           {/* सर्व पहा button — aligned to the right, links to our-work page */}
           <div className="flex justify-end mt-4 pr-1">
             <Link href="/our-work">
-              <button className="flex items-center gap-1 bg-[#3d2b1f] hover:bg-[#5a3e2b] text-[#f5e6d0] text-sm font-semibold px-5 py-2 rounded-full shadow transition-colors duration-300">
+              <button className="flex items-center gap-1 bg-[#3d2b1f] hover:bg-[#5a3e2b] text-[#f5e6d0] text-[14px] font-semibold px-5 py-2 rounded-full shadow transition-colors duration-300">
                 सर्व पहा <span className="text-base">→</span>
               </button>
             </Link>
@@ -321,18 +343,24 @@ export default function Hero() {
 
         {/* Shivkalin Section */}
         <div className="flex justify-center items-center relative">
-          <Image src={trust} alt="trust" width={220} className="pt-5" />
+          <Image src={trust} alt="trust" width={380} className="pt-5" />
           <div className="absolute">
             {shivkalins.map((item, i) => (
-              <p key={i} className={`mt-5 font-bold text-[20px] ${fontClass}`}>
+              <p
+                key={i}
+                className={`mt-5 font-bold text-[28px] sm:text-[32px] md:text-[36px] ${fontClass}`}
+              >
                 {item.name}
               </p>
             ))}
           </div>
         </div>
-        <div className="text-center mt-14 max-w-2xl mx-auto  px-10">
+        <div className="text-center mt-14 max-w-2xl mx-auto px-10">
           {shivkalins.map((item, i) => (
-            <p key={i} className="font-semibold">
+            <p
+              key={i}
+              className="font-medium  text-[16px] sm:text-[18px] md:text-[20px] leading-relaxed"
+            >
               {item.desc}
             </p>
           ))}
@@ -345,10 +373,10 @@ export default function Hero() {
           {Cards.map((item, index) => (
             <div
               key={index}
-              className="group relative w-[360px] h-[500px] flex flex-col items-center cursor-pointer"
+              className="group relative w-full max-w-[360px] h-[420px] sm:h-[460px] md:h-[500px] flex flex-col items-center cursor-pointer"
             >
-              {/* Background Swapping */}
-              <div className="absolute inset-0 z-0 transition-opacity duration-500 group-hover:opacity-0">
+              {/* Background Default */}
+              <div className="absolute inset-0 z-0 transition-opacity duration-500 group-hover:opacity-0 group-active:opacity-0">
                 <Image
                   src={oldcard}
                   alt="scroll bg"
@@ -356,7 +384,9 @@ export default function Hero() {
                   className="object-contain drop-shadow-2xl"
                 />
               </div>
-              <div className="absolute inset-0 z-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+
+              {/* Background Hover / Mobile Tap */}
+              <div className="absolute inset-0 z-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-active:opacity-100">
                 <Image
                   src={oldcard1}
                   alt="scroll bg hover"
@@ -365,9 +395,10 @@ export default function Hero() {
                 />
               </div>
 
-              {/* DEFAULT VIEW (Centered Large Icon + Bottom Title) */}
-              <div className="relative z-10 flex flex-col items-center h-full w-full transition-all duration-500 group-hover:opacity-0 group-hover:scale-95">
-                <div className="mt-28 w-44 h-44 relative rounded-full overflow-hidden">
+              {/* DEFAULT VIEW */}
+              <div className="relative z-10 flex flex-col items-center h-full w-full transition-all duration-500 group-hover:opacity-0 group-active:opacity-0 group-hover:scale-95 group-active:scale-95">
+                {/* Center Image */}
+                <div className="mt-20 sm:mt-24 md:mt-28 w-32 h-32 sm:w-40 sm:h-40 md:w-44 md:h-44 relative rounded-full overflow-hidden">
                   <Image
                     src={circleImages[index]}
                     alt={item.name}
@@ -375,15 +406,18 @@ export default function Hero() {
                     className="object-cover"
                   />
                 </div>
+
+                {/* Bottom Title */}
                 <div className="mt-auto mb-20 px-6 text-center">
-                  <h3 className="text-2xl font-bold text-[#2d1b0d] tracking-tight">
+                  <h3 className="text-[24px] md:text-[28px] font-bold text-[#2d1b0d] tracking-tight">
                     {item.name}
                   </h3>
                 </div>
               </div>
 
-              {/* HOVER VIEW (Top Icon + Middle Desc + Bottom Title) */}
-              <div className="absolute inset-0 z-20 flex flex-col items-center p-14 opacity-0 transition-all duration-700 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0">
+              {/* HOVER / MOBILE TAP VIEW */}
+              <div className="absolute inset-0 z-20 flex flex-col items-center p-14 opacity-0 transition-all duration-700 translate-y-4 group-hover:opacity-100 group-active:opacity-100 group-hover:translate-y-0 group-active:translate-y-0">
+                {/* Top Small Image */}
                 <div className="mt-10 w-24 h-24 relative rounded-full overflow-hidden">
                   <Image
                     src={circleImages[index]}
@@ -393,14 +427,16 @@ export default function Hero() {
                   />
                 </div>
 
+                {/* Description */}
                 <div className="flex-1 flex items-center justify-center mt-4">
-                  <p className="text-center text-[#1a0f08] text-[15px] md:text-[17px] font-medium leading-relaxed px-4">
+                  <p className="text-center text-[#1a0f08] text-[14px] md:text-[16px] font-medium leading-relaxed px-4">
                     {item.desc || "Information about the collection goes here."}
                   </p>
                 </div>
 
+                {/* Bottom Title */}
                 <div className="mt-auto mb-10">
-                  <h3 className="text-3xl md:text-2xl font-bold text-[#1a0f08] tracking-tight">
+                  <h3 className="text-[24px] md:text-[28px] font-bold text-[#1a0f08] tracking-tight">
                     {item.name}
                   </h3>
                 </div>
@@ -409,12 +445,40 @@ export default function Hero() {
           ))}
         </div>
 
+        {/* Navigation Buttons */}
+        <div className="flex items-center justify-center gap-6 -mt-4 pb-10">
+          {/* Previous */}
+          <button className="transition-all duration-300 hover:scale-105">
+            <Image
+              src={prevBtn}
+              alt="Previous"
+              width={52}
+              height={52}
+              className="object-contain"
+            />
+          </button>
+
+          {/* Next */}
+          <button className="transition-all duration-300 hover:scale-105">
+            <Image
+              src={nextBtn}
+              alt="Next"
+              width={52}
+              height={52}
+              className="object-contain"
+            />
+          </button>
+        </div>
+
         {/* Feedback Section Header */}
         <div className="flex justify-center items-center relative">
-          <Image src={trust} alt="trust" width={220} className="pt-5" />
+          <Image src={trust} alt="trust" width={380} className="pt-6" />
           <div className="absolute">
             {PrashansaPatrs.map((item, i) => (
-              <p key={i} className={`mt-5 font-bold text-[20px] ${fontClass}`}>
+              <p
+                key={i}
+                className={`mt-5 font-bold text-[28px] sm:text-[32px] md:text-[36px] ${fontClass}`}
+              >
                 {item.name}
               </p>
             ))}
@@ -423,11 +487,11 @@ export default function Hero() {
 
         {/* --- INFINITE SCROLL FEEDBACK SECTION --- */}
         <div className="py-20 overflow-hidden">
-          <div className="flex w-max animate-marquee gap-10 hover:[animation-play-state:paused]">
+          <div className="flex w-max animate-marquee gap-1 hover:[animation-play-state:paused]">
             {scrollList.map((item, index) => (
               <div
                 key={index}
-                className="relative w-[350px] md:w-[450px] min-h-[280px] flex-shrink-0 flex flex-col"
+                className="relative w-[90vw] sm:w-[350px] md:w-[420px] lg:w-[450px] min-h-[260px] md:min-h-[280px] flex-shrink-0 flex flex-col"
               >
                 <div className="absolute inset-0 z-0">
                   <Image
@@ -438,11 +502,12 @@ export default function Hero() {
                   />
                 </div>
 
-                <div className="relative z-10 p-10 md:p-14 flex flex-col h-full">
-                  <h4 className="text-xl md:text-2xl font-bold text-[#2d1b0d] mb-4 border-b border-[#8b5e34]/20 pb-2">
+                <div className="relative z-10 p-6 sm:p-8 md:p-14 flex flex-col h-full">
+                  <h4 className="text-[20px] md:text-[24px] font-bold text-[#2d1b0d] mt-4 mb-4 border-b border-[#8b5e34]/20 pb-2">
                     {item.name}
                   </h4>
-                  <p className="text-[#3d2b1f] text-[15px] md:text-[16px] leading-relaxed text-justify">
+
+                  <p className="text-[#3d2b1f] text-[14px] sm:text-[15px] md:text-[16px] leading-relaxed text-justify ">
                     {item.desc}
                   </p>
                 </div>
@@ -453,21 +518,23 @@ export default function Hero() {
       </section>
 
       {/* Animation CSS */}
-<style jsx global>{`
-  @keyframes marquee {
-    0% {
-      transform: translateX(0);
-    }
+      <style jsx global>
+        {`
+          @keyframes marquee {
+            0% {
+              transform: translateX(0);
+            }
 
-    100% {
-      transform: translateX(-50%);
-    }
-  }
+            100% {
+              transform: translateX(-50%);
+            }
+          }
 
-  .animate-marquee {
-    animation: marquee 40s linear infinite;
-  }
-`}</style>
+          .animate-marquee {
+            animation: marquee 40s linear infinite;
+          }
+        `}
+      </style>
     </div>
   );
 }
