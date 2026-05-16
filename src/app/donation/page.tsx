@@ -201,11 +201,11 @@ router.push("/donation/donation-success");
     <main className=" relative w-full overflow-hidden bg-[#d8c7a8]">
       {/* ================= HERO SECTION ================= */}
       <section className="relative w-full h-[420px] sm:h-[520px] md:h-[650px] lg:h-[788px]">
-        <Image src="/donation-hero.png" alt="Donation Hero" fill priority className="object-cover object-center" />
+        <Image src="/donation-hero.svg" alt="Donation Hero" fill priority className="object-cover object-center" />
         <div className="absolute inset-0 bg-[#D9D9D96E]" />
         <div className="absolute inset-0 flex flex-col items-center justify-start pt-[38px]">
-          <div className="relative w-[260px] sm:w-[360px] md:w-[520px] lg:w-[800px] h-[120px] sm:h-[180px] md:h-[240px] lg:h-[380px]">
-            <Image src="/donation-text.png" alt={t.heroAlt} fill className="object-contain" priority />
+          <div className="relative w-[260px] sm:w-[360px] md:w-[520px] lg:w-[800px] h-[120px] sm:h-[180px] md:h-[240px] lg:h-[380px]     ">
+            <Image src="/donation-text.png" alt={t.heroAlt} fill className="object-contain  min-[350px]:mt-3 " priority  />
           </div>
         </div>
       </section>
@@ -216,16 +216,16 @@ router.push("/donation/donation-success");
         <p className="text-[15px] md:text-[22px] text-[#4b2d18] mt-4 mb-10 text-center">{t.subtitle}</p>
 
         <div className="relative w-full flex items-center justify-center h-[320px] sm:h-[420px] md:h-[520px] lg:h-[620px] overflow-hidden">
-          <div className="relative w-[340px] sm:w-[480px] md:w-[580px] lg:w-[650px] h-[620px] sm:h-[820px] md:h-[980px] lg:h-[1100px] rotate-90">
+          <div className="relative w-[340px] sm:w-[480px] md:w-[580px] lg:w-[650px] h-[620px] sm:h-[820px] md:h-[980px] lg:h-[1100px] rotate-90 min-[400px]:max-[499px]:w-[340px]   min-[400px]:max-[499px]:h-[540px] ">
             <Image src="/scroll.png" alt="Scroll" fill priority className="object-fill" />
           </div>
 
-          <div className="absolute inset-0 flex items-center justify-center z-10 px-6">
-            <div className={`text-center text-white font-bold leading-[1.5] space-y-4 sm:space-y-5 md:space-y-6 ${lang === "mr" ? "max-w-[280px] sm:max-w-[420px] md:max-w-[620px] lg:max-w-[900px]" : "max-w-[240px] sm:max-w-[360px] md:max-w-[520px] lg:max-w-[760px]"}`}>
+          <div className="absolute inset-0 flex items-center justify-center  px-6 ">
+            <div className={`text-center text-white font-bold leading-[1.5] space-y-4 sm:space-y-5 md:space-y-6 ${lang === "mr" ? "max-w-[280px] sm:max-w-[420px] md:max-w-[500px] lg:max-w-[900px]" : "max-w-[240px] sm:max-w-[360px] md:max-w-[520px] lg:max-w-[760px]"}`}>
               {t.scroll.map((para, i) => (
                 <div key={i}>
-                  <p className="text-[6px] sm:text-[8px] md:text-[11px] lg:text-[14px]">{para.line1}</p>
-                  {para.line2 && <p className="text-[6px] sm:text-[8px] md:text-[11px] lg:text-[14px]">{para.line2}</p>}
+                  <p className="text-[6px] sm:text-[8px] md:text-[14px] lg:text-[14px] min-[350px]:text-[9px]">{para.line1}</p>
+                  {para.line2 && <p className="text-[6px] sm:text-[8px] md:text-[14px] lg:text-[14px] min-[350px]:text-[9px]">{para.line2}</p>}
                 </div>
               ))}
             </div>
@@ -235,18 +235,30 @@ router.push("/donation/donation-success");
         {/* Tabs */}
         <div className="flex flex-col items-center mt-5 md:mt-8">
           <div className="flex items-center gap-10 md:gap-16">
-            <button onClick={() => setActiveTab("donation")} className="flex items-center gap-3">
-              <div className="relative w-[22px] h-[22px] md:w-[28px] md:h-[28px]">
-                <Image src="/ऑनलाइन देणगी फॉर्म.svg" alt="icon" fill priority className="object-contain" />
-              </div>
-              <span className={`text-[15px] md:text-[18px] font-medium transition cursor-pointer ${activeTab === "donation" ? "text-[#000]" : "text-[#2e2417]"}`}>{t.onlineTab}</span>
-            </button>
-            <button onClick={() => setActiveTab("bank")} className="flex items-center gap-3">
-              <div className="relative w-[22px] h-[22px] md:w-[28px] md:h-[28px]">
-                <Image src="/बँक तपशील.svg" alt="icon" fill priority className="object-contain" />
-              </div>
-              <span className={`text-[15px] md:text-[18px] font-medium transition  cursor-pointer ${activeTab === "bank" ? "text-[#e17843]" : "text-[#2e2417]"}`}>{t.bankTab}</span>
-            </button>
+<button onClick={() => setActiveTab("donation")} className="flex items-center gap-3">
+  <div className="relative w-[22px] h-[22px] md:w-[28px] md:h-[28px]">
+    <Image
+      src={activeTab === "donation" ? "/donation-orange.svg" : "/ऑनलाइन देणगी फॉर्म.svg"}
+      alt="icon"
+      fill
+      priority
+      className="object-contain"
+    />
+  </div>
+
+  <span className={`text-[15px] md:text-[18px] font-medium transition cursor-pointer ${activeTab === "donation" ? "text-[#e17843]" : "text-[#2e2417]"}`}>
+    {t.onlineTab}
+  </span>
+</button>
+<button onClick={() => setActiveTab("bank")} className="flex items-center gap-3">
+  <div className="relative w-[22px] h-[22px] md:w-[28px] md:h-[28px]">
+    <Image src={activeTab === "bank" ? "/bank-orange.svg" : "/बँक तपशील.svg"} alt="icon" fill priority className="object-contain" />
+  </div>
+
+  <span className={`text-[15px] md:text-[18px] font-medium transition cursor-pointer ${activeTab === "bank" ? "text-[#e17843]" : "text-[#2e2417]"}`}>
+    {t.bankTab}
+  </span>
+</button>
           </div>
           <div className="w-[420px] md:w-[560px] h-[1px] bg-[#3d2b1f] mt-[14px]" />
         </div>
