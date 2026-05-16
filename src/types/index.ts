@@ -74,8 +74,10 @@ export interface FooterInfo {
   trustName: string;
   homeTitle: string;
   homeLinks: string[];
+  homeLinksWithUrl?: Array<{ text: string; href: string }>;
   aboutTitle: string;
   aboutLinks: string[];
+  aboutLinksWithUrl?: Array<{ text: string; href: string }>;
   contactTitle: string;
   email: string;
   phone: string;

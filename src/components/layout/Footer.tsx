@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Phone, MapPin, Mail,  } from "lucide-react"; // Re-added social & mail icons
 import { useLanguage } from "@/context/LanguageContext";
 import { FooterData } from "@/data/mainpage";
@@ -44,8 +45,12 @@ export default function Footer() {
             <div>
               <h3 className="text-lg font-bold mb-6 text-gray-100">{item.homeTitle}</h3>
               <ul className="space-y-3 text-gray-400 text-sm">
-                {item.homeLinks.map((link, i) => (
-                  <li key={i} className="hover:text-white cursor-pointer transition-colors w-fit">{link}</li>
+                {(item.homeLinksWithUrl || []).map((link, i) => (
+                  <li key={i}>
+                    <Link href={link.href} className="hover:text-white transition-colors w-fit block">
+                      {link.text}
+                    </Link>
+                  </li>
                 ))}
               </ul>
             </div>
@@ -54,8 +59,12 @@ export default function Footer() {
             <div>
               <h3 className="text-lg font-bold mb-6 text-gray-100">{item.aboutTitle}</h3>
               <ul className="space-y-3 text-gray-400 text-sm">
-                {item.aboutLinks.map((link, i) => (
-                  <li key={i} className="hover:text-white cursor-pointer transition-colors w-fit">{link}</li>
+                {(item.aboutLinksWithUrl || []).map((link, i) => (
+                  <li key={i}>
+                    <Link href={link.href} className="hover:text-white transition-colors w-fit block">
+                      {link.text}
+                    </Link>
+                  </li>
                 ))}
               </ul>
             </div>

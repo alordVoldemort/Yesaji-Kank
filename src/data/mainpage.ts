@@ -84,6 +84,22 @@ export const FooterData: Record<"mr" | "en", FooterInfo[]> = {
       address: "सरसेनापती कंक वाडा, भुतोंडे ता.भोर जि पुणे",
       rights: "© 2026 Zonixtec IT Services Private Limited. सर्व हक्क राखीव.",
       tagline: "इतिहास जतन करणे, भावी पिढ्यांना प्रेरणा देणे",
+      homeLinksWithUrl: [
+        { text: "स्वराज्य योगदान", href: "/swarajya_contribution" },
+        { text: "गॅलरी", href: "/gallery" },
+        { text: "देणगी", href: "/donation" },
+        { text: "संपर्क", href: "/contact" },
+        { text: "आमची कामे", href: "/our-work" },
+        { text: "शिवकालीन संग्रह", href: "/shivaji-era" },
+      ],
+      aboutLinksWithUrl: [
+        { text: "कंक घराणे", href: "/about/kank-family" },
+        { text: "येसाजी कंकांबद्दल", href: "/about/yesaji-kank" },
+        { text: "सरनोबत येसाजी कंक वाडा,भुतोंडे", href: "/about/kank-wada" },
+        { text: "सरनोबत येसाजी कंक ट्रस्ट", href: "/about" },
+        { text: "आमचा प्रवास", href: "/about/our-journey" },
+        { text: "विश्वस्त मंडळ", href: "/about/trust" },
+      ],
     }
   ],
   en: [
@@ -99,6 +115,22 @@ export const FooterData: Record<"mr" | "en", FooterInfo[]> = {
       address: "Sarsenapati Kank Wada, Bhutonde, Tal. Bhor, Dist. Pune",
       rights: "© 2026 Zonixtec IT Services Private Limited. All rights reserved.",
       tagline: "Preserving history, inspiring future generations",
+      homeLinksWithUrl: [
+        { text: "Swarajya Contribution", href: "/swarajya_contribution" },
+        { text: "Gallery", href: "/gallery" },
+        { text: "Donations", href: "/donation" },
+        { text: "Contact", href: "/contact" },
+        { text: "Our Work", href: "/our-work" },
+        { text: "Historical Collection", href: "/shivaji-era" },
+      ],
+      aboutLinksWithUrl: [
+        { text: "Kank Family", href: "/about/kank-family" },
+        { text: "About Yesaji Kank", href: "/about/yesaji-kank" },
+        { text: "Yesaji Kank Wada, Bhutonde", href: "/about/kank-wada" },
+        { text: "Sarnobat Yesaji Kank Trust", href: "/about" },
+        { text: "Our Journey", href: "/about/our-journey" },
+        { text: "Trustees", href: "/about/trust" },
+      ],
     }
   ]
 };
