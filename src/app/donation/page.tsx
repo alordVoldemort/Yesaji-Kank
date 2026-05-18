@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence,Variants } from "framer-motion";
 
 // ================= TRANSLATION OBJECT =================
 const translations = {
@@ -153,7 +153,7 @@ export default function DonationPage() {
     router.push("/donation/donation-success");
   };
 
-  const containerVariants = {
+  const containerVariants:Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -164,7 +164,7 @@ export default function DonationPage() {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
@@ -196,7 +196,7 @@ export default function DonationPage() {
             initial={{ opacity: 0, y: 30 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 1, delay: 0.3 }}
-            className="relative w-[260px] sm:w-[360px] md:w-[520px] lg:w-[800px] h-[120px] sm:h-[180px] md:h-[240px] lg:h-[280px]"
+            className="relative w-[260px] sm:w-[360px] md:w-[520px] lg:w-[800px] h-[100px] sm:h-[180px] md:h-[150px] lg:h-[150px]"
           >
             <Image src="/donation-text.svg" alt={t.heroAlt} fill className="object-contain" priority />
           </motion.div>
@@ -492,7 +492,7 @@ export default function DonationPage() {
                         transition={{ delay: idx * 0.1 }}
                       >
                         <input type="radio" name="paymentMethod" value={m} checked={formData.paymentMethod === m} onChange={handleChange} /> 
-                        {t[m as keyof typeof t.en]}
+                        
                       </motion.label>
                     ))}
                   </div>
