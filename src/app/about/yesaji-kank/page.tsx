@@ -46,35 +46,35 @@ export default function YesajiKankPage() {
 
   return (
     <main className={` ${fontClass}`}>
-<div className="h-auto relative overflow-hidden">
-  
-  {/* Desktop Image */}
-  <Image
-    src={first}
-    alt="Yesaji Kank vs Elephant"
-    className="
+      <div className="h-auto relative overflow-hidden">
+
+        {/* Desktop Image */}
+        <Image
+          src={first}
+          alt="Yesaji Kank vs Elephant"
+          className="
       hidden sm:block
       w-full h-auto pt-8 md:pt-14
       bg-[#A88657] opacity-50
     "
-  />
+        />
 
-  {/* Mobile Image */}
-  <Image
-    src={first1}
-    alt="Yesaji Kank Mobile"
-    className="
+        {/* Mobile Image */}
+        <Image
+          src={first1}
+          alt="Yesaji Kank Mobile"
+          className="
       block sm:hidden
       w-full h-auto pt-8
       bg-[#A88657] opacity-50
     "
-  />
+        />
 
-  <div className="absolute top-[22%] sm:top-[24%] md:top-[28%] w-full flex justify-center px-4">
-    <Image
-      src={name}
-      alt="Yesaji Kank Name"
-      className="
+        <div className="absolute top-[22%] sm:top-[24%] md:top-[28%] w-full flex justify-center px-4">
+          <Image
+            src={name}
+            alt="Yesaji Kank Name"
+            className="
         w-[220px]
         min-[300px]:w-[200px]
         sm:w-[380px]
@@ -82,9 +82,9 @@ export default function YesajiKankPage() {
         lg:w-[650px]
         h-auto
       "
-    />
-  </div>
-</div>
+          />
+        </div>
+      </div>
 
       <section className="relative w-full bg-[#9c7b52] px-4 sm:px-6 py-8 md:py-14 flex items-center justify-center">
         <div className="relative w-full max-w-[100%] sm:max-w-[480px] md:max-w-[550px] lg:max-w-[580px] mx-auto ">
@@ -108,20 +108,51 @@ export default function YesajiKankPage() {
                 {currentData.name}
               </h2>
 
-              <div className="relative z-10 flex flex-col gap-1 sm:gap-2 md:gap-3 text-[#f8e8d0] text-start min-[350px]:px-17 min-[400px]:px-17  min-[500px]:px-25 min-[300px]:max-[345px]:px-15  min-[372px]:max-[376px]:px-17 ">
-                <p className="text-[10px] sm:text-[12px] md:text-[13px]  sm:leading-snug  min-[400px]:leading-[1.5]  min-[500px]:text-[13px] min-[350px]:text-[10px] min-[350px]:pt-2 min-[300px]:max-[345px]:text-[8px] min-[372px]:max-[376px]:text-[8px] min-[372px]:max-[376px]:pt-2 min-[359px]:max-[361px]:text-[8px]">
-                  {currentData.desc1}
+              <div
+                className={`relative z-10 flex flex-col text-[#f8e8d0] text-start
+                      ${lang === "en"
+                    ? "gap-1 sm:gap-2 px-10 sm:px-12 md:px-14  min-[350px]:px-15 min-[400px]:px-17 min-[500px]:px-25 min-[300px]:max-[345px]:px-13 min-[372px]:max-[376px]:px-16  lg:px-20"
+                    : "gap-1 sm:px-15 sm:gap-2 md:gap-3 min-[350px]:px-17 min-[400px]:px-17 min-[500px]:px-25 min-[300px]:max-[345px]:px-15 min-[372px]:max-[376px]:px-17 "
+                  }`}
+              >
+                <p className={`${lang === 'en'
+                  ? "text-[10px] sm:text-[12px] md:text-[13px] sm:leading-snug min-[400px]:text-[9px] min-[500px]:text-[12px] min-[350px]:text-[9px] min-[350px]:pt-2 min-[300px]:max-[345px]:text-[7px] min-[372px]:max-[376px]:text-[8px] min-[372px]:max-[376px]:pt-1 min-[359px]:max-[361px]:text-[8px] min-[359px]:max-[361px]:pt-1"
+                  : "text-[10px] sm:text-[12px] md:text-[13px] sm:leading-snug min-[400px]:leading-[1.5] min-[500px]:text-[13px] min-[350px]:text-[10px] min-[350px]:pt-2 min-[300px]:max-[345px]:text-[8px] min-[372px]:max-[376px]:text-[8px] min-[372px]:max-[376px]:pt-2 min-[359px]:max-[361px]:text-[8px]"
+                  }`}  >                {currentData.desc1}
                 </p>
-                <p className="text-[10px] sm:text-[12px] md:text-[13px]  sm:leading-snug pt-2 min-[400px]:pt-5 min-[400px]:leading-[1.5] min-[500px]:text-[13px] min-[500px]:leading[1] min-[350px]:text-[10px] min-[300px]:max-[345px]:text-[8px] min-[372px]:max-[376px]:text-[8px] min-[372px]:max-[376px]:pt-5 min-[359px]:max-[361px]:text-[8px] min-[359px]:max-[361px]:pt-4">
+
+
+
+                <p className={`${lang === 'en'
+                  
+                   ? "text-[10px] sm:text-[12px] md:text-[13px]  sm:leading-snug pt-2 min-[400px]:pt-3  min-[400px]:text-[9px] min-[500px]:text-[12px] min-[500px]:leading[1] min-[350px]:text-[9px] min-[300px]:max-[345px]:text-[7px] min-[372px]:max-[376px]:text-[8px] min-[372px]:max-[376px]:pt-3 min-[359px]:max-[361px]:text-[8px] min-[359px]:max-[361px]:pt-1"
+                  : "text-[10px] sm:text-[12px] md:text-[13px]  sm:leading-snug pt-2 min-[400px]:pt-5 min-[400px]:leading-[1.5] min-[500px]:text-[13px] min-[500px]:leading[1] min-[350px]:text-[10px] min-[300px]:max-[345px]:text-[8px] min-[372px]:max-[376px]:text-[8px] min-[372px]:max-[376px]:pt-5 min-[359px]:max-[361px]:text-[8px] min-[359px]:max-[361px]:pt-4"
+
+                  }`}>
                   {currentData.desc2}
                 </p>
-                <p className="text-[10px] sm:text-[12px] md:text-[13px]  sm:leading-snug pt-2  min-[400px]:pt-5 min-[400px]:leading-[1.5] min-[500px]:text-[13px] min-[350px]:text-[10px] min-[300px]:max-[345px]:text-[8px] min-[372px]:max-[376px]:text-[8px] min-[372px]:max-[376px]:pt-5 min-[359px]:max-[361px]:text-[8px] min-[359px]:max-[361px]:pt-4 ">
+
+                <p className={`${lang === 'en' 
+                  ?  "text-[10px] sm:text-[12px] md:text-[13px]  sm:leading-snug pt-2  min-[400px]:pt-3  min-[400px]:text-[9px] min-[400px]:leading-[1.5] min-[500px]:text-[12px] min-[350px]:text-[9px] min-[300px]:max-[345px]:text-[7px] min-[372px]:max-[376px]:text-[8px] min-[372px]:max-[376px]:pt-3 min-[359px]:max-[361px]:text-[8px] min-[359px]:max-[361px]:pt-1 "
+                  : "text-[10px] sm:text-[12px] md:text-[13px]  sm:leading-snug pt-2  min-[400px]:pt-5 min-[400px]:leading-[1.5] min-[500px]:text-[13px] min-[350px]:text-[10px] min-[300px]:max-[345px]:text-[8px] min-[372px]:max-[376px]:text-[8px] min-[372px]:max-[376px]:pt-5 min-[359px]:max-[361px]:text-[8px] min-[359px]:max-[361px]:pt-4 "
+
+
+                  }`}>
                   {currentData.desc3}
                 </p>
-                <p className="text-[10px] sm:text-[12px] md:text-[13px]  sm:leading-snug pt-2 min-[400px]:pt-5 min-[400px]:leading-[1.5] min-[500px]:text-[15px] min-[350px]:text-[10px] min-[300px]:max-[345px]:text-[8px] min-[372px]:max-[376px]:text-[8px] min-[372px]:max-[376px]:pt-5 min-[359px]:max-[361px]:text-[8px] min-[359px]:max-[361px]:pt-4">
+
+                <p className={`${lang === 'en' 
+                  ?  "text-[10px] sm:text-[12px] md:text-[13px]  sm:leading-snug pt-2 min-[400px]:pt-3 min-[400px]:text-[9px] min-[500px]:text-[12px] min-[350px]:text-[9px] min-[300px]:max-[345px]:text-[7px] min-[372px]:max-[376px]:text-[8px] min-[372px]:max-[376px]:pt-3 min-[359px]:max-[361px]:text-[8px] min-[359px]:max-[361px]:pt-1"
+                  : "text-[10px] sm:text-[12px] md:text-[13px]  sm:leading-snug pt-2 min-[400px]:pt-5 min-[400px]:leading-[1.5] min-[500px]:text-[15px] min-[350px]:text-[10px] min-[300px]:max-[345px]:text-[8px] min-[372px]:max-[376px]:text-[8px] min-[372px]:max-[376px]:pt-5 min-[359px]:max-[361px]:text-[8px] min-[359px]:max-[361px]:pt-4"
+
+                  }`}>
                   {currentData.desc4}
                 </p>
-                <p className="pt-1 font-semibold text-[10px] sm:text-[12px] md:text-[13px]  sm:leading-snug pt-2 min-[400px]:pt-5  min-[400px]:leading-[1.5] min-[500px]:text-[15px] min-[350px]:text-[10px] min-[300px]:max-[345px]:text-[8px] min-[372px]:max-[376px]:text-[8px] min-[372px]:max-[376px]:pt-5 min-[359px]:max-[361px]:text-[8px] min-[359px]:max-[361px]:pt-3">
+
+                <p className={`${lang === "en" 
+                  ?  "pt-1 font-semibold text-[10px] sm:text-[12px] md:text-[13px]  sm:leading-snug pt-2 min-[400px]:pt-3  min-[400px]:text-[9px] min-[500px]:text-[12px] min-[350px]:text-[9px] min-[300px]:max-[345px]:text-[7px] min-[372px]:max-[376px]:text-[8px] min-[372px]:max-[376px]:pt-3 min-[359px]:max-[361px]:text-[8px] min-[359px]:max-[361px]:pt-1"
+                  : "pt-1 font-semibold text-[10px] sm:text-[12px] md:text-[13px]  sm:leading-snug pt-2 min-[400px]:pt-5  min-[400px]:leading-[1.5] min-[500px]:text-[15px] min-[350px]:text-[10px] min-[300px]:max-[345px]:text-[8px] min-[372px]:max-[376px]:text-[8px] min-[372px]:max-[376px]:pt-5 min-[359px]:max-[361px]:text-[8px] min-[359px]:max-[361px]:pt-3"
+                  }`}>
                   {currentData.desc5}
                 </p>
               </div>
