@@ -1,18 +1,20 @@
 "use client";
+
 import { useLanguage } from "@/context/LanguageContext";
 import Image from "next/image";
-import check from "../../../../public/check.svg"
+import check from "../../../../public/check.svg";
 
 const successContent = {
   mr: {
-    title: "धन्यवाद !",
+    title: "धन्यवाद!",
     message1: "आपल्या देणगीबद्दल मनःपूर्वक धन्यवाद!",
     message2: "आपण समाजाच्या उन्नतीसाठी महत्त्वाचा वाटा उचलला आहे.",
   },
   en: {
-    title: "Thank You !",
+    title: "Thank You!",
     message1: "Heartfelt thanks for your donation!",
-    message2: "You have played an important role in the progress of society.",
+    message2:
+      "You have played an important role in the progress of society.",
   },
 };
 
@@ -21,33 +23,36 @@ export default function DonationSuccessPage() {
   const items = successContent[lang];
 
   return (
-    <main className="min-h-screen bg-[linear-gradient(168.07deg,#838366_2.31%,#EED5B1_50.3%,#7E868E_98.28%)] flex items-center justify-center px-4 py-10 md:py-0">
+    <main className={`min-h-screen bg-[linear-gradient(168.07deg,#838366_2.31%,#EED5B1_50.3%,#7E868E_98.28%)] flex items-center justify-center px-3 sm:px-4 py-6 sm:py-10 ${fontClass}`}>
       
-      {/* Container: Changed fixed height h-[490px] to h-auto and min-h for responsiveness */}
-      <div className={`bg-[#f3f3f3] w-full max-w-[908px] h-auto md:h-[490px] rounded-[24px] shadow-2xl py-12 md:py-16 px-6 md:px-12 text-center flex flex-col justify-center ${fontClass}`}>        
+      {/* Smaller Card */}
+      <div className="w-full max-w-[460px] bg-[#f6f6f4] rounded-[18px] sm:rounded-[24px] px-4 sm:px-6 md:px-8 py-6 sm:py-8 md:py-10 text-center shadow-2xl">
         
-        {/* Success Icon: Responsive sizing */}
-        <div className="flex justify-center transition-transform duration-500 hover:scale-110">
-          <div className="w-[100px] h-[100px] md:w-[136px] md:h-[130px] relative">
-             <Image src={check} alt="check" fill className="object-contain" />
-          </div>
+        {/* Icon */}
+        <div className="relative mx-auto w-[60px] h-[60px] sm:w-[80px] sm:h-[80px] md:w-[95px] md:h-[95px]">
+          <Image
+            src={check}
+            alt="success"
+            fill
+            priority
+            className="object-contain"
+          />
         </div>
 
-        {/* Title: Scaled text for mobile (text-3xl) vs desktop (text-5xl) */}
-        <h2 className="text-3xl md:text-[48px] font-[500] mt-6 md:mt-10 text-black leading-tight">
+        {/* Title */}
+        <h2 className="mt-4 sm:mt-6 text-[24px] sm:text-[34px] md:text-[42px] leading-tight font-medium text-black">
           {items.title}
         </h2>
 
-        {/* Message 1: Responsive font and spacing */}
-        <p className="mt-6 md:mt-10 text-lg md:text-[20px] text-[#333] font-medium px-2">
+        {/* Message 1 */}
+        <p className="mt-4 sm:mt-5 text-[14px] sm:text-[16px] md:text-[18px] leading-relaxed text-[#333] font-medium mx-auto">
           {items.message1}
         </p>
 
-        {/* Message 2: Responsive font and spacing */}
-        <p className="mt-4 md:mt-10 text-base md:text-[18px] text-[#555] px-2">
+        {/* Message 2 */}
+        <p className="mt-3 sm:mt-4 text-[13px] sm:text-[15px] md:text-[16px] leading-relaxed text-[#555] mx-auto">
           {items.message2}
         </p>
-
       </div>
     </main>
   );

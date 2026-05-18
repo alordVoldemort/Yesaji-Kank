@@ -108,96 +108,96 @@ export default function DonationPage() {
     acceptTerms: false,
   });
   const [errors, setErrors] = useState({
-  fullName: "",
-  mobile: "",
-  email: "",
-});
+    fullName: "",
+    mobile: "",
+    email: "",
+  });
 
   const { lang } = useLanguage();
   const t = translations[lang]; // Shortcut to the current language object
 
   const [activeTab, setActiveTab] = useState("donation");
 
-const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  const { name, value, type, checked } = e.target;
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value, type, checked } = e.target;
 
-  // Full Name -> only letters and spaces
-  if (name === "fullName") {
-    const onlyChars = value.replace(/[^A-Za-z\s]/g, "");
+    // Full Name -> only letters and spaces
+    if (name === "fullName") {
+      const onlyChars = value.replace(/[^A-Za-z\s]/g, "");
 
+      setFormData((prev) => ({
+        ...prev,
+        fullName: onlyChars,
+      }));
+
+      return;
+    }
+
+    // Mobile -> only numbers and max 10 digits
+    if (name === "mobile") {
+      const onlyNums = value.replace(/\D/g, "");
+
+      if (onlyNums.length > 10) return;
+
+      setFormData((prev) => ({
+        ...prev,
+        mobile: onlyNums,
+      }));
+
+      return;
+    }
+
+    // Remaining fields
     setFormData((prev) => ({
       ...prev,
-      fullName: onlyChars,
+      [name]: type === "checkbox" ? checked : value,
     }));
-
-    return;
-  }
-
-  // Mobile -> only numbers and max 10 digits
-  if (name === "mobile") {
-    const onlyNums = value.replace(/\D/g, "");
-
-    if (onlyNums.length > 10) return;
-
-    setFormData((prev) => ({
-      ...prev,
-      mobile: onlyNums,
-    }));
-
-    return;
-  }
-
-  // Remaining fields
-  setFormData((prev) => ({
-    ...prev,
-    [name]: type === "checkbox" ? checked : value,
-  }));
-};
-const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-
-  let newErrors = {
-    fullName: "",
-    mobile: "",
-    email: "",
   };
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-  // Full Name Validation (only characters and spaces)
-  const nameRegex = /^[A-Za-z\s]+$/;
+    let newErrors = {
+      fullName: "",
+      mobile: "",
+      email: "",
+    };
 
-  if (!nameRegex.test(formData.fullName.trim())) {
-    newErrors.fullName = "Name should contain only letters";
-  }
+    // Full Name Validation (only characters and spaces)
+    const nameRegex = /^[A-Za-z\s]+$/;
 
-  // Mobile Validation (exactly 10 digits)
-  const mobileRegex = /^[0-9]{10}$/;
+    if (!nameRegex.test(formData.fullName.trim())) {
+      newErrors.fullName = "Name should contain only letters";
+    }
 
-  if (!mobileRegex.test(formData.mobile)) {
-    newErrors.mobile = "Mobile number must be exactly 10 digits";
-  }
+    // Mobile Validation (exactly 10 digits)
+    const mobileRegex = /^[0-9]{10}$/;
 
-  // Email Validation (.com, .in, .net only)
-  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|in|net)$/;
+    if (!mobileRegex.test(formData.mobile)) {
+      newErrors.mobile = "Mobile number must be exactly 10 digits";
+    }
 
-  if (!emailRegex.test(formData.email)) {
-    newErrors.email =
-      "Enter a valid email ending with .com, .in or .net";
-  }
+    // Email Validation (.com, .in, .net only)
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|in|net)$/;
 
-  setErrors(newErrors);
+    if (!emailRegex.test(formData.email)) {
+      newErrors.email =
+        "Enter a valid email ending with .com, .in or .net";
+    }
 
-  // Stop submit if errors exist
-  if (
-    newErrors.fullName ||
-    newErrors.mobile ||
-    newErrors.email
-  ) {
-    return;
-  }
-router.push("/donation/donation-success");
-};
+    setErrors(newErrors);
+
+    // Stop submit if errors exist
+    if (
+      newErrors.fullName ||
+      newErrors.mobile ||
+      newErrors.email
+    ) {
+      return;
+    }
+    router.push("/donation/donation-success");
+  };
   return (
-    
+
     <main className=" relative w-full overflow-hidden bg-[#d8c7a8]">
       {/* ================= HERO SECTION ================= */}
       <section className="relative w-full h-[420px] sm:h-[520px] md:h-[650px] lg:h-[788px]">
@@ -205,7 +205,7 @@ router.push("/donation/donation-success");
         <div className="absolute inset-0 bg-[#D9D9D96E]" />
         <div className="absolute inset-0 flex flex-col items-center justify-start pt-[38px]">
           <div className="relative w-[260px] sm:w-[360px] md:w-[520px] lg:w-[800px] h-[120px] sm:h-[180px] md:h-[240px] lg:h-[380px]     ">
-            <Image src="/donation-text.png" alt={t.heroAlt} fill className="object-contain  min-[350px]:mt-3 " priority  />
+            <Image src="/donation-text.png" alt={t.heroAlt} fill className="object-contain  min-[350px]:mt-3 " priority />
           </div>
         </div>
       </section>
@@ -221,7 +221,7 @@ router.push("/donation/donation-success");
           </div>
 
           <div className="absolute inset-0 flex items-center justify-center  px-6 ">
-            <div className={`text-center text-white font-bold leading-[1.5] space-y-4 sm:space-y-5 md:space-y-6 ${lang === "mr" ? "max-w-[280px] sm:max-w-[420px] md:max-w-[500px] lg:max-w-[900px]" : "max-w-[240px] sm:max-w-[360px] md:max-w-[520px] lg:max-w-[760px]"}`}>
+            <div className={`text-center text-white font-bold leading-[1.5] space-y-4 sm:space-y-5 md:space-y-6 ${lang === "mr" ? "max-w-[280px] sm:max-w-[420px] md:max-w-[500px] lg:max-w-[900px]" : "max-w-[240px] sm:max-w-[360px] md:max-w-[520px] lg:max-w-[760px] lg:px-15"}`}>
               {t.scroll.map((para, i) => (
                 <div key={i}>
                   <p className="text-[6px] sm:text-[8px] md:text-[14px] lg:text-[14px] min-[350px]:text-[9px]">{para.line1}</p>
@@ -235,30 +235,30 @@ router.push("/donation/donation-success");
         {/* Tabs */}
         <div className="flex flex-col items-center mt-5 md:mt-8">
           <div className="flex items-center gap-10 md:gap-16">
-<button onClick={() => setActiveTab("donation")} className="flex items-center gap-3">
-  <div className="relative w-[22px] h-[22px] md:w-[28px] md:h-[28px]">
-    <Image
-      src={activeTab === "donation" ? "/donation-orange.svg" : "/ऑनलाइन देणगी फॉर्म.svg"}
-      alt="icon"
-      fill
-      priority
-      className="object-contain"
-    />
-  </div>
+            <button onClick={() => setActiveTab("donation")} className="flex items-center gap-3">
+              <div className="relative w-[22px] h-[22px] md:w-[28px] md:h-[28px]">
+                <Image
+                  src={activeTab === "donation" ? "/donation-orange.svg" : "/ऑनलाइन देणगी फॉर्म.svg"}
+                  alt="icon"
+                  fill
+                  priority
+                  className="object-contain"
+                />
+              </div>
 
-  <span className={`text-[15px] md:text-[18px] font-medium transition cursor-pointer ${activeTab === "donation" ? "text-[#e17843]" : "text-[#2e2417]"}`}>
-    {t.onlineTab}
-  </span>
-</button>
-<button onClick={() => setActiveTab("bank")} className="flex items-center gap-3">
-  <div className="relative w-[22px] h-[22px] md:w-[28px] md:h-[28px]">
-    <Image src={activeTab === "bank" ? "/bank-orange.svg" : "/बँक तपशील.svg"} alt="icon" fill priority className="object-contain" />
-  </div>
+              <span className={`text-[15px] md:text-[18px] font-medium transition cursor-pointer ${activeTab === "donation" ? "text-[#e17843]" : "text-[#2e2417]"}`}>
+                {t.onlineTab}
+              </span>
+            </button>
+            <button onClick={() => setActiveTab("bank")} className="flex items-center gap-3">
+              <div className="relative w-[22px] h-[22px] md:w-[28px] md:h-[28px]">
+                <Image src={activeTab === "bank" ? "/bank-orange.svg" : "/बँक तपशील.svg"} alt="icon" fill priority className="object-contain" />
+              </div>
 
-  <span className={`text-[15px] md:text-[18px] font-medium transition cursor-pointer ${activeTab === "bank" ? "text-[#e17843]" : "text-[#2e2417]"}`}>
-    {t.bankTab}
-  </span>
-</button>
+              <span className={`text-[15px] md:text-[18px] font-medium transition cursor-pointer ${activeTab === "bank" ? "text-[#e17843]" : "text-[#2e2417]"}`}>
+                {t.bankTab}
+              </span>
+            </button>
           </div>
           <div className="w-[420px] md:w-[560px] h-[1px] bg-[#3d2b1f] mt-[14px]" />
         </div>
@@ -277,52 +277,55 @@ router.push("/donation/donation-success");
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8">
                 <div>
                   <label className="text-[15px] text-[#333] font-medium">{t.fullName}</label>
-<input
-  type="text"
-  name="fullName"
-  value={formData.fullName}
-  onChange={handleChange}
-  placeholder={t.fullNamePlac}
-  className="w-full mt-2 h-[42px] border border-[#bdbdbd] rounded-[8px] px-4 bg-transparent outline-none text-[14px]"
-/>
+                  <input
+                    type="text"
+                    name="fullName"
+                    value={formData.fullName}
+                    onChange={handleChange}
+                    placeholder={t.fullNamePlac}
+                    className="w-full mt-2 h-[42px] border border-[#bdbdbd] rounded-[8px] px-4 bg-transparent outline-none text-[14px]"
+                  />
 
-{errors.fullName && (
-  <p className="text-red-500 text-sm mt-1">
-    {errors.fullName}
-  </p>
-)}                </div>
+                  {errors.fullName && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.fullName}
+                    </p>
+                  )}              
+                    </div>
                 <div>
                   <label className="text-[15px] text-[#333] font-medium">{t.mobile}</label>
-<input
-  type="number "
-  name="mobile"
-  value={formData.mobile}
-  onChange={handleChange}
-  placeholder={t.mobilePlac}
-  className="w-full mt-2 h-[42px] border border-[#bdbdbd] rounded-[8px] px-4 bg-transparent outline-none text-[14px]"
-/>
+                  <input
+                    type="number "
+                    name="mobile"
+                    value={formData.mobile}
+                    onChange={handleChange}
+                    placeholder={t.mobilePlac}
+                    className="w-full mt-2 h-[42px] border border-[#bdbdbd] rounded-[8px] px-4 bg-transparent outline-none text-[14px]"
+                  />
 
-{errors.mobile && (
-  <p className="text-red-500 text-sm mt-1">
-    {errors.mobile}
-  </p>
-)}                </div>
+                  {errors.mobile && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.mobile}
+                    </p>
+                  )}              
+                    </div>
                 <div>
                   <label className="text-[15px] text-[#333] font-medium">{t.email}</label>
-<input
-  type="email"
-  name="email"
-  value={formData.email}
-  onChange={handleChange}
-  placeholder={t.emailPlac}
-  className="w-full mt-2 h-[42px] border border-[#bdbdbd] rounded-[8px] px-4 bg-transparent outline-none text-[14px]"
-/>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder={t.emailPlac}
+                    className="w-full mt-2 h-[42px] border border-[#bdbdbd] rounded-[8px] px-4 bg-transparent outline-none text-[14px]"
+                  />
 
-{errors.email && (
-  <p className="text-red-500 text-sm mt-1">
-    {errors.email}
-  </p>
-)}                </div>
+                  {errors.email && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.email}
+                    </p>
+                  )}                
+                  </div>
                 <div>
                   <label className="text-[15px] text-[#333] font-medium">{t.address}</label>
                   <input type="text" name="city" value={formData.city} onChange={handleChange} placeholder={t.addressPlac} className="w-full mt-2 h-[42px] border border-[#bdbdbd] rounded-[8px] px-4 bg-transparent outline-none text-[14px]" />
