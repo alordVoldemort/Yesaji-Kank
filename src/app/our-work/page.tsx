@@ -36,7 +36,7 @@ export default function OurWorkPage() {
       <div className="relative w-full h-[500px] md:h-[550px] overflow-hidden">
         <Image src="/ourwork.png" alt="Our Work" fill className="object-cover object-top" priority />
         <div className="absolute inset-0 bg-white/40" />
-        <div className="absolute inset-0 flex items-start justify-center pt-6 md:pt-20 z-10">
+       <div className="absolute inset-0 flex items-start justify-center pt-20 sm:pt-6 md:pt-20 z-10">
           <Image src="/ourworkfont.png" alt="Our Work Icon" width={1000} height={200} className="object-contain w-[460px] md:w-[800px]" priority />
         </div>
       </div>
