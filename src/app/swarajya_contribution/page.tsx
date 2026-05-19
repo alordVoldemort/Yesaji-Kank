@@ -354,18 +354,20 @@ export default function SwarajyaContributionPage() {
       {/* TIMELINE */}
       <section className="relative w-full overflow-x-hidden px-3 sm:px-4 md:px-12 py-12 md:py-24">
         <div className="w-full max-w-7xl mx-auto overflow-hidden">
-          
           {/* DESKTOP HEADING */}
-          <div className="hidden md:grid md:grid-cols-[1fr_100px_1fr] gap-10 mb-20 items-center">
-            <h2 className="text-3xl font-bold text-black">{t.leftHeading}</h2>
+          <div className="hidden md:grid md:grid-cols-2 gap-10 mb-20 items-center mt-6">
+            <div className="flex justify-center">
+              <h2 className="text-3xl font-bold text-black text-center">
+                {t.leftHeading}
+              </h2>
+            </div>
 
-            <div />
-
-            <h2 className="text-3xl font-bold text-center text-black">
-              {t.rightHeading}
-            </h2>
+            <div className="flex justify-center">
+              <h2 className="text-3xl font-bold text-black text-center">
+                {t.rightHeading}
+              </h2>
+            </div>
           </div>
-
           {/* TIMELINE */}
           <div
             ref={rowContainerRef}
@@ -437,13 +439,7 @@ export default function SwarajyaContributionPage() {
 
                 {/* LEFT IMAGE */}
                 <div
-                  className="
-                  tl-left min-w-0 relative overflow-hidden
-                  rounded-xl md:rounded-[30px]
-                  shadow-xl md:shadow-2xl
-                  col-start-2 row-start-1
-                  md:col-start-1 md:row-start-1
-                "
+                  className=" tl-left min-w-0 relative overflow-hidden  rounded-xl md:rounded-[30px] shadow-xl md:shadow-2xl col-start-2 row-start-1 md:col-start-1 md:row-start-1"
                   style={{ aspectRatio: "4/3" }}
                 >
                   <Image
