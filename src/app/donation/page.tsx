@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { motion, AnimatePresence,Variants } from "framer-motion";
 
-// ================= TRANSLATION OBJECT =================
 const translations = {
   mr: {
     heroAlt: "देणगी",
