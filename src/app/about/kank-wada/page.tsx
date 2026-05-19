@@ -3,104 +3,172 @@
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 
-const content = {
+import name from "../../../../public/wada/name.svg";
+import card from "../../../../public/wada/card.svg";
+import trust from "../../../../public/MainPage/Trust.svg";
+import home from "../../../../public/wada/home.svg";
+import yesaji from "../../../../public/wada/yesaji.svg";
+import pot from "../../../../public/wada/pot.svg";
+
+const data = {
   mr: {
-    line1: `स्वराज्याचे सरसेनापती आणि छ.शिवाजी महाराजांचे विश्वासू सहकारी येसाजी कंक यांचे गाव`,
-    line2: `भुतोंडे पुण्यातील`,
-    line3: `भोर मधील राजगड किल्ल्याच्या पायथ्याशी वसलेले गाव.`,
-    body: `आज ही ह्या वाड्यात पाऊल ठेवल्यावर वेळ थांबते आणि इतिहास आपल्या डोळ्यासमोर जसाच्या तसा उभा राहतो.
-इतिहास संकलक श्री. आप्पा परब म्हणतात, "भू म्हणजे आणि तोंड म्हणजे मुख्य — भुतोंड म्हणजेच राजगड जिल्ह्याच्या जवळपासच्या गावातील मुख्यगाव"
-येसाजी कंक वाडा पुण्यापासून 65 किमी, भोरपासून 55 किमी तर साताऱ्यापासून 110 किमीवर आहे.
-छ.शिवाजी महाराज, छ.संभाजी महाराज, छ. शाहू महाराज आणि छ.राजाराम महाराज यांच्या पदस्पर्शाने पावन झालेल्या कंक वाड्यात आज ही येसाजी कंकांचे १२ वे, १३ वे, आणि १४ वे वंशज राहतात.
-इतिहासाचा पुरावा देणारा हा वाडा गेल्या अनेक दशकांतील बदलांचा साक्षीदार आहे.
-वाड्याच्या अंगणात तुळशी वृंदावन आहे. आतमध्ये वाडा सागवानी तुळईंवर उभा आहे. मुख्यदारातून प्रवेश करताच आत ओसरी आहे. ओसरीच्या उजव्या बाजूस सरसेनापती येसाजी कंक यांचा पुतळा आहे. त्या लगत काही पुरातन हत्यारे जसे तलवार, धोप, खंजीर, बंदूक तसेच शिवकालीन नाणी बघायला मिळतात. दोन मजली वाड्यात वरच्या बाजूस माडीवर जुनी भांडी आहेत. वाड्यामध्ये आत चौक आहे.
-भव्य कंक वाडा इतिहासाच्या प्रत्येक पानाची साक्ष देतो.
-प्रत्येक खिडकीतून राजगडचा बालेकिल्ला आणि संजीवनी माची दिसणाऱ्या या वाड्यात आज ही येसाजी कंकांचे वंशज इतिहास जपताना दिसतात. येणाऱ्या प्रत्येकाला ते वाड्याची, इतिहासाची संपूर्ण माहिती देतात.
-इतिहासाचा हा अनमोल ठेवा सर्वांसाठी नेहमी खुला असतो. आजही कंक वाडा येथे अनेक शिवभक्त, इतिहास अभ्यासक, मावळे रोज भेट देण्यास येतात.`,
+    title: "वाड्याची माहिती",
+    section1: {
+      line1: "स्वराज्याचे सरसेनापती आणि छ. शिवाजी महाराजांचे विश्वासू सहकारी येसाजी कंक यांचे गाव",
+      line2: "भुतोंडे — पुण्यातील",
+      line3: "भोर मधील राजगड किल्ल्याच्या पायथ्याशी वसलेले.",
+      line4: "आज ही ह्या वाड्यात पाऊल ठेवल्यावर वेळ थांबते आणि इतिहास",
+      line5: "आपल्या डोळ्यासमोर जसाच्या तसा उभा",
+      line6: "राहतो.",
+      line7: "इतिहास संकलक श्री. आप्पा परब म्हणतात,",
+      line8: "“भू म्हणजे भूमी आणि तोंड म्हणजे मुख्य. भुतोंडे म्हणजेच राजगड जिल्ह्याच्या जवळपासच्या",
+      line9: "गावातील मुख्य गाव”",
+    },
+    section2: {
+      line1: "येसाजी कंक वाडा पुण्यापासून ६५ किमी, भोरपासून ५५ किमी तर साताऱ्यापासून ११० किमीवर आहे.",
+      line2: "छ. शिवाजी महाराज, छ. संभाजी महाराज, छ. शाहूमहाराज आणि छ. राजाराम महाराज यांच्या",
+      line3: "पदस्पर्शाने पावन",
+      line4: "झालेल्या कंक वाड्यात आज ही येसाजी कंकांचे १२वे, १३वे, आणि १४वे वंशज राहतात.",
+      line5: "इतिहासाचा पुरावा देणारा हा वाडा गेल्या अनेक दशकांतील बदलांचा साक्षीदार आहे.",
+      line6: "वाड्याच्या अंगणात तुळसी वृंदावन आहे. आतमध्ये वाडा सागवानी तुळईंवर उभा आहे. मुख्य दारातून प्रवेश",
+      line7: "करतानाच आत ओसरी आहे. ओसरीच्या उजव्या बाजूस सरसेनापती येसाजी कंक यांचा पुतळा आहे. त्या लगत",
+      line8: "काही",
+      line9: "पुरातन हत्यारे जसे तलवार, धोप, खंजीर, बंदूक तसेच शिवकालीन नाणी बघायला मिळतात. दोन मजली",
+      line10: "वाड्यात",
+      line11: "वरच्या बाजूस माडीवर जुनी भांडी आहेत. वाड्यामध्ये आत चौक आहे.",
+      line12: "भव्य कंक वाडा इतिहासाच्या प्रत्येक पानाची साक्ष देतो.",
+    },
+    section3: {
+      line1: "प्रत्येक खिडकीतून राजगडचा बालेकिल्ला आणि संजीवनी माची दिसणाऱ्या या वाड्यात आज हि येसाजी",
+      line2: "कंकांचे",
+      line3: "वंशज इतिहास जपताना दिसतात. येणाऱ्या प्रत्येकाला ते वाड्याची, इतिहासाची संपूर्ण माहिती देतात.",
+      line4: "इतिहासाचा हा अनमोल ठेवा सर्वांसाठी नेहमी खुला असतो. आजही कंक वाडा येथे अनेक शिवभक्त,",
+      line5: "इतिहास अभ्यासक, मावळे रोज भेट देण्यास येतात.",
+    },
   },
   en: {
-    line1: `The brave Commander and trusted ally of Chhatrapati Shivaji Maharaj — Yesaji Kank's village`,
-    line2: `Bhutonde, Pune`,
-    line3: `Located at the foothills of Rajgad Fort near Bhor.`,
-    body: `Stepping into this wada is like stepping back in time — history stands before you in all its glory.
-Historian Shri. Appa Parab says, "Bhu means land and Tond means main — Bhutonde is the main village among those near Rajgad."
-Yesaji Kank Wada is located 65 km from Pune, 55 km from Bhor, and 110 km from Satara.
-Blessed by the footsteps of Chhatrapati Shivaji Maharaj, Chhatrapati Sambhaji Maharaj, Chhatrapati Shahu Maharaj, and Chhatrapati Rajaram Maharaj, the Kank Wada is now home to the 12th, 13th, and 14th generations of Yesaji Kank's descendants.
-This wada has witnessed the passage of time across many decades.
-In the wada's courtyard, there is a Tulsi Vrindavan. Inside, the wada stands on teak beams. Upon entering the main door, there is an Osari. To the right of the Osari is a statue of Commander Yesaji Kank. Nearby, ancient weapons such as swords, dhop, khanjir, and guns, along with Shiv-era coins, can be seen. The two-story wada has old utensils on the upper floor, and a courtyard inside.
-The magnificent Kank Wada bears witness to every page of history.
-From every window, Rajgad's Balekilla and Sanjeevani Machi are visible. The descendants of Yesaji Kank continue to preserve history and share it with every visitor.
-This priceless treasure of history is always open to all. Even today, Shiv devotees, history enthusiasts, and scholars visit Kank Wada daily.`,
+    title: "Information About The Wada",
+    section1: {
+      line1: "Bhutonde is the village of Yesaji Kank, the Commander-in-Chief of Swarajya",
+      line2: "and a trusted associate of Chhatrapati Shivaji Maharaj,",
+      line3: "situated at the foothills of Rajgad Fort in Bhor, Pune.",
+      line4: "Even today, when you step into this wada, time stops. History",
+      line5: "comes alive right before the eyes, exactly",
+      line6: "as it was back then.",
+      line7: "History compiler Mr. Appa Parab says:",
+      line8: "“Bhu means land and Tonde means main. Therefore, Bhutonde means",
+      line9: "the main village among the villages near Rajgad.”",
+    },
+    section2: {
+      line1: "The Yesaji Kank Wada is located 65 km from Pune, 55 km from Bhor",
+      line2: "and 110 km from Satara. In the Kank Wada blessed by the visits of",
+      line3: "Chhatrapati Shivaji Maharaj, Sambhaji Maharaj, Shahu Maharaj",
+      line4: "and Rajaram Maharaj, the 12th, 13th and 14th descendants live today.",
+      line5: "This mansion serves as a witness to all changes over several decades.",
+      line6: "Inside, the wada is held up by teak wood beams with a Tulsi Vrindavan in the",
+      line7: "courtyard. Right after the main door is a veranda with a statue of",
+      line8: "Commander-in-Chief Yesaji Kank. Next to it are",
+      line9: "various antique weapons, swords, dhops, daggers, guns, and coins",
+      line10: "from the Shivaji era. Old vessels are kept on the upper",
+      line11: "floor of this two-story mansion, which features a central courtyard.",
+      line12: "The grand Kank Wada stands as a witness to every page of history.",
+    },
+    section3: {
+      line1: "From every window of the wada, the Balekilla and Sanjivani Machi of Rajgad",
+      line2: "can be seen clearly. The descendants of Yesaji Kank continue preserving",
+      line3: "history and guide visitors about the wada and its heritage.",
+      line4: "This invaluable treasure of history is always open to everyone.",
+      line5: "Many Shivaji devotees and history experts visit regularly.",
+    },
   },
 };
 
 export default function KankWadaPage() {
   const { lang, fontClass } = useLanguage();
-  const t = lang === "en" ? content.en : content.mr;
+  const datas = data[lang as keyof typeof data];
+
+  const renderLines = (section: Record<string, string>) =>
+    Object.values(section).map((line, i) => (
+      <p key={i} className="m-0">
+        {line}
+      </p>
+    ));
 
   return (
-    <main
-      className={`min-h-screen overflow-hidden ${fontClass}`}
-      style={{
-        background:
-          "linear-gradient(135deg, #838366 0%, #EED5B1 50%, #7E868E 100%)",
-      }}
-    >
-      {/* Title Font */}
-      <div className="flex justify-center pt-24 pb-6 z-10 relative">
-        <Image
-          src="/wadafont.png"
-          alt="सरनोबत येसाजी कंक वाडा"
-          width={600}
-          height={200}
-          className="object-contain w-[240px] md:w-[600px]"
-          priority
-        />
-      </div>
-
-      {/* Wada Hero Image */}
-      <div className="flex justify-center px-4 md:px-16 -mt-8 md:-mt-26 z-0 relative">
-        <div className="relative w-full max-w-3xl h-[30vh] md:h-[55vh] overflow-hidden rounded-[2rem] md:rounded-[3rem]">
+    <main className={`pt-[64px] ${fontClass}`}>
+      <div className="relative w-full">
+        <video autoPlay muted loop playsInline className="w-full h-auto">
+          <source src="/wada/video.mp4" type="video/mp4" />
+        </video>        <div className="absolute top-0 left-0 right-0 flex justify-center mt-5">
           <Image
-            src="/wadamain.png"
-            alt="येसाजी कंक वाडा"
-            fill
-            priority
-            className="object-cover"
-            style={{ objectPosition: "50% 30%" }}
+            src={name}
+            alt="name"
+            className="w-[70%] max-w-[620px] h-auto"
           />
         </div>
       </div>
 
-      {/* Content Card — auto height so all text fits */}
-      <section className="relative max-w-5xl mx-auto px-4 md:px-8 py-12 md:py-16">
-        <div
-          className="relative rounded-md"
-          style={{
-            backgroundImage: "url('/wadabg.png')",
-            backgroundSize: "100% 100%",
-            backgroundRepeat: "no-repeat",
-          }}
-        >
-          <div className="px-10 md:px-24 py-14 md:py-20 flex flex-col items-center gap-2">
-            <h2 className="text-[#3f2a1c] text-lg md:text-2xl font-bold text-center mb-2">
-              वाड्याची माहीती
-            </h2>
-            <p className="text-[#3f2a1c] text-xs md:text-sm leading-relaxed font-medium text-center">
-              {t.line1}
-            </p>
-            <p className="text-[#3f2a1c] text-sm md:text-base font-medium text-center">
-              {t.line2}
-            </p>
-            <p className="text-[#3f2a1c] text-xs md:text-sm leading-relaxed font-medium text-center mb-3">
-              {t.line3}
-            </p>
-            <p className="text-[#3f2a1c] text-xs md:text-sm leading-[2] font-normal text-center whitespace-pre-line">
-              {t.body}
-            </p>
+      <div className="relative w-full bg-[linear-gradient(168.07deg,#838366_2.31%,#EED5B1_50.3%,#7E868E_98.28%)] py-5">
+        <div className="relative mx-auto w-full max-w-[520px]">
+          <Image src={card} alt="card" className="w-full h-auto block" />
+
+          <div className="absolute inset-0 px-4 sm:px-6 pt-5 sm:pt-6 pb-6 sm:pb-8 flex flex-col">
+            <div className="relative w-[150px] sm:w-[170px] mb-4 sm:mb-5 shrink-0 mx-auto">
+              <Image src={trust} alt="trust" className="w-full h-auto block" />
+              <h1 className="absolute inset-0 flex items-center justify-center text-center text-[12px] sm:text-[16px] font-semibold text-black px-4 leading-tight">
+                {datas.title}
+              </h1>
+            </div>
+
+            <div className="flex-1 overflow-y-auto overflow-x-hidden hide-scrollbar text-black">
+              <div className="flex flex-col items-center">
+                <Image
+                  src={home}
+                  alt="home"
+                  className="w-[78%] max-w-[320px] h-auto rounded-2xl mb-5 sm:mb-6"
+                />
+
+                <div className="w-full text-center text-[13px] sm:text-[15px] leading-6 sm:leading-7 space-y-2">
+                  {renderLines(datas.section1)}
+                </div>
+
+                <Image
+                  src={yesaji}
+                  alt="yesaji"
+                  className="w-[70%] max-w-[220px] h-auto rounded-2xl my-5 sm:my-6"
+                />
+
+                <div className="w-full text-center text-[13px] sm:text-[15px] leading-6 sm:leading-7 space-y-2">
+                  {renderLines(datas.section2)}
+                </div>
+
+                <Image
+                  src={pot}
+                  alt="pot"
+                  className="w-[72%] max-w-[240px] h-auto rounded-2xl my-5 sm:my-6"
+                />
+
+                <div className="w-full text-center text-[13px] sm:text-[15px] leading-6 sm:leading-7 pb-4 space-y-2">
+                  {renderLines(datas.section3)}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
+
+      <style jsx global>{`
+        .hide-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+          width: 0;
+          height: 0;
+          display: none;
+        }
+      `}</style>
     </main>
   );
 }
