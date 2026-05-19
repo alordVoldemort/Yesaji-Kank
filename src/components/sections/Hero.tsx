@@ -126,37 +126,35 @@ export default function Hero() {
             {/* Dark Overlay */}
             <div className="absolute inset-0 bg-black/5" />
 
-            {/* Content */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center px-3 sm:px-5 md:px-6 lg:px-8 py-4 sm:py-5 md:py-6">
-              {items.map((item, index) => (
-                <div key={index} className="w-full text-center">
-                  {/* Heading */}
+             {/* Content */}
+<div className="absolute inset-0 flex flex-col items-center justify-center sm:justify-center -translate-y-14 sm:translate-y-0 px-4 sm:px-5 md:px-6 lg:px-8 sm:pt-0">
+  {items.map((item, index) => (
+    <div key={index} className="w-full text-center">
+      {/* Heading */}
+      <h2 className="text-[15px] sm:text-[16px] md:text-[19px] lg:text-[20px] font-bold text-[#1F1F1F] leading-tight px-3">
+        "{item.name}"
+      </h2>
 
-                  <h2 className="text-[15px] sm:text-[16px] md:text-[19px] lg:text-[20px] font-bold text-[#1F1F1F] leading-tight px-3">
-                  
-                    "{item.name}"
-                  </h2>
+      {/* Subtitle */}
+      <p className="mt-1 sm:mt-2 text-[11px] sm:text-[15px] md:text-[17px] lg:text-[18px] font-medium text-[#1F1F1F] px-4 leading-tight opacity-90">
+        - {item.description}
+      </p>
 
-                  {/* Subtitle */}
-                  <p className="mt-1 sm:mt-2 text-[11px] sm:text-[15px] md:text-[17px] lg:text-[18px] font-medium text-[#1F1F1F] px-2">
-                    - {item.description}
-                  </p>
+      {/* Buttons */}
+      <div className="flex flex-row items-center justify-center gap-3 sm:gap-3 md:gap-4 mt-4 sm:mt-5 md:mt-6 lg:mt-6 w-full px-2">
+        {/* Contact Button */}
+        <button className="flex-1 max-w-[130px] sm:w-[150px] md:w-[150px] lg:w-[184px] h-[34px] sm:h-[42px] md:h-[46px] lg:h-[50px] rounded-[6px] border border-[#C05621] bg-[#F5F5F5] text-[#C05621] text-[12px] sm:text-[15px] md:text-[16px] lg:text-[18px] font-bold transition-all duration-300 whitespace-nowrap">
+          {item.btn1}
+        </button>
 
-                  {/* Buttons */}
-                  <div className="flex flex-row sm:flex-row items-center justify-center gap-2 sm:gap-3 md:gap-4 mt-2 sm:mt-5 md:mt-6 lg:mt-6 w-full px-2">
-                    {/* Contact Button */}
-                    <button className="w-[120px] sm:w-[150px] md:w-[150px] lg:w-[184px] h-[30px] sm:h-[42px] md:h-[46px] lg:h-[50px] rounded-[6px] border border-[#C05621] bg-[#F5F5F5] text-[#C05621] text-[11px] sm:text-[15px] md:text-[16px] lg:text-[18px] font-semibold transition-all duration-300 hover:bg-[#C05621] hover:text-white whitespace-nowrap px-2">
-                      {item.btn1}
-                    </button>
-
-                    {/* More Info Button */}
-                    <button className="w-[120px] sm:w-[150px] md:w-[165px] lg:w-[184px] h-[30px] sm:h-[42px] md:h-[46px] lg:h-[50px] rounded-[6px] bg-[#C05621] border border-[#C05621] text-white text-[11px] sm:text-[15px] md:text-[16px] lg:text-[18px] font-semibold transition-all duration-300 hover:bg-[#A3471B] whitespace-nowrap px-2">
-                      {item.btn2}
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
+        {/* More Info Button */}
+        <button className="flex-1 max-w-[130px] sm:w-[150px] md:w-[165px] lg:w-[184px] h-[34px] sm:h-[42px] md:h-[46px] lg:h-[50px] rounded-[6px] bg-[#C05621] border border-[#C05621] text-white text-[12px] sm:text-[15px] md:text-[16px] lg:text-[18px] font-bold transition-all duration-300 whitespace-nowrap">
+          {item.btn2}
+        </button>
+      </div>
+    </div>
+  ))}
+</div>
           </div>
         </div>
       </section>
