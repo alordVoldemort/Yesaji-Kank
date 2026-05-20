@@ -1,10 +1,22 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Noto_Sans_Devanagari, Poppins } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Hind,
+  Noto_Sans_Devanagari,
+  Poppins,
+} from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { siteConfig } from "@/config/site";
-import { LanguaugeProvider } from "@/context/LanguageContext";
+import { LanguageProvider } from "@/context/LanguageContext";
+
+const hind = Hind({
+  variable: "--font-hind",
+  subsets: ["devanagari"],
+  weight: ["400", "500", "600", "700"],
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,10 +43,6 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: siteConfig.name,
   description: siteConfig.description,
-  icons: {
-    icon: "/main_logo.png",
-    apple: "/main_logo.png",
-  },
 };
 
 export default function RootLayout({
@@ -45,16 +53,16 @@ export default function RootLayout({
   return (
     <html
       lang="mr"
-      className={`${geistSans.variable} ${geistMono.variable} ${devanagari.variable} ${poppins.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${devanagari.variable} ${poppins.variable} ${hind.variable} h-full antialiased`}
     >
       <body>
-        <LanguaugeProvider>
-        <Navbar/>
-        {children }
-        <Footer />
-         </LanguaugeProvider>
+        <LanguageProvider >
+          <Navbar />
+          {children}
+          <Footer />
+        </LanguageProvider>
       </body>
-     
+
     </html>
   );
 }

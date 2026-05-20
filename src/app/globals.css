@@ -19,6 +19,21 @@
   font-family: 'Noto Sans Modi', serif;
 }
 
+
+.font-marathi {
+  font-family: var(--font-hind), sans-serif;
+}
+
+.font-marathi-digit {
+  font-family: var(--font-devanagari), sans-serif;
+}
+
+.font-english {
+  font-family: var(--font-poppins), sans-serif;
+}
+
+
+
 /* ── Nav button: horizontal orange fill from center ── */
 .nav-btn {
   position: relative;
