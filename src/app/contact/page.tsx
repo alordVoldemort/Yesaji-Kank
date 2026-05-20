@@ -48,7 +48,7 @@ export default function ContactPage() {
         <div className="relative w-full flex justify-center z-0 lg:w-[680px] lg:h-[480px] md:w-[500px]">
           <Image src={twoflags} alt="Two Flags" width={480} height={350} className="object-contain w-full h-auto" />
           <div className="absolute inset-0 flex items-center justify-center pb-[20%] sm:pb-[15%]">
-            <Image src="/Contact-text.svg" alt={t.pageTitle} width={560} height={500} className="object-contain w-[390px] sm:w-[140px] md:w-[390px] lg:w-[480px]" />
+            <Image src="/contact-text.svg" alt={t.pageTitle} width={560} height={500} className="object-contain w-[390px] sm:w-[140px] md:w-[390px] lg:w-[480px]" />
           </div>
         </div>
         <div className="relative z-20 mt-[-38%] sm:mt-[-22%] md:mt-[-30%] lg:mt-[-30%] w-[190px] h-[190px] sm:w-[300px] sm:h-[300px] md:w-[350px] md:h-[400px] lg:w-[300px]">

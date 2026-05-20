@@ -32,6 +32,9 @@ import oldcard1 from "../../../public/MainPage/oldcard1.svg";
 import flag from "../../../public/MainPage/flag.svg";
 import prevBtn from "../../../public/MainPage/prev.svg";
 import nextBtn from "../../../public/MainPage/next.svg";
+import trustone from "../../../public/trust1.jpg";
+import trusttwo from "../../../public/trust2.jpg";
+import trustthree from "../../../public/trust3.jpg";
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
@@ -117,135 +120,126 @@ export default function Hero() {
             <Image
               src={extrainfo}
               alt="extrainfo"
-              fill
-              className="object-cover"
+              className="object-fill w-full h-full"
             />
 
             {/* Dark Overlay */}
             <div className="absolute inset-0 bg-black/5" />
 
-            {/* Content */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center px-3 sm:px-5 md:px-6 lg:px-8 py-4 sm:py-5 md:py-6">
-              {items.map((item, index) => (
-                <div key={index} className="w-full text-center">
-                  {/* Heading */}
-                  <h2 className="text-[18px] sm:text-[18px] md:text-[19px] lg:text-[20px] font-bold text-[#1F1F1F] leading-tight px-2">
-                    "{item.name}"
-                  </h2>
+             {/* Content */}
+<div className="absolute inset-0 flex flex-col items-center justify-center sm:justify-center -translate-y-14 sm:translate-y-0 px-4 sm:px-5 md:px-6 lg:px-8 sm:pt-0">
+  {items.map((item, index) => (
+    <div key={index} className="w-full text-center">
+      {/* Heading */}
+      <h2 className="text-[15px] sm:text-[16px] md:text-[19px] lg:text-[20px] font-bold text-[#1F1F1F] leading-tight px-3">
+        "{item.name}"
+      </h2>
 
-                  {/* Subtitle */}
-                  <p className="mt-1 sm:mt-2 text-[13px] sm:text-[15px] md:text-[17px] lg:text-[18px] font-medium text-[#1F1F1F] px-2">
-                    - {item.description}
-                  </p>
+      {/* Subtitle */}
+      <p className="mt-1 sm:mt-2 text-[11px] sm:text-[15px] md:text-[17px] lg:text-[18px] font-medium text-[#1F1F1F] px-4 leading-tight opacity-90">
+        - {item.description}
+      </p>
 
-                  {/* Buttons */}
-                  <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 md:gap-4 mt-3 sm:mt-5 md:mt-6 lg:mt-6 w-full px-2">
-                    {/* Contact Button */}
-                    <button className="w-full sm:w-[150px] md:w-[165px] lg:w-[184px] h-[38px] sm:h-[42px] md:h-[46px] lg:h-[50px] rounded-[6px] border border-[#C05621] bg-[#F5F5F5] text-[#C05621] text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] font-semibold transition-all duration-300 hover:bg-[#C05621] hover:text-white whitespace-nowrap px-3">
-                      {item.btn1}
-                    </button>
+      {/* Buttons */}
+      <div className="flex flex-row items-center justify-center gap-3 sm:gap-3 md:gap-4 mt-4 sm:mt-5 md:mt-6 lg:mt-6 w-full px-2">
+        {/* Contact Button */}
+        <button className="flex-1 max-w-[130px] sm:w-[150px] md:w-[150px] lg:w-[184px] h-[34px] sm:h-[42px] md:h-[46px] lg:h-[50px] rounded-[6px] border border-[#C05621] bg-[#F5F5F5] text-[#C05621] text-[12px] sm:text-[15px] md:text-[16px] lg:text-[18px] font-bold transition-all duration-300 whitespace-nowrap">
+          {item.btn1}
+        </button>
 
-                    {/* More Info Button */}
-                    <button className="w-full sm:w-[150px] md:w-[165px] lg:w-[184px] h-[38px] sm:h-[42px] md:h-[46px] lg:h-[50px] rounded-[6px] bg-[#C05621] border border-[#C05621] text-white text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] font-semibold transition-all duration-300 hover:bg-[#A3471B] whitespace-nowrap px-3">
-                      {item.btn2}
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
+        {/* More Info Button */}
+        <button className="flex-1 max-w-[130px] sm:w-[150px] md:w-[165px] lg:w-[184px] h-[34px] sm:h-[42px] md:h-[46px] lg:h-[50px] rounded-[6px] bg-[#C05621] border border-[#C05621] text-white text-[12px] sm:text-[15px] md:text-[16px] lg:text-[18px] font-bold transition-all duration-300 whitespace-nowrap">
+          {item.btn2}
+        </button>
+      </div>
+    </div>
+  ))}
+</div>
           </div>
         </div>
       </section>
 
-      <section className="bg-[linear-gradient(177.14deg,_#838366_0.89%,_#EED5B1_49.41%,_#7E868E_97.93%)] h-auto overflow-hidden pb-10">
-        {/* Trust Section */}
-        <div className="flex justify-center items-center relative px-4">
-          <Image
-            src={trust}
-            alt="trust"
-            width={341}
-            className="pt-5 w-[160px] sm:w-[220px] md:w-[280px] lg:w-[341px] h-auto"
-          />
-          <div className="absolute inset-0 flex items-center justify-center">
-            {trusts.map((item, i) => (
-              <p
-                key={i}
-                className={`mt-5 font-bold text-[22px] sm:text-[28px] md:text-[32px] lg:text-[36px] text-center px-3 sm:px-4 ${fontClass}`}
-              >
-                {item.name}
-              </p>
-            ))}
-          </div>
-        </div>
-
-        {/* More Info Section - More compact mobile version */}
-        <div className="flex justify-center -mt-6 sm:-mt-8 md:-mt-12 lg:-mt-16 px-3 sm:px-4">
-          <div className="relative w-full max-w-[1100px] mx-auto">
-            {/* Background Scroll */}
-            <div className="relative w-full">
-              {/* Mobile: More compact aspect ratio */}
-              <div className="block sm:hidden">
-                <Image
-                  src={moreinfo}
-                  alt="parchment"
-                  width={500}
-                  height={500}
-                  className="w-full h-auto object-cover drop-shadow-xl"
-                  style={{ aspectRatio: "1/1" }}
-                />
-              </div>
-
-              {/* Desktop: Horizontal version */}
-              <div className="hidden sm:block">
-                <Image
-                  src={moreinfo}
-                  alt="parchment"
-                  width={1100}
-                  height={670}
-                  className="w-full h-auto object-contain drop-shadow-xl"
-                />
-              </div>
-            </div>
-
-            {/* Content - Centered with less spacing */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center px-3 sm:px-4 md:px-6">
-              <div className="w-full max-w-[92%] sm:max-w-[85%] md:max-w-[80%] lg:max-w-[720px] text-center lg:text-left">
-                <p
-                  className="text-[#2E1B0E] text-[13px] sm:text-[14px] md:text-[16px] lg:text-[20px] font-medium sm:font-normal leading-[1.4] sm:leading-[1.6] px-2 sm:px-0"
-                  style={{
-                    fontFamily: "IBM Plex Sans Devanagari",
-                  }}
-                >
-                  स्वराज्याचे सरनोबत येसाजी कंक यांच्या शौर्य, साहस, शिस्त आणि
-                  विवेकबुद्धी या अनेक पैलूंचा आदर्श ठेवून, जनसेवेचे कार्य हाती
-                  घेतलेले महाराष्ट्रातील ऐतिहासिक व सामाजिक वारसा जपणारे
-                  <br className="hidden sm:block" />
-                  "सरनोबत येसाजी कंक ट्रस्ट".
-                </p>
-              </div>
-
-              <button className="mt-2 sm:mt-4 md:mt-6 lg:mt-10 w-[120px] sm:w-[170px] md:w-[190px] lg:w-[210px] h-[32px] sm:h-[40px] md:h-[44px] lg:h-[47px] rounded-[45px] border border-white bg-[#BD512A] text-white text-[11px] sm:text-[13px] md:text-[14px] lg:text-[15px] font-bold flex items-center justify-center gap-2 sm:gap-4 shadow-lg transition-all duration-300 hover:bg-[#a94822] hover:scale-105">
-                <span>अधिक वाचा...</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2.5}
-                  stroke="currentColor"
-                  className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                  />
-                </svg>
-              </button>
+     <section className="bg-[#A1A186] py-12 lg:py-20 overflow-hidden">
+        {/* 1. Header Scroll Section */}
+        <div className="relative flex justify-center mb-10 md:mb-16 px-4">
+          <div className="relative w-[260px] sm:w-[320px] md:w-[380px]">
+            <Image
+              src={trust}
+              alt="trust scroll"
+              className="w-full h-auto"
+            />
+            <div className="absolute inset-0 flex items-center justify-center pb-2">
+              <h2 className={`font-bold text-[22px] sm:text-[28px] md:text-[32px] text-[#1F1F1F] ${fontClass}`}>
+                ट्रस्ट विषयी
+              </h2>
             </div>
           </div>
         </div>
 
-        {/* ═══ ऐतिहासिक वाडा – Cinematic Gallery ═══ */}
+        {/* 2. Main Content Grid (Text + Gallery) */}
+        <div className="max-w-[1200px] mx-auto px-6 md:px-10 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+          
+          {/* Left Side: Descriptive Text */}
+          <div className="flex flex-col gap-6 text-[#1F1F1F]">
+            <p className="text-[15px] sm:text-[17px] md:text-[19px] lg:text-[20px] leading-[1.7] font-medium text-justify">
+              सरनोबत येसाजी कंक ट्रस्ट ही संस्था सामाजिक, सांस्कृतिक,
+              शैक्षणिक आणि ऐतिहासिक वारसा जपण्यासाठी कार्यरत
+              असलेली एक प्रेरणादायी संस्था आहे. स्वराज्याचे शूर सेनानी
+              सरनोबत येसाजी कंक यांच्या पराक्रमातून प्रेरणा घेत
+              समाजासाठी विविध उपक्रम राबविण्याचे कार्य ट्रस्टतर्फे केले
+              जाते.
+            </p>
+            <p className="text-[15px] sm:text-[17px] md:text-[19px] lg:text-[20px] leading-[1.7] font-medium text-justify">
+              ट्रस्टचे मुख्य उद्दिष्ट इतिहासाचे जतन, युवकांना प्रेरणा, ग्रामीण
+              विकास आणि समाजहिताचे कार्य पुढे नेणे हे आहे. महाराष्ट्राच्या
+              वैभशाली इतिहासाची ओळख नवीन पिढीपर्यंत
+              पोहोचविण्यासाठी विविध सांस्कृतिक आणि ऐतिहासिक
+              कार्यक्रम आयोजित केले जातात.
+            </p>
+
+            {/* Read More Button */}
+            <button className="mt-4 w-[140px] sm:w-[180px] h-[38px] sm:h-[45px] rounded-full border border-white bg-[#BD512A] text-white text-[13px] sm:text-[15px] font-bold flex items-center justify-center gap-2 shadow-lg hover:bg-[#a94822] transition-all">
+              अधिक वाचा...
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Right Side: Image Gallery */}
+          <div className="flex flex-col gap-4">
+            {/* Top Row: Two small images */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="rounded-[15px] overflow-hidden shadow-lg aspect-[4/3] relative border-2 border-white/20">
+                <Image 
+                  src={trustone} 
+                  alt="Trust Event 1"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="rounded-[15px] overflow-hidden shadow-lg aspect-[4/3] relative border-2 border-white/20">
+                <Image 
+                  src={trusttwo}
+                  alt="Trust Event 2"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Bottom Row: One large image */}
+            <div className="rounded-[15px] overflow-hidden shadow-lg aspect-[16/10] relative border-2 border-white/20">
+              <Image 
+                src={trustthree}
+                alt="Trust Event Large"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+
+        </div>
       </section>
       <WadaGallery
         title={Histories[0]?.name ?? "ऐतिहासिक वाडा"}
@@ -253,7 +247,7 @@ export default function Hero() {
       />
       <section className="bg-[linear-gradient(177.14deg,_#838366_0.89%,_#EED5B1_49.41%,_#7E868E_97.93%)] h-auto overflow-hidden">
         {/* Work Header */}
-        <div className="relative flex flex-col items-center mt-28 mb-10">
+        <div className="relative flex flex-col items-center mt-10 sm:mt-10 md:mt-28 mb-10">
           <div className="absolute top-[-50px] z-0 opacity-80 pointer-events-none">
             <Image
               src={flag}
@@ -280,7 +274,7 @@ export default function Hero() {
               ))}
             </div>
           </div>
-          <div className="relative z-10 text-center mt-16 max-w-2xl px-6">
+          <div className="relative z-10 text-center mt-6 sm:mt-10 md:mt-16 max-w-2xl px-6">
             {works.map((item, i) => (
               <p
                 key={i}
@@ -293,7 +287,7 @@ export default function Hero() {
         </div>
 
         {/* --- Updated Work Gallery Section --- */}
-        <div className="max-w-7xl mx-auto px-6 mt-25 pb-20">
+        <div className="max-w-7xl mx-auto px-6 mt-8 sm:mt-14 md:mt-25 pb-20">
           <div className="flex flex-wrap md:flex-nowrap justify-center gap-5">
             {[
               { src: card, alt: "Agriculture" },
@@ -355,7 +349,7 @@ export default function Hero() {
             ))}
           </div>
         </div>
-        <div className="text-center mt-14 max-w-2xl mx-auto px-10">
+        <div className="text-center mt-6 sm:mt-10 md:mt-14 max-w-2xl mx-auto px-5 sm:px-8 md:px-10">
           {shivkalins.map((item, i) => (
             <p
               key={i}
@@ -368,7 +362,7 @@ export default function Hero() {
 
         {/* --- Updated Armor Scroll Cards (With Hover Effect) --- */}
         <div
-          className={`flex flex-wrap justify-center gap-8 py-20 px-4 ${fontClass}`}
+          className={`flex flex-wrap justify-center gap-8 py-8 sm:py-14 md:py-20 px-4 ${fontClass}`}
         >
           {Cards.map((item, index) => (
             <div
@@ -473,11 +467,12 @@ export default function Hero() {
         {/* Feedback Section Header */}
         <div className="flex justify-center items-center relative">
           <Image src={trust} alt="trust" width={380} className="pt-6" />
+
           <div className="absolute">
             {PrashansaPatrs.map((item, i) => (
               <p
                 key={i}
-                className={`mt-5 font-bold text-[28px] sm:text-[32px] md:text-[36px] ${fontClass}`}
+                className="mt-5 text-[28px] sm:text-[32px] md:text-[36px] font-historical-marathi"
               >
                 {item.name}
               </p>
@@ -503,11 +498,11 @@ export default function Hero() {
                 </div>
 
                 <div className="relative z-10 p-6 sm:p-8 md:p-14 flex flex-col h-full">
-                  <h4 className="text-[20px] md:text-[24px] font-bold text-[#2d1b0d] mt-4 mb-4 border-b border-[#8b5e34]/20 pb-2">
+                  <h4 className="ml-3 sm:ml-0 text-[20px] md:text-[24px] mt-4 mb-4 border-b border-[#8b5e34]/20 pb-2 font-historical-marathi">
                     {item.name}
                   </h4>
 
-                  <p className="text-[#3d2b1f] text-[14px] sm:text-[15px] md:text-[16px] leading-relaxed text-justify ">
+                  <p className="ml-3 sm:ml-0 text-[#3d2b1f] text-[14px] sm:text-[15px] md:text-[16px] leading-relaxed text-justify font-historical-marathi">
                     {item.desc}
                   </p>
                 </div>

@@ -3,7 +3,10 @@
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import { useEffect, useRef } from "react";
-import { Noto_Sans_Devanagari } from "next/font/google";
+import {
+  Noto_Sans_Devanagari,
+  Tiro_Devanagari_Marathi,
+} from "next/font/google";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -13,6 +16,11 @@ const notoDev = Noto_Sans_Devanagari({
   subsets: ["devanagari"],
   weight: ["400", "500", "600", "700"],
 });
+const tiroMarathi = Tiro_Devanagari_Marathi({
+  subsets: ["devanagari"],
+  weight: ["400"],
+});
+
 const content = {
   mr: {
     leftHeading: "वर्ष / काळ",
@@ -39,9 +47,9 @@ const timelineData = [
     yearEn: "1646",
     image: "/Swarajya Contribution/Swarajya2.png",
     textMr:
-      "तोरणा विजय: किल्ले तोरणा स्वराज्यात घेताना झालेल्या लढाईमध्ये येसाजींचा समावेश.",
+     "तोरणा विजय: किल्ले तोरणा (प्रचंडगड) स्वराज्यात घेताना झालेल्या लढाईमध्ये येसाजींचा समावेश.",
     textEn:
-      "The Capture of Torna: Yesaji took part in the fight to bring Fort Torna (Prachandagad) under the rule of Swaraj.",
+      "The Capture of Torna: Yesaji took part in the fight to bring Fort Torna under the rule of Swaraj.",
   },
 
   {
@@ -69,7 +77,7 @@ const timelineData = [
     yearEn: "1663",
     image: "/Swarajya Contribution/Swarajya6.png",
     textMr:
-      "लाल महाल प्रसंग: शाहिस्तखानाचा पराभव करण्यासाठी लाल महालावर झालेल्या छाप्यात येसाजी कंक आघाडीवर.",
+      "लाल महाल प्रसंग : शाहीस्तेखानाचा पराभव करण्यासाठी लाल महालावर घातलेल्या धाडसी छाप्यात येसाजी कंक आघाडीवर होते.",
     textEn:
       "The Lal Mahal Incident: Yesaji Kank was at the front of the attack on the Lal Mahal, carried out to defeat Shaista Khan.",
   },
@@ -82,13 +90,12 @@ const timelineData = [
     textEn:
       "The Visit to Agra: During the meeting with Aurangzeb and at every step of the escape from Agra, Yesaji Kank stayed near to the Maharaj's side.",
   },
-
   {
     yearMr: "१६७६",
     yearEn: "1676",
     image: "/Swarajya Contribution/Swarajya8.png",
     textMr:
-      "दक्षिण दिग्विजय: गोवळकोंड्याच्या हत्तीचा पराभव करून येसाजी कंकांनी कुतबुशहाला मावळ्यांची ताकद दाखवली.",
+      "दक्षिण दिग्विजय : गोळकोंड्याच्या हत्तीचा पराभव करून येसाजी कंकांनी कुतुबशहाला मावळ्यांची ताकद दाखवून दिली.",
     textEn:
       "The Southern Conquest: By defeating the elephant at Golconda, Yesaji Kank showed the Mavala’s Power to the Qutb Shah.",
   },
@@ -106,7 +113,7 @@ const timelineData = [
     yearEn: "1683",
     image: "/Swarajya Contribution/Swarajya10.png",
     textMr:
-      "फोंडा किल्ला युद्धात: पोर्तुगीजांविरुद्ध ऐतिहासिक लढा. या युद्धात येसाजी कंक यांचे पुत्र कृष्णाजी कंक यांना वीरमरण आले.",
+      "फोंडा किल्ला युद्ध: पोर्तुगीजांविरुद्ध ऐतिहासिक लढा. याच युद्धात येसाजी कंक यांचे पुत्र कृष्णाजी कंक यांना वीरमरण आले.",
     textEn:
       "The Battle of Ponda Fort: A historic struggle against the Portuguese. It was during this very battle that Krishnaji Kank, the son of Yesaji Kank, attained martyrdom.",
   },
@@ -121,7 +128,7 @@ const timelineData = [
   },
   {
     yearMr: "१७०० नंतर",
-    yearEn: "1700s+",
+    yearEn: "After 1700",
     image: "/Swarajya Contribution/Swarajya12.png",
     textMr:
       "ज्येष्ठ सल्लागार: छत्रपती राजाराम महाराज आणि छत्रपती शाहू महाराज यांच्या काळात येसाजी कंकांचा सल्लागार म्हणून उल्लेख.",
@@ -318,13 +325,24 @@ export default function SwarajyaContributionPage() {
       className={`min-h-screen w-full overflow-x-hidden ${notoDev.className}`}
       style={{
         background:
-          "linear-gradient(177.14deg, #838366 0.89%, #EED5B1 49.41%, #7E868E 97.93%)",
+          "linear-gradient(168.07deg, #838366 2.31%, #EED5B1 50.3%, #7E868E 98.28%)",
       }}
     >
       {/* HERO */}
-      <section className="relative w-full overflow-hidden pt-0 md:pt-[70px]">
+      <section className="relative w-full overflow-hidden pt-0 md:pt-[10px]">
         {/* MAIN IMAGE */}
-        <div className="relative w-full h-[42vh] sm:h-[58vh] md:h-auto md:aspect-[16/7]">
+        <div
+  className="
+    relative
+    w-full
+    h-[52vh]
+    sm:h-[60vh]
+    md:h-[72vh]
+    lg:h-auto
+    lg:aspect-[14/7]
+    overflow-hidden
+  "
+>
           <Image
             src="/Swarajya Contribution/Swarajyamain.png"
             alt="Swarajya"
@@ -334,11 +352,39 @@ export default function SwarajyaContributionPage() {
           />
 
           {/* WHITE OVERLAY */}
-          <div className="absolute inset-0 bg-white/25" />
+          <div className="absolute inset-0 bg-white/35" />
 
           {/* LOGO */}
-          <div className="absolute top-[60px] sm:top-[75px] md:top-6 left-1/2 -translate-x-1/2 z-20">
-            <div className=" relative w-[140px] h-[80px] sm:w-[230px] sm:h-[130px] md:w-[620px] md:h-[240px] ">
+          <div
+  className="
+    absolute
+    top-[52px]
+    sm:top-[65px]
+    md:top-[30px]
+    left-1/2
+    -translate-x-1/2
+    z-20
+    w-full
+    flex
+    justify-center
+    px-4
+  "
+>
+            <div
+  className="
+    relative
+    w-[220px]
+    h-[120px]
+    sm:w-[300px]
+    sm:h-[150px]
+    md:w-[620px]
+    md:h-[260px]
+    lg:w-[820px]
+    lg:h-[330px]
+    xl:w-[981px]
+    xl:h-[382px]
+  "
+>
               <Image
                 src="/Swarajya Contribution/fontlogo.png"
                 alt="Logo"
@@ -352,20 +398,22 @@ export default function SwarajyaContributionPage() {
       </section>
 
       {/* TIMELINE */}
-      <section className="relative w-full overflow-x-hidden px-3 sm:px-4 md:px-12 py-12 md:py-24">
+      <section className="relative w-full overflow-x-hidden px-3 sm:px-4 md:px-12 pt-2 pb-12 md:pt-4 md:pb-24 bg-[#C7BEA2]">
         <div className="w-full max-w-7xl mx-auto overflow-hidden">
-          
           {/* DESKTOP HEADING */}
-          <div className="hidden md:grid md:grid-cols-[1fr_100px_1fr] gap-10 mb-20 items-center">
-            <h2 className="text-3xl font-bold text-black">{t.leftHeading}</h2>
+          <div className="hidden md:grid md:grid-cols-2 gap-10 mb-15 items-center mt-6">
+            <div className="flex justify-center">
+              <h2 className="text-3xl font-bold text-black text-center">
+                {t.leftHeading}
+              </h2>
+            </div>
 
-            <div />
-
-            <h2 className="text-3xl font-bold text-center text-black">
-              {t.rightHeading}
-            </h2>
+            <div className="flex justify-center">
+              <h2 className="text-3xl font-bold text-black text-center">
+                {t.rightHeading}
+              </h2>
+            </div>
           </div>
-
           {/* TIMELINE */}
           <div
             ref={rowContainerRef}
@@ -392,104 +440,104 @@ export default function SwarajyaContributionPage() {
             />
 
             {timelineData.map((item, index) => (
-              <div
-                key={index}
-                ref={(el) => {
-                  rowRefs.current[index] = el;
-                }}
-                className="
-                relative grid w-full
-                grid-cols-[22px_minmax(0,1fr)]
-                md:grid-cols-[1fr_100px_1fr]
-                gap-x-3 gap-y-3 md:gap-10
-              "
-              >
-                {/* DOT */}
-                <div
-                  className="
-                  col-start-1 row-start-1 row-span-2
-                  md:col-start-2 md:row-start-1 md:row-span-1
-                  flex flex-col items-center z-20
-                "
-                >
-                  <div className="flex-1" />
+  <div
+    key={index}
+    ref={(el) => {
+      rowRefs.current[index] = el;
+    }}
+    className="
+      relative grid w-full
+      grid-cols-[22px_minmax(0,1fr)]
+      md:grid-cols-[1fr_100px_1fr]
+      gap-x-3 gap-y-3 md:gap-10
+      items-center 
+    "
+  >
+    {/* DOT */}
+    <div className="col-start-1 row-start-1 row-span-2 md:col-start-2 md:row-start-1 md:row-span-1 flex flex-col items-center z-20">
+      <div className="tl-dot shrink-0 w-6 h-6 md:w-16 md:h-16 rounded-full bg-[#1a1a1a] flex items-center justify-center border-2 md:border-4 border-[#BF915F] shadow-[0_0_25px_rgba(191,145,95,0.7)]">
+        <div className="w-2.5 h-2.5 md:w-6 md:h-6 rounded-full bg-[#BF915F]" />
+      </div>
+    </div>
 
-                  <div
-                    className="
-                    tl-dot shrink-0
-                    w-6 h-6 md:w-16 md:h-16
-                    rounded-full bg-[#1a1a1a]
-                    flex items-center justify-center
-                    border-2 md:border-4 border-[#BF915F]
-                    shadow-[0_0_25px_rgba(191,145,95,0.7)]
-                  "
-                  >
-                    <div
-                      className="
-                      w-2.5 h-2.5 md:w-6 md:h-6
-                      rounded-full bg-[#BF915F]
-                    "
-                    />
-                  </div>
+    {/* LEFT IMAGE */}
+    <div
+      className="
+        tl-left
+        relative
+        overflow-hidden
+        rounded-[12px]
+        shadow-xl md:shadow-2xl
+        col-start-2 row-start-1
+        md:col-start-1 md:row-start-1
+        w-full
+        h-[260px]
+        md:h-[350px]
+      "
+    >
+      <Image
+        src={item.image}
+        alt="scene"
+        fill
+        className="object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+      
+      {/* YEAR */}
+      <div className="absolute top-2 left-2 md:top-5 md:left-5 z-20">
+        <span
+          className="text-white text-[18px] md:text-[36px] font-semibold drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]"
+          style={{ fontFamily: "'IBM Plex Sans Devanagari', sans-serif" }}
+        >
+          {lang === "mr" ? item.yearMr : item.yearEn}
+        </span>
+      </div>
+    </div>
 
-                  <div className="flex-1" />
-                </div>
+    {/* RIGHT CONTENT */}
+    <div
+  className="
+    tl-right
+    relative
+    overflow-hidden
+    rounded-[20px] md:rounded-[30px]
+    col-start-2 row-start-2
+    md:col-start-3 md:row-start-1
+    w-full
+    min-h-[260px]
+    md:min-h-[350px]
+    h-auto
+  "
+>
+      <Image
+        src="/Swarajya Contribution/infobg.png"
+        alt="info"
+        fill
+        className="object-cover"
+      />
 
-                {/* LEFT IMAGE */}
-                <div
-                  className="
-                  tl-left min-w-0 relative overflow-hidden
-                  rounded-xl md:rounded-[30px]
-                  shadow-xl md:shadow-2xl
-                  col-start-2 row-start-1
-                  md:col-start-1 md:row-start-1
-                "
-                  style={{ aspectRatio: "4/3" }}
-                >
-                  <Image
-                    src={item.image}
-                    alt="scene"
-                    fill
-                    className="object-cover"
-                  />
-
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-
-                  {/* YEAR */}
-                  <div className="absolute top-2 left-2 md:top-5 md:left-5 z-20">
-                    <span className="text-white text-sm md:text-3xl font-black drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
-                      {lang === "mr" ? item.yearMr : item.yearEn}
-                    </span>
-                  </div>
-                </div>
-
-                {/* RIGHT CONTENT */}
-                <div
-                  className="
-                  tl-right min-w-0 relative overflow-hidden
-                  rounded-xl md:rounded-[30px]
-                  col-start-2 row-start-2
-                  md:col-start-3 md:row-start-1
-                "
-                  style={{ aspectRatio: "4/3" }}
-                >
-                  <Image
-                    src="/Swarajya Contribution/infobg.png"
-                    alt="info"
-                    fill
-                    className="object-cover"
-                  />
-
-                  <div className="absolute inset-0 " />
-
-                  <div className="absolute inset-0 flex items-center justify-center p-3 md:p-10">
-                    <p className="text-black text-[10px] sm:text-xs md:text-lg leading-snug md:leading-relaxed text-center font-semibold">
-                      {lang === "mr" ? item.textMr : item.textEn}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
+      <div className="absolute inset-0 flex items-center justify-center px-5 md:px-12 py-8">
+        <p
+          className={`
+  text-black
+  text-[16px]
+  sm:text-[18px]
+  md:text-[20px]
+  lg:text-[24px]
+  xl:text-[28px]
+  leading-[1.5]
+  break-words
+  text-left
+  w-full
+  ${notoDev.className}
+`}
+        >
+          {lang === "mr" ? item.textMr : item.textEn}
+        </p>
+      </div>
+    </div>
+  </div>
+))}
           </div>
         </div>
       </section>
