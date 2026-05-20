@@ -44,7 +44,7 @@ export default function Navbar() {
         scrolled ? "bg-white shadow-md" : "bg-white shadow-sm"
       }`}
     >
-      {/* ── Single row: logo | menu (center) | lang toggle ── */}
+
       <div className="mx-auto flex h-[64px] sm:h-[68px] lg:h-[70px] items-center justify-between px-3 sm:px-5 md:px-6 lg:px-10 xl:px-12 max-w-[1600px]">
         {/* Left: logo + org name */}
         <Link href="/" className="flex items-center gap-3 shrink-0">
@@ -57,15 +57,7 @@ export default function Navbar() {
             priority
           />
           <span
-            className="
-    hidden xl:block whitespace-nowrap
-    text-[#1F2937]
-    font-devanagari
-    font-semibold
-    text-[14px]
-    leading-[100%]
-    tracking-[0]
-  "
+            className=" hidden xl:block whitespace-nowrap text-[#1F2937] font-devanagari font-semibold text-[14px] leading-[100%] tracking-[0]"
             style={{
               fontFamily: "'IBM Plex Sans Devanagari', sans-serif",
               fontWeight: 600,
@@ -196,6 +188,7 @@ export default function Navbar() {
               className="flex flex-col items-center transition duration-300 hover:text-orange-500"
             >
               <span
+
                 className={`text-[16px] leading-none ${
                   lang === "en"
                     ? "text-gray-900 font-semibold"
