@@ -42,11 +42,11 @@ export const Info = {
 };
 
 export default function YesajiKankPage() {
-  const { lang, fontClass } = useLanguage();
+  const { lang, textFontClass } = useLanguage();
   const currentData = Info[lang][0];
 
   return (
-    <main className={` ${fontClass}`}>
+    <main className={` ${textFontClass}`}>
       <div className="h-auto relative overflow-hidden">
 
         {/* Desktop Image */}

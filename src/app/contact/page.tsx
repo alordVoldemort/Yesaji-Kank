@@ -7,17 +7,17 @@ import twoflags from "@/../public/twoflags.svg"
 
 const content = {
   mr: {
-    pageTitle: "संपर्क", contact: "संपर्क", email: "ई-मेल", address: "पत्ता", phone: "+91 1234567890", emailId: "info@yesaji.com", addressText: "पुणे, महाराष्ट्र", formTitle: "संदेश पाठवा", firstName: "पहिले नाव", firstNamePlaceholder: "आपले पहिले नाव", lastName: "आडनाव", lastNamePlaceholder: "आपले आडनाव", mobile: "मोबाईल नंबर", mobilePlaceholder: "मोबाईल क्रमांक", emailLabel: "ई मेल आयडी", emailPlaceholder: "ई मेल आयडी", message: "संदेश", messagePlaceholder: "संदेश", submit: "पाठवा",
+    pageTitle: "संपर्क", contact: "संपर्क", email: "ई-मेल", address: "पत्ता", phone: "+91 1234567890", emailId: "info@yesaji.com", addressText: "सरसेनापती कंक वाडा, भुतोंडे ता.भोर जि पुणे ", formTitle: "संदेश पाठवा", firstName: "पहिले नाव", firstNamePlaceholder: "आपले पहिले नाव", lastName: "आडनाव", lastNamePlaceholder: "आपले आडनाव", mobile: "मोबाईल नंबर", mobilePlaceholder: "मोबाईल क्रमांक", emailLabel: "ई मेल आयडी", emailPlaceholder: "ई मेल आयडी", message: "संदेश", messagePlaceholder: "संदेश", submit: "पाठवा",
     errChar: "कृपया फक्त अक्षरे वापरा", errMobile: "कृपया वैध १० अंकी मोबाईल नंबर टाका", errEmail: "ईमेल फक्त .com, .in, किंवा .net असावा", errReq: "हे क्षेत्र अनिवार्य आहे"
   },
   en: {
-    pageTitle: "Contact", contact: "Contact", email: "Email", address: "Address", phone: "+91 1234567890", emailId: "info@yesaji.com", addressText: "Pune, Maharashtra", formTitle: "Send Message", firstName: "First Name", firstNamePlaceholder: "Your first name", lastName: "Last Name", lastNamePlaceholder: "Your last name", mobile: "Mobile Number", mobilePlaceholder: "Mobile number", emailLabel: "Email ID", emailPlaceholder: "Email ID", message: "Message", messagePlaceholder: "Your message", submit: "Send",
+    pageTitle: "Contact", contact: "Contact", email: "Email", address: "Address", phone: "+91 1234567890", emailId: "info@yesaji.com", addressText: "Sarsena Pati Kank Wada, Bhutonde, Bhor, Pune", formTitle: "Send Message", firstName: "First Name", firstNamePlaceholder: "Your first name", lastName: "Last Name", lastNamePlaceholder: "Your last name", mobile: "Mobile Number", mobilePlaceholder: "Mobile number", emailLabel: "Email ID", emailPlaceholder: "Email ID", message: "Message", messagePlaceholder: "Your message", submit: "Send",
     errChar: "Please use characters only", errMobile: "Please enter a valid 10-digit mobile number", errEmail: "Email must end with .com, .in, or .net", errReq: "This field is required"
   },
 };
 
 export default function ContactPage() {
-  const { lang, fontClass } = useLanguage();
+  const { lang, textFontClass } = useLanguage();
   const t = lang === "en" ? content.en : content.mr;
 
   const [formData, setFormData] = useState({ firstName: "", lastName: "", mobile: "", email: "", message: "" });
@@ -43,7 +43,7 @@ export default function ContactPage() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => { setFormData({ ...formData, [e.target.name]: e.target.value }); if (errors[e.target.name]) setErrors({ ...errors, [e.target.name]: "" }); };
 
   return (
-    <main className={`relative min-h-screen overflow-hidden flex flex-col items-center px-4 pt-[70px] sm:pt-[100px] lg:pt-[35px] md:pt-[10px] pb-20 ${fontClass}`} style={{ background: "linear-gradient(168.07deg, #8B866B 2.31%, #E9D5B4 55.3%, #BBA98B 98.28%)" }}>
+    <main className={`relative min-h-screen overflow-hidden flex flex-col items-center px-4 pt-[70px] sm:pt-[100px] lg:pt-[35px] md:pt-[10px] pb-20 ${textFontClass}`} style={{ background: "linear-gradient(168.07deg, #8B866B 2.31%, #E9D5B4 55.3%, #BBA98B 98.28%)" }}>
       <div className="relative flex flex-col items-center w-full max-w-[900px] lg:mt-1 sm:mt-16">
         <div className="relative w-full flex justify-center z-0 lg:w-[680px] lg:h-[480px] md:w-[500px]">
           <Image src={twoflags} alt="Two Flags" width={480} height={350} className="object-contain w-full h-auto" />
@@ -57,11 +57,13 @@ export default function ContactPage() {
       </div>
       <div className="relative z-30 w-full max-w-7xl mx-auto mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-4 px-2 sm:px-4">
         {[ { title: t.contact, icon: "/phone.svg", value: t.phone }, { title: t.email, icon: "/email.svg", value: t.emailId }, { title: t.address, icon: "/location.svg", value: t.addressText } ].map((item, idx) => (
-          <div key={idx} className="relative flex flex-col items-center justify-center min-h-[220px] sm:h-[250px] w-full">
+          <div key={idx} className="relative flex flex-col items-center justify-center min-h-[220px] sm:h-[250px] w-full md:w-[250px]  ">
             <Image src="/paper-card.png" alt="Card" fill className="object-fill sm:object-contain" />
             <div className="relative z-10 flex flex-col items-center text-center px-8 sm:px-10">
-              <h2 className="text-xl sm:text-2xl font-bold text-[#3d2415] mb-2">{item.title}</h2>
-              <div className="w-15 h-17 sm:w-14 sm:h-14 flex items-center justify-center mb-6"><Image src={item.icon} alt="Icon" width={75} height={72} className="" /></div>
+              <h2 className="text-xl sm:text-2xl font-bold text-[#3d2415] mb-2 ">{item.title}</h2>
+              <div className="w-15 h-17 sm:w-14 sm:h-14 flex items-center justify-center mb-6">
+                <Image src={item.icon} alt="Icon" width={75} height={72} className="" />
+                </div>
               <p className="text-[#3d2415] text-sm sm:text-base font-semibold leading-tight">{item.value}</p>
             </div>
           </div>
