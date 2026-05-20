@@ -208,14 +208,14 @@ export default function DonationPage() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
-const handleSelectPurpose = (val) => {
+const handleSelectPurpose = (val: string) => {
   setFormData((prev) => ({ ...prev, purpose: val }));
   setIsDropdownOpen(false);
 };
 
 useEffect(() => {
-  const handleClickOutside = (event) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+  const handleClickOutside = (event: MouseEvent) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
       setIsDropdownOpen(false);
     }
   };
