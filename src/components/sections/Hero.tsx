@@ -126,51 +126,49 @@ export default function Hero() {
             {/* Dark Overlay */}
             <div className="absolute inset-0 bg-black/5" />
 
-             {/* Content */}
-<div className="absolute inset-0 flex flex-col items-center justify-center sm:justify-center -translate-y-14 sm:translate-y-0 px-4 sm:px-5 md:px-6 lg:px-8 sm:pt-0">
-  {items.map((item, index) => (
-    <div key={index} className="w-full text-center">
-      {/* Heading */}
-      <h2 className="text-[15px] sm:text-[16px] md:text-[19px] lg:text-[20px] font-bold text-[#1F1F1F] leading-tight px-3">
-        "{item.name}"
-      </h2>
+            {/* Content */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center sm:justify-center -translate-y-14 sm:translate-y-0 px-4 sm:px-5 md:px-6 lg:px-8 sm:pt-0">
+              {items.map((item, index) => (
+                <div key={index} className="w-full text-center">
+                  {/* Heading */}
+                  <h2 className="text-[15px] sm:text-[16px] md:text-[19px] lg:text-[20px] font-bold text-[#1F1F1F] leading-tight px-3">
+                    "{item.name}"
+                  </h2>
 
-      {/* Subtitle */}
-      <p className="mt-1 sm:mt-2 text-[11px] sm:text-[15px] md:text-[17px] lg:text-[18px] font-medium text-[#1F1F1F] px-4 leading-tight opacity-90">
-        - {item.description}
-      </p>
+                  {/* Subtitle */}
+                  <p className="mt-1 sm:mt-2 text-[11px] sm:text-[15px] md:text-[17px] lg:text-[18px] font-medium text-[#1F1F1F] px-4 leading-tight opacity-90">
+                    - {item.description}
+                  </p>
 
-      {/* Buttons */}
-      <div className="flex flex-row items-center justify-center gap-3 sm:gap-3 md:gap-4 mt-4 sm:mt-5 md:mt-6 lg:mt-6 w-full px-2">
-        {/* Contact Button */}
-        <button className="flex-1 max-w-[130px] sm:w-[150px] md:w-[150px] lg:w-[184px] h-[34px] sm:h-[42px] md:h-[46px] lg:h-[50px] rounded-[6px] border border-[#C05621] bg-[#F5F5F5] text-[#C05621] text-[12px] sm:text-[15px] md:text-[16px] lg:text-[18px] font-bold transition-all duration-300 whitespace-nowrap">
-          {item.btn1}
-        </button>
+                  {/* Buttons */}
+                  <div className="flex flex-row items-center justify-center gap-3 sm:gap-3 md:gap-4 mt-4 sm:mt-5 md:mt-6 lg:mt-6 w-full px-2">
+                    {/* Contact Button */}
+                    <button className="flex-1 max-w-[130px] sm:w-[150px] md:w-[150px] lg:w-[184px] h-[34px] sm:h-[42px] md:h-[46px] lg:h-[50px] rounded-[6px] border border-[#C05621] bg-[#F5F5F5] text-[#C05621] text-[12px] sm:text-[15px] md:text-[16px] lg:text-[18px] font-bold transition-all duration-300 whitespace-nowrap">
+                      {item.btn1}
+                    </button>
 
-        {/* More Info Button */}
-        <button className="flex-1 max-w-[130px] sm:w-[150px] md:w-[165px] lg:w-[184px] h-[34px] sm:h-[42px] md:h-[46px] lg:h-[50px] rounded-[6px] bg-[#C05621] border border-[#C05621] text-white text-[12px] sm:text-[15px] md:text-[16px] lg:text-[18px] font-bold transition-all duration-300 whitespace-nowrap">
-          {item.btn2}
-        </button>
-      </div>
-    </div>
-  ))}
-</div>
+                    {/* More Info Button */}
+                    <button className="flex-1 max-w-[130px] sm:w-[150px] md:w-[165px] lg:w-[184px] h-[34px] sm:h-[42px] md:h-[46px] lg:h-[50px] rounded-[6px] bg-[#C05621] border border-[#C05621] text-white text-[12px] sm:text-[15px] md:text-[16px] lg:text-[18px] font-bold transition-all duration-300 whitespace-nowrap">
+                      {item.btn2}
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-     <section className="bg-[#A1A186] py-12 lg:py-20 overflow-hidden">
+      <section className="bg-[#A1A186] py-12 lg:py-20 overflow-hidden">
         {/* 1. Header Scroll Section */}
         <div className="relative flex justify-center mb-10 md:mb-16 px-4">
           <div className="relative w-[260px] sm:w-[320px] md:w-[380px]">
-            <Image
-              src={trust}
-              alt="trust scroll"
-              className="w-full h-auto"
-            />
+            <Image src={trust} alt="trust scroll" className="w-full h-auto" />
             <div className="absolute inset-0 flex items-center justify-center pb-2">
-              <h2 className={`font-bold text-[22px] sm:text-[28px] md:text-[32px] text-[#1F1F1F] ${fontClass}`}>
-                ट्रस्ट विषयी
+              <h2
+                className={`font-bold ${lang === "mr" ? "text-[22px] sm:text-[28px] md:text-[32px]" : "text-[16px] sm:text-[20px] md:text-[24px]"} text-[#1F1F1F]`}
+              >
+                {trusts[0]?.name}
               </h2>
             </div>
           </div>
@@ -178,30 +176,38 @@ export default function Hero() {
 
         {/* 2. Main Content Grid (Text + Gallery) */}
         <div className="max-w-[1200px] mx-auto px-6 md:px-10 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-          
           {/* Left Side: Descriptive Text */}
           <div className="flex flex-col gap-6 text-[#1F1F1F]">
             <p className="text-[15px] sm:text-[17px] md:text-[19px] lg:text-[20px] leading-[1.7] font-medium text-justify">
-              सरनोबत येसाजी कंक ट्रस्ट ही संस्था सामाजिक, सांस्कृतिक,
-              शैक्षणिक आणि ऐतिहासिक वारसा जपण्यासाठी कार्यरत
-              असलेली एक प्रेरणादायी संस्था आहे. स्वराज्याचे शूर सेनानी
-              सरनोबत येसाजी कंक यांच्या पराक्रमातून प्रेरणा घेत
-              समाजासाठी विविध उपक्रम राबविण्याचे कार्य ट्रस्टतर्फे केले
-              जाते.
+              सरनोबत येसाजी कंक ट्रस्ट ही संस्था सामाजिक, सांस्कृतिक, शैक्षणिक
+              आणि ऐतिहासिक वारसा जपण्यासाठी कार्यरत असलेली एक प्रेरणादायी संस्था
+              आहे. स्वराज्याचे शूर सेनानी सरनोबत येसाजी कंक यांच्या पराक्रमातून
+              प्रेरणा घेत समाजासाठी विविध उपक्रम राबविण्याचे कार्य ट्रस्टतर्फे
+              केले जाते.
             </p>
             <p className="text-[15px] sm:text-[17px] md:text-[19px] lg:text-[20px] leading-[1.7] font-medium text-justify">
               ट्रस्टचे मुख्य उद्दिष्ट इतिहासाचे जतन, युवकांना प्रेरणा, ग्रामीण
               विकास आणि समाजहिताचे कार्य पुढे नेणे हे आहे. महाराष्ट्राच्या
-              वैभशाली इतिहासाची ओळख नवीन पिढीपर्यंत
-              पोहोचविण्यासाठी विविध सांस्कृतिक आणि ऐतिहासिक
-              कार्यक्रम आयोजित केले जातात.
+              वैभशाली इतिहासाची ओळख नवीन पिढीपर्यंत पोहोचविण्यासाठी विविध
+              सांस्कृतिक आणि ऐतिहासिक कार्यक्रम आयोजित केले जातात.
             </p>
 
             {/* Read More Button */}
             <button className="mt-4 w-[140px] sm:w-[180px] h-[38px] sm:h-[45px] rounded-full border border-white bg-[#BD512A] text-white text-[13px] sm:text-[15px] font-bold flex items-center justify-center gap-2 shadow-lg hover:bg-[#a94822] transition-all">
               अधिक वाचा...
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2.5}
+                stroke="currentColor"
+                className="w-4 h-4"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                />
               </svg>
             </button>
           </div>
@@ -211,15 +217,15 @@ export default function Hero() {
             {/* Top Row: Two small images */}
             <div className="grid grid-cols-2 gap-4">
               <div className="rounded-[15px] overflow-hidden shadow-lg aspect-[4/3] relative border-2 border-white/20">
-                <Image 
-                  src={trustone} 
+                <Image
+                  src={trustone}
                   alt="Trust Event 1"
                   fill
                   className="object-cover"
                 />
               </div>
               <div className="rounded-[15px] overflow-hidden shadow-lg aspect-[4/3] relative border-2 border-white/20">
-                <Image 
+                <Image
                   src={trusttwo}
                   alt="Trust Event 2"
                   fill
@@ -230,7 +236,7 @@ export default function Hero() {
 
             {/* Bottom Row: One large image */}
             <div className="rounded-[15px] overflow-hidden shadow-lg aspect-[16/10] relative border-2 border-white/20">
-              <Image 
+              <Image
                 src={trustthree}
                 alt="Trust Event Large"
                 fill
@@ -238,7 +244,6 @@ export default function Hero() {
               />
             </div>
           </div>
-
         </div>
       </section>
       <WadaGallery
@@ -342,7 +347,7 @@ export default function Hero() {
             {shivkalins.map((item, i) => (
               <p
                 key={i}
-                className={`mt-5 font-bold text-[28px] sm:text-[32px] md:text-[36px] ${fontClass}`}
+                className={`mt-5 font-bold ${lang === "mr" ? "text-[28px] sm:text-[32px] md:text-[36px]" : "text-[18px] sm:text-[22px] md:text-[26px]"} ${fontClass}`}
               >
                 {item.name}
               </p>
@@ -403,7 +408,7 @@ export default function Hero() {
 
                 {/* Bottom Title */}
                 <div className="mt-auto mb-20 px-6 text-center">
-                  <h3 className="text-[24px] md:text-[28px] font-bold text-[#2d1b0d] tracking-tight">
+                  <h3 className={`${lang === "mr" ? "text-[24px] md:text-[28px]" : "text-[18px] md:text-[20px]"} font-bold text-[#2d1b0d] tracking-tight`}>
                     {item.name}
                   </h3>
                 </div>
@@ -423,14 +428,14 @@ export default function Hero() {
 
                 {/* Description */}
                 <div className="flex-1 flex items-center justify-center mt-4">
-                  <p className="text-center text-[#1a0f08] text-[14px] md:text-[16px] font-medium leading-relaxed px-4">
+                  <p className={`text-center text-[#1a0f08] ${lang === "mr" ? "text-[14px] md:text-[16px]" : "text-[11px] md:text-[13px]"} font-medium leading-relaxed px-4`}>
                     {item.desc || "Information about the collection goes here."}
                   </p>
                 </div>
 
                 {/* Bottom Title */}
                 <div className="mt-auto mb-10">
-                  <h3 className="text-[24px] md:text-[28px] font-bold text-[#1a0f08] tracking-tight">
+                  <h3 className={`${lang === "mr" ? "text-[24px] md:text-[28px]" : "text-[18px] md:text-[20px]"} font-bold text-[#1a0f08] tracking-tight`}>
                     {item.name}
                   </h3>
                 </div>
