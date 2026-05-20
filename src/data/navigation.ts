@@ -8,7 +8,7 @@ export const navLinks: Record<"mr" | "en", NavItem[]> = {
       children: [
         { label: "कंक घराणे", href: "/about/kank-family" },
         { label: "येसाजी कंक बद्दल", href: "/about/yesaji-kank" },
-        { label: "सरनोबत येसाजी कंक वाडा", href: "/about/kank-wada" },
+        { label: "सरनोबत येसाजी कंक वाडा, भुतोंडे", href: "/about/kank-wada" },
         { label: "सरनोबत येसाजी कंक ट्रस्ट", href: "/about/trust" },
         { label: "आमचा प्रवास", href: "/about/our-journey" },
         { label: "विश्वास मंडळ", href: "/about/board" },
