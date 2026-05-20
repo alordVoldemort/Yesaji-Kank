@@ -18,6 +18,7 @@ import {
   CardText,
 } from "@/data/mainpage";
 import { useLanguage } from "@/context/LanguageContext";
+import { motion } from "framer-motion";
 import trust from "../../../public/MainPage/Trust.svg";
 import moreinfo from "../../../public/MainPage/MoreInfo.svg";
 import Home from "../../../public/MainPage/home.svg";
@@ -161,7 +162,13 @@ export default function Hero() {
 
       <section className="bg-[#A1A186] py-12 lg:py-20 overflow-hidden">
         {/* 1. Header Scroll Section */}
-        <div className="relative flex justify-center mb-10 md:mb-16 px-4">
+        <motion.div
+          className="relative flex justify-center mb-10 md:mb-16 px-4"
+          initial={{ opacity: 0, y: -40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
           <div className="relative w-[260px] sm:w-[320px] md:w-[380px]">
             <Image src={trust} alt="trust scroll" className="w-full h-auto" />
             <div className="absolute inset-0 flex items-center justify-center pb-2">
@@ -172,12 +179,18 @@ export default function Hero() {
               </h2>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* 2. Main Content Grid (Text + Gallery) */}
         <div className="max-w-[1200px] mx-auto px-6 md:px-10 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           {/* Left Side: Descriptive Text */}
-          <div className="flex flex-col gap-6 text-[#1F1F1F]">
+          <motion.div
+            className="flex flex-col gap-6 text-[#1F1F1F]"
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
             <p className="text-[15px] sm:text-[17px] md:text-[19px] lg:text-[20px] leading-[1.7] font-medium text-justify">
               सरनोबत येसाजी कंक ट्रस्ट ही संस्था सामाजिक, सांस्कृतिक, शैक्षणिक
               आणि ऐतिहासिक वारसा जपण्यासाठी कार्यरत असलेली एक प्रेरणादायी संस्था
@@ -193,7 +206,11 @@ export default function Hero() {
             </p>
 
             {/* Read More Button */}
-            <button className="mt-4 w-[140px] sm:w-[180px] h-[38px] sm:h-[45px] rounded-full border border-white bg-[#BD512A] text-white text-[13px] sm:text-[15px] font-bold flex items-center justify-center gap-2 shadow-lg hover:bg-[#a94822] transition-all">
+            <motion.button
+              className="mt-4 w-[140px] sm:w-[180px] h-[38px] sm:h-[45px] rounded-full border border-white bg-[#BD512A] text-white text-[13px] sm:text-[15px] font-bold flex items-center justify-center gap-2 shadow-lg hover:bg-[#a94822] transition-all"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+            >
               अधिक वाचा...
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -209,41 +226,50 @@ export default function Hero() {
                   d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
                 />
               </svg>
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
 
           {/* Right Side: Image Gallery */}
-          <div className="flex flex-col gap-4">
+          <motion.div
+            className="flex flex-col gap-4"
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
+          >
             {/* Top Row: Two small images */}
             <div className="grid grid-cols-2 gap-4">
-              <div className="rounded-[15px] overflow-hidden shadow-lg aspect-[4/3] relative border-2 border-white/20">
-                <Image
-                  src={trustone}
-                  alt="Trust Event 1"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="rounded-[15px] overflow-hidden shadow-lg aspect-[4/3] relative border-2 border-white/20">
-                <Image
-                  src={trusttwo}
-                  alt="Trust Event 2"
-                  fill
-                  className="object-cover"
-                />
-              </div>
+              <motion.div
+                className="rounded-[15px] overflow-hidden shadow-lg aspect-[4/3] relative border-2 border-white/20"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <Image src={trustone} alt="Trust Event 1" fill className="object-cover" />
+              </motion.div>
+              <motion.div
+                className="rounded-[15px] overflow-hidden shadow-lg aspect-[4/3] relative border-2 border-white/20"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.35 }}
+              >
+                <Image src={trusttwo} alt="Trust Event 2" fill className="object-cover" />
+              </motion.div>
             </div>
 
             {/* Bottom Row: One large image */}
-            <div className="rounded-[15px] overflow-hidden shadow-lg aspect-[16/10] relative border-2 border-white/20">
-              <Image
-                src={trustthree}
-                alt="Trust Event Large"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
+            <motion.div
+              className="rounded-[15px] overflow-hidden shadow-lg aspect-[16/10] relative border-2 border-white/20"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
+              <Image src={trustthree} alt="Trust Event Large" fill className="object-cover" />
+            </motion.div>
+          </motion.div>
         </div>
       </section>
       <WadaGallery
