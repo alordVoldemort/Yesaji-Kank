@@ -25,30 +25,30 @@ export const MoreInfo:Record<"mr"|"en", moreInfo[]> = {
 
 export const History:Record<"mr"|"en", history[]> = {
     mr:[{name:"ऐतिहासिक वाडा " , desc:"मराठा काळातील दुर्मिळ ऐतिहासिक वस्तू, वास्तू व स्मारकांचे दस्तऐवजीकरण व जतन करून पुढील पिढीसाठी वारसा सुरक्षित ठेवण्याचे कार्य ट्रस्ट करत आहे."}],
-    en:[{name:"" , desc:""}]
+    en:[{name:"Historical Wada" , desc:"The Trust is working to document and preserve rare historical objects, structures, and monuments from the Maratha era, safeguarding the heritage for future generations."}]
 
 }
 
 export const Work:Record<"mr"|"en", work[]> = {
     mr:[{name:"आमची कामे " , desc:"समाजातील गरजू घटकांसाठी शिक्षण, आरोग्य, सांस्कृतिक जागृती व ग्रामीण विकासासाठी विविध उपक्रम राबवून सामाजिक बांधिलकी जपली जाते."}],
-    en:[{name:"" , desc:""}]
+    en:[{name:"Our Work" , desc:"Various initiatives are undertaken for education, health, cultural awareness, and rural development for the underprivileged sections of society, upholding social commitment."}]
 
 }
 
 
 export const Shivkalin:Record<"mr"|"en", shivkalin[]> = {
     mr:[{name:"शिवकालीन सग्रंह" , desc:"छत्रपती शिवाजी महाराजांच्या काळातील तलवारी, भाले, ढाल व इतर युद्धसाहित्यांचे विशेष प्रदर्शन विविध सण, उत्सव व ऐतिहासिक प्रसंगी आयोजित केले जाते."}],
-    en:[{name:"Shivkalin Collection" , desc:""}]
+    en:[{name:"Shivkalin Collection" , desc:"A special exhibition of swords, spears, shields and other war materials from Chhatrapati Shivaji Maharaj's era is organized at various festivals, celebrations and historical events."}]
 
 }
 export const Card:Record<"mr"|"en", card[]> = {
-    mr:[{name:"शिवकालीन शस्त्रे" , desc:"छत्रपती शिवाजी महाराजांच्या काळातील तलवारी, भाले, ढाल व इतर युद्धसाहित्यांचे विशेष प्रदर्शन विविध सण, उत्सव व ऐतिहासिक प्रसंगी आयोजित केले जाते."},
-        {name:"शिवराई व होन", desc:""},
-        {name:"शिवकालीन पत्र " , desc:""}
+    mr:[{name:"शिवकालीन शस्त्रे" , desc:"छत्रपती शासनातील यद्ुधात तलवार, भाला, धोप, ढाल, दांडपट्टा अशा शस्त्रांचा वापर केला जाई."},
+        {name:"शिवराई व होन", desc:"शिवराई व होन ही छत्रपती शिवाजी महाराजांच्या काळात आर्थि कर्थि कामासाठी चलनात वापरली जात."},
+        {name:"शिवकालीन पत्र " , desc:"तत्कालीन पत्रांमधनू राजव्यवस्था, दैनदिं दिन कामे, बोलीभाषा या गोष्टी शि कायला मि ळतात."}
     ],
-    en:[{name:"Shivkalin Armoury" , desc:""},
-        {name:"Shivraai and Hon" , desc:""},
-        {name:"Shivkalin Patr", desc:""}
+    en:[{name:"Shivaji-Era Weapons" , desc:"During the Chhatrapatis' reign, weapons such as swords, spears, dhas, shields, and dandpatas were used in warfare."},
+        {name:"Shivraai and Hon" , desc:"During the Chhatrapatis' reign, weapons such as swords, spears, dhas, shields, and dandpatas were used in warfare."},
+        {name:"Shivkalin Patr", desc:"Contemporary letters provide insights into the administrative system, daily routines, and spoken dialects of that period."}
     ]
 
 }
@@ -65,7 +65,11 @@ export const Feedback:Record<"mr"|"en", feedback[]> = {
         {name:"रोहित देशमुख",desc:"येसाजी कंक यांची निष्ठा आणि धैर्य अद्वितीय आहे। त्यांनी स्वराज्यासाठी दिलेले योगदान मोठे आहे।त्यांच्या कार्यामुळे इतिहास उजळला आहे।अशा वीरांना मनःपूर्वक सलाम।"},
        {name:"सोनाली शिंदे", desc:"वाड्याचा परिसर आणि वातावरण खूप शांत आणि सुंदर आहे.इतिहास आणि संस्कृती जवळून अनुभवता आली.शस्त्रे आणि स्मारक पाहताना खूप अभिमान वाटला.एक अविस्मरणीय अनुभव!"}
     ],
-    en:[{name:"Ganesh Patil " ,desc:"" }]
+    en:[
+        {name:"Ganesh Patil", desc:"The work of Yesaji Kank is extremely inspiring. His dedication and bravery still serve as a guide. His contribution to history is immense. A heartfelt tribute to such a great personality."},
+        {name:"Rohit Deshmukh", desc:"The loyalty and courage of Yesaji Kank are unparalleled. His contribution to Swarajya is immense. History has been illuminated by his deeds. A sincere salute to such a brave warrior."},
+        {name:"Sonali Shinde", desc:"The Wada premises and atmosphere are very peaceful and beautiful. We could experience history and culture up close. Seeing the weapons and memorial filled us with great pride. An unforgettable experience!"}
+    ]
 
 }
 
@@ -144,10 +148,10 @@ export const CardText:Record<"mr"|"en", cardtext[]> = {
         {name:"सामाजिक",desc:""},
         {name:"सांस्कृतिक" , desc:""}
     ],
-    en:[{name:"Agricultural" ,desc:"" },
-        {name:"Sports", desc:""},
-        {name:"Social",desc:""},
-        {name:"Cultural",desc:""}
+    en:[{name:"Agricultural", desc:"Prosperous farming, empowered farmers and a bright future."},
+        {name:"Sports", desc:"Nurturing athletes and promoting sporting excellence."},
+        {name:"Social", desc:"Building a stronger and more inclusive community."},
+        {name:"Cultural", desc:"Preserving our rich cultural traditions and heritage."}
     ]
 
 }
