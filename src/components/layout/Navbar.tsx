@@ -174,18 +174,8 @@ export default function Navbar() {
             {/* Marathi Button */}
             <button
               onClick={() => setLang("mr")}
-              className="flex items-center transition duration-300 hover:text-orange-500"
-   
-              <span
-                className={
-                  lang === "mr"
-                    ? "text-gray-900 font-semibold"
-                    : "text-gray-500"
-                }
-              >
-                मराठी
-              </span>
-
+              className="flex flex-col items-center transition duration-300 hover:text-orange-500"
+            >
               <span
                 className={`text-[16px] leading-none ${
                   lang === "mr"
@@ -195,6 +185,11 @@ export default function Navbar() {
               >
                 मराठी
               </span>
+              <span
+                className={`mt-[4px] h-[2px] rounded-full bg-orange-500 transition-all duration-300 ${
+                  lang === "mr" ? "w-full" : "w-0"
+                }`}
+              />
             </button>
 
             {/* Divider */}
