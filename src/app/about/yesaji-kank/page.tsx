@@ -12,13 +12,13 @@ export const Info = {
     {
       name: "येसाजी कंक बद्दल माहिती",
       desc1:
-        "येसाजींचे नाव ऐकताच, येसाजींनी तलवार उगारली. क्षणभर पातं चमकलं, दुसऱ्याच क्षणी सोडेवोर वार करून येसाजी बाजूला झाले. वारामध्ये हाताची सोंड कापली गेली होती - श्रीमान योगी कादंबरीमध्ये उल्लेख असलेला, कुतुबशहाच्या दरबारात घडलेला हा प्रसंग आपल्या नजरेसमोर उभा राहतो!",
+        "येसाजींचे नाव ऐकताच येसाजींनी तलवार उगारली. क्षणभर पातं चमकलं, दुसऱ्याच क्षणी सोंडेवर वार करून येसाजी बाजूला झाले.  वारामध्ये हत्तीची सोंड कापली गेली होती-श्रीमान योगी कादंबरीमध्ये उल्लेख असलेला कुतुबशहाच्या दरबारात घडलेला हा प्रसंग आपल्या नजरेसमोर उभा राहतो!",
       desc2:
-        "येसाजी कंक यांचा जन्म इ.स. १६२६ मध्ये भुतोंडे गावात, राजगडाच्या पायथ्याशी झाला होता. येसाजी हे शारीरिकदृष्ट्या सशक्त आणि बलदंड शरीरयष्टीचे होते.",
+        "येसाजी कंक यांचा जन्म इ.स. १६२६ मध्ये भुतोंडे गावात, राजगडाच्या पायथ्याशी झाला होता. येसाजी हे शारीरिक दृष्ट्या सशक्त आणि बलदंड शरीरयष्टीचे होते.",
       desc3:
-        "छत्रपती शिवरायांनी इ.स. १६४५ साली रायरेश्वरी घेतलेल्या स्वराज्य शपथेपासून ते इ.स. १६८९–१६९० साली छत्रपती संभाजी महाराजांनंतर छत्रपती राजाराम महाराजांच्या कार्यकाळात ज्येष्ठ सल्लागार म्हणून येसाजींचा उल्लेख आहे.",
+        "छत्रपती शिवरायांनी इ.स. १६४५ साली रायरेश्वरी घेतलेल्या स्वराज्य शपथेपासून ते इ.स. १६८९–१६९० साली छ.संभाजी महाराजांनंतर छ.राजाराम महाराजांच्या कार्यकाळात ज्येष्ठ सल्लागार म्हणून येसाजींचा उल्लेख आहे.",
       desc4:
-        "स्वराज्यसेवेमध्ये सलग ३० वर्षे पायदळाचे सरनोबत पद भूषवताना, फक्त २० वेळा आपल्या निवासस्थानी जात स्वामिनिष्ठा आणि स्वराज्यनिष्ठेचे सर्वोत्तम उदाहरण येसाजी कंक यांनी दाखवून दिले.",
+        "स्वराज्यसेवेमध्ये सलग ३० वर्ष पायदळाचे सरनोबत पद भूषवताना फक्त २० वेळा आपल्या निवास्थानी जात स्वामिनिष्ठ आणि स्वराज्यनिष्ठेचे सर्वोत्तम उदाहरण येसाजी कंक यांनी दाखवून दिले.",
       desc5:
         "स्वामिनिष्ठ, स्वराज्यभक्ती आणि स्वराज्यसेवेचे धगधगते स्फुलिंग सरनोबत येसाजी कंक यांना मानाचा मुजरा !!!",
     },
@@ -27,15 +27,16 @@ export const Info = {
     {
       name: "Information about Yesaji Kank",
       desc1:
-        "The moment his name was announced, Yesaji unsheathed his sword. For a brief instant, the blade flashed, and in the very next moment, striking the elephant's trunk, Yesaji swiftly stepped aside. This remarkable incident, mentioned in the novel Shriman Yogi, comes alive before our eyes.",
-      desc2:
-        "Yesaji Kank was born in 1626 AD in the village of Bhutonde, situated at the foothills of Rajgad. He was physically strong and possessed a powerful build.",
+"The moment he heard his name, Yesaji raised his sword, for a quick second, the blade flashed, and in the very next moment, after hitting the trunk, Yesaji stepped aside. With that one strike, the elephant's trunk was cut off. — This event, set in Qutb Shah’s court and described in the novel Shriman Yogi, clearly appears right in front of us! " ,
+  desc2:
+  "Yesaji Kank was born in 1626 AD in the village of Bhutonde, at the base of Rajgad. Yesaji was physically robust and possessed a powerful physique.",
       desc3:
-        "From the oath of Swarajya at Rayreshwar in 1645 AD to the years 1689–1690 AD, during Chhatrapati Rajaram Maharaj's reign after Chhatrapati Sambhaji Maharaj, Yesaji is mentioned as a senior advisor.",
+      "Starting from the time Chhatrapati Shivrai took the Oath of Swarajya at Raireshwar in 1645 AD, until the years 1689–1690 AD, Yesaji is noted as a senior guide during the rule of Chhatrapati Rajaram Maharaj- following that of Chhatrapati Sambhaji Maharaj.",
       desc4:
-        "While serving Swarajya continuously for 30 years as the Sar-nobat of the infantry and visiting his home only 20 times, Yesaji Kank showed the finest example of loyalty to his king and dedication to Swarajya.",
+      "While holding the high rank of Sar-nobat (Chief of the infantry) for the service of Swarajya for 30 years in a row—visiting his own home only twenty times— Yesaji Kank set the ultimate example of unwavering loyalty to both his master and the cause of Swarajya.",
+
       desc5:
-        "A respectful salute to Sarnobat Yesaji Kank, a blazing symbol of loyalty, devotion to Swarajya, and selfless service!",
+      "A respectful salute to Sarnobat Yesaji Kank—a bright spark of steady loyalty to his master, devotion to Swarajya, and selfless service to the cause"
     },
   ],
 };
@@ -86,8 +87,7 @@ export default function YesajiKankPage() {
         </div>
       </div>
 
-      <section className="relative w-full bg-[#9c7b52] px-4 sm:px-6 py-8 md:py-14 flex items-center justify-center">
-        <div className="relative w-full max-w-[100%] sm:max-w-[480px] md:max-w-[550px] lg:max-w-[580px] mx-auto ">
+<section className="relative w-full bg-[linear-gradient(168.07deg,_#838366_2.31%,_#EED5B1_50.3%,_#7E868E_98.28%)] px-4 sm:px-6 md:px-8 lg:px-10 py-8 sm:py-10 md:py-14 lg:py-16 flex items-center justify-center overflow-hidden">        <div className="relative w-full max-w-[100%] sm:max-w-[480px] md:max-w-[550px] lg:max-w-[580px] mx-auto ">
           <Image
             src={card}
             alt="Information Scroll"
@@ -104,54 +104,54 @@ export default function YesajiKankPage() {
                 />
               </div>
 
-              <h2 className="relative mb-3 sm:mb-4 md:mb-5 text-[10px] sm:text-[14px] md:text-[15px] lg:text-[16px] font-semibold text-[#f8e8d0] mt-4 min-[400px]:pt-5 min-[350px]:pt-5 min-[300px]:max-[345px]: pt-5">
+              <h2 className="relative mb-3 sm:mb-4 md:mb-5 text-[13px] sm:text-[14px] md:text-[15px] lg:text-[18px] font-semibold text-[#f8e8d0] mt-4 min-[400px]:pt-5 min-[350px]:pt-5 min-[300px]:max-[345px]: pt-5">
                 {currentData.name}
               </h2>
 
               <div
                 className={`relative z-10 flex flex-col text-[#f8e8d0] text-start
                       ${lang === "en"
-                    ? "gap-1 sm:gap-2 px-10 sm:px-12 md:px-14  min-[350px]:px-15 min-[400px]:px-17 min-[500px]:px-25 min-[300px]:max-[345px]:px-13 min-[372px]:max-[376px]:px-16  lg:px-20"
+                    ? "gap-1 sm:gap-2 px-10 sm:px-12 md:px-14  min-[350px]:px-15 min-[400px]:px-17 min-[500px]:px-25 min-[300px]:max-[345px]:px-13 min-[372px]:max-[376px]:px-16  lg:px-15"
                     : "gap-1 sm:px-15 sm:gap-2 md:gap-3 min-[350px]:px-17 min-[400px]:px-17 min-[500px]:px-25 min-[300px]:max-[345px]:px-15 min-[372px]:max-[376px]:px-17 "
                   }`}
               >
                 <p className={`${lang === 'en'
-                  ? "text-[10px] sm:text-[12px] md:text-[13px] sm:leading-snug min-[400px]:text-[9px] min-[500px]:text-[12px] min-[350px]:text-[9px] min-[350px]:pt-2 min-[300px]:max-[345px]:text-[7px] min-[372px]:max-[376px]:text-[8px] min-[372px]:max-[376px]:pt-1 min-[359px]:max-[361px]:text-[8px] min-[359px]:max-[361px]:pt-1"
-                  : "text-[10px] sm:text-[12px] md:text-[13px] sm:leading-snug min-[400px]:leading-[1.5] min-[500px]:text-[13px] min-[350px]:text-[10px] min-[350px]:pt-2 min-[300px]:max-[345px]:text-[8px] min-[372px]:max-[376px]:text-[8px] min-[372px]:max-[376px]:pt-2 min-[359px]:max-[361px]:text-[8px]"
+                  ? "text-[10px] sm:text-[12px] md:text-[13px] sm:leading-snug min-[400px]:text-[8px] min-[500px]:text-[11px] min-[350px]:text-[8px] min-[350px]:pt-2 min-[300px]:max-[345px]:text-[7px] min-[372px]:max-[376px]:text-[7px] min-[372px]:max-[376px]:pt-1 min-[359px]:max-[361px]:text-[7px] min-[359px]:max-[361px]:pt-1"
+                  : "text-[10px] sm:text-[12px] md:text-[13px]  lg:text-[15px] sm:leading-snug min-[400px]:leading-[1.5] min-[500px]:text-[13px] min-[350px]:text-[10px] min-[350px]:pt-2 min-[300px]:max-[345px]:text-[8px] min-[372px]:max-[376px]:text-[8px] min-[372px]:max-[376px]:pt-2 min-[359px]:max-[361px]:text-[8px]"
                   }`}  >                {currentData.desc1}
                 </p>
 
 
 
                 <p className={`${lang === 'en'
-                  
-                   ? "text-[10px] sm:text-[12px] md:text-[13px]  sm:leading-snug pt-2 min-[400px]:pt-3  min-[400px]:text-[9px] min-[500px]:text-[12px] min-[500px]:leading[1] min-[350px]:text-[9px] min-[300px]:max-[345px]:text-[7px] min-[372px]:max-[376px]:text-[8px] min-[372px]:max-[376px]:pt-3 min-[359px]:max-[361px]:text-[8px] min-[359px]:max-[361px]:pt-1"
-                  : "text-[10px] sm:text-[12px] md:text-[13px]  sm:leading-snug pt-2 min-[400px]:pt-5 min-[400px]:leading-[1.5] min-[500px]:text-[13px] min-[500px]:leading[1] min-[350px]:text-[10px] min-[300px]:max-[345px]:text-[8px] min-[372px]:max-[376px]:text-[8px] min-[372px]:max-[376px]:pt-5 min-[359px]:max-[361px]:text-[8px] min-[359px]:max-[361px]:pt-4"
+
+                  ? "text-[10px] sm:text-[12px] md:text-[13px]   sm:leading-snug pt-2 min-[400px]:pt-3  min-[400px]:text-[8px] min-[500px]:text-[11px]  min-[350px]:text-[8px] min-[300px]:max-[345px]:text-[7px] min-[372px]:max-[376px]:text-[7px] min-[372px]:max-[376px]:pt-3 min-[359px]:max-[361px]:text-[7px] min-[359px]:max-[361px]:pt-1"
+                  : "text-[10px] sm:text-[12px] md:text-[13px]  lg:text-[15px] sm:leading-snug pt-2 min-[400px]:pt-5 min-[400px]:leading-[1.5] min-[500px]:text-[13px] min-[500px]:leading[1] min-[350px]:text-[10px] min-[300px]:max-[345px]:text-[8px] min-[372px]:max-[376px]:text-[8px] min-[372px]:max-[376px]:pt-5 min-[359px]:max-[361px]:text-[8px] min-[359px]:max-[361px]:pt-4"
 
                   }`}>
                   {currentData.desc2}
                 </p>
 
-                <p className={`${lang === 'en' 
-                  ?  "text-[10px] sm:text-[12px] md:text-[13px]  sm:leading-snug pt-2  min-[400px]:pt-3  min-[400px]:text-[9px] min-[400px]:leading-[1.5] min-[500px]:text-[12px] min-[350px]:text-[9px] min-[300px]:max-[345px]:text-[7px] min-[372px]:max-[376px]:text-[8px] min-[372px]:max-[376px]:pt-3 min-[359px]:max-[361px]:text-[8px] min-[359px]:max-[361px]:pt-1 "
-                  : "text-[10px] sm:text-[12px] md:text-[13px]  sm:leading-snug pt-2  min-[400px]:pt-5 min-[400px]:leading-[1.5] min-[500px]:text-[13px] min-[350px]:text-[10px] min-[300px]:max-[345px]:text-[8px] min-[372px]:max-[376px]:text-[8px] min-[372px]:max-[376px]:pt-5 min-[359px]:max-[361px]:text-[8px] min-[359px]:max-[361px]:pt-4 "
+                <p className={`${lang === 'en'
+                  ? "text-[10px] sm:text-[12px] md:text-[13px]  sm:leading-snug pt-2  min-[400px]:pt-3  min-[400px]:text-[8px] min-[400px]:leading-[1.5] min-[500px]:text-[11px] min-[350px]:text-[8px] min-[300px]:max-[345px]:text-[7px] min-[372px]:max-[376px]:text-[7px] min-[372px]:max-[376px]:pt-3 min-[359px]:max-[361px]:text-[7px] min-[359px]:max-[361px]:pt-1 "
+                  : "text-[10px] sm:text-[12px] md:text-[13px]  lg:text-[15px] sm:leading-snug pt-2  min-[400px]:pt-5 min-[400px]:leading-[1.5] min-[500px]:text-[13px] min-[350px]:text-[10px] min-[300px]:max-[345px]:text-[8px] min-[372px]:max-[376px]:text-[8px] min-[372px]:max-[376px]:pt-5 min-[359px]:max-[361px]:text-[8px] min-[359px]:max-[361px]:pt-4 "
 
 
                   }`}>
                   {currentData.desc3}
                 </p>
 
-                <p className={`${lang === 'en' 
-                  ?  "text-[10px] sm:text-[12px] md:text-[13px]  sm:leading-snug pt-2 min-[400px]:pt-3 min-[400px]:text-[9px] min-[500px]:text-[12px] min-[350px]:text-[9px] min-[300px]:max-[345px]:text-[7px] min-[372px]:max-[376px]:text-[8px] min-[372px]:max-[376px]:pt-3 min-[359px]:max-[361px]:text-[8px] min-[359px]:max-[361px]:pt-1"
-                  : "text-[10px] sm:text-[12px] md:text-[13px]  sm:leading-snug pt-2 min-[400px]:pt-5 min-[400px]:leading-[1.5] min-[500px]:text-[15px] min-[350px]:text-[10px] min-[300px]:max-[345px]:text-[8px] min-[372px]:max-[376px]:text-[8px] min-[372px]:max-[376px]:pt-5 min-[359px]:max-[361px]:text-[8px] min-[359px]:max-[361px]:pt-4"
+                <p className={`${lang === 'en'
+                  ? "text-[10px] sm:text-[12px] md:text-[13px]  sm:leading-snug pt-2 min-[400px]:pt-3 min-[400px]:text-[8px] min-[500px]:text-[11px] min-[350px]:text-[8px] min-[300px]:max-[345px]:text-[7px] min-[372px]:max-[376px]:text-[7px] min-[372px]:max-[376px]:pt-3 min-[359px]:max-[361px]:text-[7px] min-[359px]:max-[361px]:pt-1"
+                  : "text-[10px] sm:text-[12px] md:text-[13px]  lg:text-[15px] sm:leading-snug pt-2 min-[400px]:pt-5 min-[400px]:leading-[1.5] min-[500px]:text-[15px] min-[350px]:text-[10px] min-[300px]:max-[345px]:text-[8px] min-[372px]:max-[376px]:text-[8px] min-[372px]:max-[376px]:pt-5 min-[359px]:max-[361px]:text-[8px] min-[359px]:max-[361px]:pt-4"
 
                   }`}>
                   {currentData.desc4}
                 </p>
 
-                <p className={`${lang === "en" 
-                  ?  "pt-1 font-semibold text-[10px] sm:text-[12px] md:text-[13px]  sm:leading-snug pt-2 min-[400px]:pt-3  min-[400px]:text-[9px] min-[500px]:text-[12px] min-[350px]:text-[9px] min-[300px]:max-[345px]:text-[7px] min-[372px]:max-[376px]:text-[8px] min-[372px]:max-[376px]:pt-3 min-[359px]:max-[361px]:text-[8px] min-[359px]:max-[361px]:pt-1"
-                  : "pt-1 font-semibold text-[10px] sm:text-[12px] md:text-[13px]  sm:leading-snug pt-2 min-[400px]:pt-5  min-[400px]:leading-[1.5] min-[500px]:text-[15px] min-[350px]:text-[10px] min-[300px]:max-[345px]:text-[8px] min-[372px]:max-[376px]:text-[8px] min-[372px]:max-[376px]:pt-5 min-[359px]:max-[361px]:text-[8px] min-[359px]:max-[361px]:pt-3"
+                <p className={`${lang === "en"
+                  ? "pt-1  text-[10px] sm:text-[12px] md:text-[13px]  sm:leading-snug pt-2 min-[400px]:pt-3  min-[400px]:text-[8px] min-[500px]:text-[11px] min-[350px]:text-[8px] min-[300px]:max-[345px]:text-[7px] min-[372px]:max-[376px]:text-[7px] min-[372px]:max-[376px]:pt-3 min-[359px]:max-[361px]:text-[7px] min-[359px]:max-[361px]:pt-2"
+                  : "pt-1  text-[10px] sm:text-[12px] md:text-[13px] lg:text-[15px] sm:leading-snug pt-2 min-[400px]:pt-5  min-[400px]:leading-[1.5] min-[500px]:text-[15px] min-[350px]:text-[10px] min-[300px]:max-[345px]:text-[8px] min-[372px]:max-[376px]:text-[8px] min-[372px]:max-[376px]:pt-5 min-[359px]:max-[361px]:text-[8px] min-[359px]:max-[361px]:pt-3"
                   }`}>
                   {currentData.desc5}
                 </p>
