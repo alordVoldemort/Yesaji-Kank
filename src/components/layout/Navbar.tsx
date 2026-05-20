@@ -7,11 +7,13 @@ import { navLinks } from "@/data/navigation";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Navbar() {
-const {lang, setLang} = useLanguage()
+  const { lang, setLang } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [mobileOpenDropdown, setMobileOpenDropdown] = useState<string | null>(null);
+  const [mobileOpenDropdown, setMobileOpenDropdown] = useState<string | null>(
+    null,
+  );
   const dropdownRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
@@ -22,7 +24,10 @@ const {lang, setLang} = useLanguage()
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as Node)
+      ) {
         setOpenDropdown(null);
       }
     };
@@ -41,7 +46,6 @@ const {lang, setLang} = useLanguage()
     >
       {/* ── Single row: logo | menu (center) | lang toggle ── */}
       <div className="mx-auto flex h-[64px] sm:h-[68px] lg:h-[70px] items-center justify-between px-3 sm:px-5 md:px-6 lg:px-10 xl:px-12 max-w-[1600px]">
-
         {/* Left: logo + org name */}
         <Link href="/" className="flex items-center gap-3 shrink-0">
           <Image
@@ -59,21 +63,25 @@ const {lang, setLang} = useLanguage()
 
         {/* Center: menu items */}
         <ul
-  ref={dropdownRef}
-  className={`hidden lg:flex items-center text-sm flex-1 justify-center ${
-    lang === "mr"
-      ? "gap-4 xl:gap-8 2xl:gap-12"
-      : "gap-3 xl:gap-6 2xl:gap-10"
-  }`}
->
+          ref={dropdownRef}
+          className={`hidden lg:flex items-center text-sm flex-1 justify-center ${
+            lang === "mr"
+              ? "gap-4 xl:gap-8 2xl:gap-12"
+              : "gap-3 xl:gap-6 2xl:gap-10"
+          }`}
+        >
           {items.map((item) => (
             <li key={item.href} className="relative">
               {item.children ? (
                 <>
                   <button
-                    onClick={() => setOpenDropdown(openDropdown === item.href ? null : item.href)}
+                    onClick={() =>
+                      setOpenDropdown(
+                        openDropdown === item.href ? null : item.href,
+                      )
+                    }
                     className={`nav-btn relative inline-flex items-center gap-1 px-2 h-[30px] whitespace-nowrap leading-none font-medium text-gray-800 transition-colors duration-300 group 
-                      ${lang === "mr"? "text-[13px] xl:text-[15px]": "text-[12px] xl:text-[13px]"}`}
+                      ${lang === "mr" ? "text-[13px] xl:text-[15px]" : "text-[12px] xl:text-[13px]"}`}
                   >
                     {/* top-left bracket */}
                     <span className="pointer-events-none absolute top-[1px] left-[1px] w-[5px] h-[5px] border-t border-l border-gray-500 group-hover:border-[#d4a017] transition-colors duration-300 z-20" />
@@ -82,9 +90,16 @@ const {lang, setLang} = useLanguage()
                     <span className="relative z-10">{item.label}</span>
                     <svg
                       className={`w-3 h-3 transition-transform duration-200 ${openDropdown === item.href ? "rotate-180" : ""}`}
-                      fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
                     >
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M19 9l-7 7-7-7"
+                      />
                     </svg>
                   </button>
                   {openDropdown === item.href && (
@@ -140,7 +155,13 @@ const {lang, setLang} = useLanguage()
               onClick={() => setLang("mr")}
               className="flex flex-col items-center gap-[3px] transition duration-300 hover:text-orange-500"
             >
-              <span className={lang === "mr" ? "text-gray-900 font-semibold" : "text-gray-500"}>
+              <span
+                className={
+                  lang === "mr"
+                    ? "text-gray-900 font-semibold"
+                    : "text-gray-500"
+                }
+              >
                 मराठी
               </span>
               <span
@@ -154,7 +175,13 @@ const {lang, setLang} = useLanguage()
               onClick={() => setLang("en")}
               className="flex flex-col items-center gap-[3px] transition duration-300 hover:text-orange-500"
             >
-              <span className={lang === "en" ? "text-gray-900 font-semibold" : "text-gray-500"}>
+              <span
+                className={
+                  lang === "en"
+                    ? "text-gray-900 font-semibold"
+                    : "text-gray-500"
+                }
+              >
                 English
               </span>
               <span
@@ -199,15 +226,26 @@ const {lang, setLang} = useLanguage()
                 {item.children ? (
                   <>
                     <button
-                      onClick={() => setMobileOpenDropdown(mobileOpenDropdown === item.href ? null : item.href)}
+                      onClick={() =>
+                        setMobileOpenDropdown(
+                          mobileOpenDropdown === item.href ? null : item.href,
+                        )
+                      }
                       className="w-full flex items-center justify-between px-4 sm:px-6 py-3 border-b border-gray-100 hover:text-orange-500 transition duration-300"
                     >
                       <span>{item.label}</span>
                       <svg
                         className={`w-3 h-3 transition-transform duration-200 ${mobileOpenDropdown === item.href ? "rotate-180" : ""}`}
-                        fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
                       >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M19 9l-7 7-7-7"
+                        />
                       </svg>
                     </button>
                     {mobileOpenDropdown === item.href && (
@@ -216,7 +254,10 @@ const {lang, setLang} = useLanguage()
                           <li key={child.href}>
                             <Link
                               href={child.href}
-                              onClick={() => { setMenuOpen(false); setMobileOpenDropdown(null); }}
+                              onClick={() => {
+                                setMenuOpen(false);
+                                setMobileOpenDropdown(null);
+                              }}
                               className="block pl-10 pr-6 py-2.5 border-b border-orange-100 text-gray-700 hover:text-orange-500 transition duration-300"
                             >
                               {child.label}
@@ -241,7 +282,9 @@ const {lang, setLang} = useLanguage()
               <button
                 onClick={() => setLang("mr")}
                 className={`transition duration-300 ${
-                  lang === "mr" ? "text-orange-600 font-semibold" : "hover:text-orange-500"
+                  lang === "mr"
+                    ? "text-orange-600 font-semibold"
+                    : "hover:text-orange-500"
                 }`}
               >
                 मराठी
@@ -250,7 +293,9 @@ const {lang, setLang} = useLanguage()
               <button
                 onClick={() => setLang("en")}
                 className={`transition duration-300 ${
-                  lang === "en" ? "text-orange-600 font-semibold" : "hover:text-orange-500"
+                  lang === "en"
+                    ? "text-orange-600 font-semibold"
+                    : "hover:text-orange-500"
                 }`}
               >
                 English

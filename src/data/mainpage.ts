@@ -81,7 +81,7 @@ export const FooterData: Record<"mr" | "en", FooterInfo[]> = {
       contactTitle: "संपर्क",
       email: "info@yesajikanktrust.org",
       phone: "+91 1234567890",
-      address: "सरसेनापती कंक वाडा, भुतोंडे ता.भोर जि पुणे",
+      address: "सरसेनापती कंक वाडा, भुतोंडे ता.भोर जि. पुणे",
       rights: "© 2026 Zonixtec IT Services Private Limited. सर्व हक्क राखीव.",
       tagline: "इतिहास जतन करणे, भावी पिढ्यांना प्रेरणा देणे",
       homeLinksWithUrl: [
