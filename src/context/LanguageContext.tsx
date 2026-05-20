@@ -13,7 +13,7 @@ const LanguageContext  = createContext<LanguageContextType | undefined>(undefine
 
 export function LanguaugeProvider({children}: {children: ReactNode}) {
     const[lang, setLang] = useState<Language>("mr")
-  const fontClass = lang === "mr" ? "font-devnagri" : "font-poppins";
+  const fontClass = lang === "mr" ? "font-devanagari" : "font-poppins";
 
     return (
     <LanguageContext.Provider value={{ lang, setLang,fontClass }}>

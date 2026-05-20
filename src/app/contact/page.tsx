@@ -1,52 +1,18 @@
 "use client";
 
-import type { Metadata } from "next";
+import { useState } from "react";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
+import twoflags from "@/../public/twoflags.svg"
 
-// Content for both languages
 const content = {
   mr: {
-    pageTitle: "संपर्क",
-    contact: "संपर्क",
-    email: "ई-मेल",
-    address: "पत्ता",
-    phone: "+91 1234567890",
-    emailId: "info@yesaji.com",
-    addressText: "पुणे, महाराष्ट्र",
-    formTitle: "संदेश पाठवा",
-    firstName: "पहिले नाव",
-    firstNamePlaceholder: "आपले पहिले नाव",
-    lastName: "आडनाव",
-    lastNamePlaceholder: "आपले आडनाव",
-    mobile: "मोबाईल नंबर",
-    mobilePlaceholder: "मोबाईल क्रमांक",
-    emailLabel: "ई मेल आयडी",
-    emailPlaceholder: "ई मेल आयडी",
-    message: "संदेश",
-    messagePlaceholder: "संदेश",
-    submit: "पाठवा",
+    pageTitle: "संपर्क", contact: "संपर्क", email: "ई-मेल", address: "पत्ता", phone: "+91 1234567890", emailId: "info@yesaji.com", addressText: "पुणे, महाराष्ट्र", formTitle: "संदेश पाठवा", firstName: "पहिले नाव", firstNamePlaceholder: "आपले पहिले नाव", lastName: "आडनाव", lastNamePlaceholder: "आपले आडनाव", mobile: "मोबाईल नंबर", mobilePlaceholder: "मोबाईल क्रमांक", emailLabel: "ई मेल आयडी", emailPlaceholder: "ई मेल आयडी", message: "संदेश", messagePlaceholder: "संदेश", submit: "पाठवा",
+    errChar: "कृपया फक्त अक्षरे वापरा", errMobile: "कृपया वैध १० अंकी मोबाईल नंबर टाका", errEmail: "ईमेल फक्त .com, .in, किंवा .net असावा", errReq: "हे क्षेत्र अनिवार्य आहे"
   },
   en: {
-    pageTitle: "Contact",
-    contact: "Contact",
-    email: "Email",
-    address: "Address",
-    phone: "+91 1234567890",
-    emailId: "info@yesaji.com",
-    addressText: "Pune, Maharashtra",
-    formTitle: "Send Message",
-    firstName: "First Name",
-    firstNamePlaceholder: "Your first name",
-    lastName: "Last Name",
-    lastNamePlaceholder: "Your last name",
-    mobile: "Mobile Number",
-    mobilePlaceholder: "Mobile number",
-    emailLabel: "Email ID",
-    emailPlaceholder: "Email ID",
-    message: "Message",
-    messagePlaceholder: "Your message",
-    submit: "Send",
+    pageTitle: "Contact", contact: "Contact", email: "Email", address: "Address", phone: "+91 1234567890", emailId: "info@yesaji.com", addressText: "Pune, Maharashtra", formTitle: "Send Message", firstName: "First Name", firstNamePlaceholder: "Your first name", lastName: "Last Name", lastNamePlaceholder: "Your last name", mobile: "Mobile Number", mobilePlaceholder: "Mobile number", emailLabel: "Email ID", emailPlaceholder: "Email ID", message: "Message", messagePlaceholder: "Your message", submit: "Send",
+    errChar: "Please use characters only", errMobile: "Please enter a valid 10-digit mobile number", errEmail: "Email must end with .com, .in, or .net", errReq: "This field is required"
   },
 };
 
@@ -54,444 +20,90 @@ export default function ContactPage() {
   const { lang, fontClass } = useLanguage();
   const t = lang === "en" ? content.en : content.mr;
 
+  const [formData, setFormData] = useState({ firstName: "", lastName: "", mobile: "", email: "", message: "" });
+  const [errors, setErrors] = useState<any>({});
+
+  const validate = () => {
+    let newErrors: any = {};
+    const nameRegex = /^[A-Za-z\u0900-\u097F\s]+$/;
+    const mobileRegex = /^[6-9][0-9]{9}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.(com|in|net)$/;
+
+    if (!formData.firstName) newErrors.firstName = t.errReq; else if (!nameRegex.test(formData.firstName)) newErrors.firstName = t.errChar;
+    if (!formData.lastName) newErrors.lastName = t.errReq; else if (!nameRegex.test(formData.lastName)) newErrors.lastName = t.errChar;
+    if (!formData.mobile) newErrors.mobile = t.errReq; else if (!mobileRegex.test(formData.mobile)) newErrors.mobile = t.errMobile;
+    if (!formData.email) newErrors.email = t.errReq; else if (!emailRegex.test(formData.email)) newErrors.email = t.errEmail;
+    if (!formData.message) newErrors.message = t.errReq;
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e: React.FormEvent) => { e.preventDefault(); if (validate()) { console.log("Form Submitted", formData); alert(lang === "en" ? "Message Sent!" : "संदेश पाठवला!"); } };
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => { setFormData({ ...formData, [e.target.name]: e.target.value }); if (errors[e.target.name]) setErrors({ ...errors, [e.target.name]: "" }); };
+
   return (
-    <main
-      className={`
-        relative
-        min-h-screen
-        overflow-hidden
-        flex
-        flex-col
-        items-center
-        px-4
-        pt-[80px]
-        sm:pt-[90px]
-        md:pt-[100px]
-        ${fontClass}
-      `}
-      style={{
-        background:
-          "linear-gradient(168.07deg, #8B866B 2.31%, #E9D5B4 55.3%, #BBA98B 98.28%)",
-      }}
-    >
-      {/* ================= CONTACT HEADER ================= */}
-      <div className="relative flex flex-col items-center mt-20 mb-16">
-        {/* RIGHT FLAG */}
-        <div className="absolute top-[-100px] right-[8%] z-0 opacity-80 pointer-events-none">
-          <Image
-            src="/flag.png"
-            alt="Right Flag"
-            width={580}
-            height={580}
-            className="object-contain"
-          />
+    <main className={`relative min-h-screen overflow-hidden flex flex-col items-center px-4 pt-[70px] sm:pt-[100px] lg:pt-[35px] md:pt-[10px] pb-20 ${fontClass}`} style={{ background: "linear-gradient(168.07deg, #8B866B 2.31%, #E9D5B4 55.3%, #BBA98B 98.28%)" }}>
+      <div className="relative flex flex-col items-center w-full max-w-[900px] lg:mt-1 sm:mt-16">
+        <div className="relative w-full flex justify-center z-0 lg:w-[680px] lg:h-[480px] md:w-[500px]">
+          <Image src={twoflags} alt="Two Flags" width={480} height={350} className="object-contain w-full h-auto" />
+          <div className="absolute inset-0 flex items-center justify-center pb-[20%] sm:pb-[15%]">
+            <Image src="/Contact-text.svg" alt={t.pageTitle} width={560} height={500} className="object-contain w-[390px] sm:w-[140px] md:w-[390px] lg:w-[480px]" />
+          </div>
         </div>
-
-        {/* LEFT FLAG OPPOSITE DIRECTION */}
-        <div className="absolute top-[-100px] left-[8%] z-0 opacity-80 pointer-events-none">
-          <Image
-            src="/flag.png"
-            alt="Left Flag"
-            width={580}
-            height={580}
-            className="object-contain scale-x-[-1]"
-          />
-        </div>
-
-        {/* CONTACT TITLE */}
-        <div className="relative z-8 flex justify-center items-center mt-10">
-          <Image
-            src="/Contact-text.png"
-            alt={t.pageTitle}
-            width={70}
-            height={100}
-            className="object-contain"
-            priority
-          />
-        </div>
-
-        {/* SHIELD */}
-        <div
-          className="
-            relative
-            z-10
-            mt-[-10px]
-            w-[130px]
-            sm:w-[170px]
-            md:w-[220px]
-            lg:w-[260px]
-            h-[130px]
-            sm:h-[170px]
-            md:h-[220px]
-            lg:h-[260px]
-          "
-        >
-          <Image
-            src="/shield-contact.png"
-            alt="Shield"
-            fill
-            priority
-            className="object-contain"
-          />
+        <div className="relative z-20 mt-[-38%] sm:mt-[-22%] md:mt-[-30%] lg:mt-[-30%] w-[190px] h-[190px] sm:w-[300px] sm:h-[300px] md:w-[350px] md:h-[400px] lg:w-[300px]">
+          <Image src="/main.svg" alt="Emblem" fill priority className="object-contain" />
         </div>
       </div>
-
-      {/* ================= CONTACT CARDS ================= */}
-      <div
-        className="
-          relative
-          z-20
-          w-full
-          max-w-7xl
-          mx-auto
-          mt-2
-          grid
-          grid-cols-1
-          md:grid-cols-3
-          gap-4
-          px-4
-          pb-6
-        "
-      >
-        {/* CARD 1 - CONTACT */}
-        <div className="relative flex justify-center items-center h-[250px]">
-          <Image
-            src="/paper-card.png"
-            alt="Paper Card"
-            fill
-            className="object-contain"
-          />
-
-          <div className="relative z-10 flex flex-col items-center text-center px-10">
-            <h2 className="text-[28px] font-semibold text-[#3d2415] mb-2">
-              {t.contact}
-            </h2>
-
-            <Image
-              src="/phone.svg"
-              alt="Phone"
-              width={58}
-              height={58}
-            />
-
-            <br />
-            <p className="text-[#3d2415] text-lg font-medium">
-              {t.phone}
-            </p>
+      <div className="relative z-30 w-full max-w-7xl mx-auto mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-4 px-2 sm:px-4">
+        {[ { title: t.contact, icon: "/phone.svg", value: t.phone }, { title: t.email, icon: "/email.svg", value: t.emailId }, { title: t.address, icon: "/location.svg", value: t.addressText } ].map((item, idx) => (
+          <div key={idx} className="relative flex flex-col items-center justify-center min-h-[220px] sm:h-[250px] w-full">
+            <Image src="/paper-card.png" alt="Card" fill className="object-fill sm:object-contain" />
+            <div className="relative z-10 flex flex-col items-center text-center px-8 sm:px-10">
+              <h2 className="text-xl sm:text-2xl font-bold text-[#3d2415] mb-2">{item.title}</h2>
+              <div className="w-15 h-17 sm:w-14 sm:h-14 flex items-center justify-center mb-6"><Image src={item.icon} alt="Icon" width={75} height={72} className="" /></div>
+              <p className="text-[#3d2415] text-sm sm:text-base font-semibold leading-tight">{item.value}</p>
+            </div>
           </div>
-        </div>
-
-        {/* CARD 2 - EMAIL */}
-        <div className="relative flex justify-center items-center h-[250px]">
-          <Image
-            src="/paper-card.png"
-            alt="Paper Card"
-            fill
-            className="object-contain"
-          />
-
-          <div className="relative z-10 flex flex-col items-center text-center px-10">
-            <h2 className="text-[28px] font-semibold text-[#3d2415] mb-2">
-              {t.email}
-            </h2>
-
-            <Image
-              src="/phone.svg"
-              alt="Mail"
-              width={58}
-              height={58}
-            />
-
-            <br />
-            <p className="text-[#3d2415] text-lg font-medium break-all">
-              {t.emailId}
-            </p>
-          </div>
-        </div>
-
-        {/* CARD 3 - ADDRESS */}
-        <div className="relative flex justify-center items-center h-[250px]">
-          <Image
-            src="/paper-card.png"
-            alt="Paper Card"
-            fill
-            className="object-contain"
-          />
-
-          <br />
-          <div className="relative z-10 flex flex-col items-center text-center px-10">
-            <h2 className="text-[28px] font-semibold text-[#3d2415] mb-2">
-              {t.address}
-            </h2>
-
-            <Image
-              src="/phone.svg"
-              alt="Location"
-              width={58}
-              height={58}
-            />
-
-            <br />
-            <p className="text-[#3d2415] text-lg font-medium">
-              {t.addressText}
-            </p>
-          </div>
-        </div>
+        ))}
       </div>
-
-      {/* ================= CONTACT FORM + MAP SECTION ================= */}
-      <div
-        className="
-          max-w-7xl
-          mx-auto
-          px-4
-          py-16
-          grid
-          grid-cols-1
-          lg:grid-cols-2
-          gap-10
-          items-start
-        "
-      >
-        {/* ================= FORM CARD ================= */}
-        <div
-          className="
-            w-full
-            max-w-[664px]
-            h-auto
-            min-h-[622px]
-            bg-white
-            border
-            border-[#C1C1C1]
-            rounded-[14px]
-            px-[22px]
-            pt-[33px]
-            pb-[33px]
-          "
-        >
-          {/* TITLE */}
-          <h2
-            className="
-              text-center
-              text-[28px]
-              font-normal
-              text-[#2D2D2D]
-              mb-10
-            "
-            style={{
-              fontFamily: "IBM Plex Sans Devanagari",
-              lineHeight: "100%",
-              letterSpacing: "0%",
-            }}
-          >
-            {t.formTitle}
-          </h2>
-
-          {/* FORM */}
-          <form className="flex flex-col gap-[26px]">
-            {/* ROW 1 */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* FIRST NAME */}
-              <div className="flex flex-col gap-2">
-                <label
-                  className="text-[14px] text-[#2D2D2D]"
-                  style={{
-                    fontFamily: "IBM Plex Sans Devanagari",
-                    fontWeight: 400,
-                    lineHeight: "100%",
-                    letterSpacing: "0%",
-                  }}
-                >
-                  {t.firstName}
-                </label>
-
-                <input
-                  type="text"
-                  placeholder={t.firstNamePlaceholder}
-                  className="
-                    w-full
-                    h-[46px]
-                    border
-                    border-[#C1C1C1]
-                    rounded-[8px]
-                    px-4
-                    outline-none
-                    text-[14px]
-                  "
-                />
+      <div className="max-w-7xl mx-auto px-4 py-12 sm:py-20 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 items-stretch w-full">
+        <div className="w-full bg-white border border-[#C1C1C1] rounded-[14px] px-5 sm:px-10 py-8 sm:py-10 shadow-xl">
+          <h2 className="text-center text-2xl sm:text-[28px] font-bold text-[#2D2D2D] mb-8">{t.formTitle}</h2>
+          <form className="flex flex-col gap-5 sm:gap-6" onSubmit={handleSubmit}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex flex-col gap-1.5">
+                <label className="text-xs sm:text-[14px] text-gray-500">{t.firstName}</label>
+                <input name="firstName" type="text" value={formData.firstName} onChange={handleChange} placeholder={t.firstNamePlaceholder} className={`w-full h-11 border ${errors.firstName ? 'border-red-500' : 'border-gray-300'} rounded-md px-4 text-sm outline-none focus:border-[#C85D1F]`} />
+                {errors.firstName && <span className="text-red-500 text-[10px]">{errors.firstName}</span>}
               </div>
-
-              {/* LAST NAME */}
-              <div className="flex flex-col gap-2">
-                <label
-                  className="text-[14px] text-[#2D2D2D]"
-                  style={{
-                    fontFamily: "IBM Plex Sans Devanagari",
-                    fontWeight: 400,
-                    lineHeight: "100%",
-                    letterSpacing: "0%",
-                  }}
-                >
-                  {t.lastName}
-                </label>
-
-                <input
-                  type="text"
-                  placeholder={t.lastNamePlaceholder}
-                  className="
-                    w-full
-                    h-[46px]
-                    border
-                    border-[#C1C1C1]
-                    rounded-[8px]
-                    px-4
-                    outline-none
-                    text-[14px]
-                  "
-                />
+              <div className="flex flex-col gap-1.5">
+                <label className="text-xs sm:text-[14px] text-gray-500">{t.lastName}</label>
+                <input name="lastName" type="text" value={formData.lastName} onChange={handleChange} placeholder={t.lastNamePlaceholder} className={`w-full h-11 border ${errors.lastName ? 'border-red-500' : 'border-gray-300'} rounded-md px-4 text-sm outline-none focus:border-[#C85D1F]`} />
+                {errors.lastName && <span className="text-red-500 text-[10px]">{errors.lastName}</span>}
               </div>
             </div>
-
-            {/* ROW 2 */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* MOBILE */}
-              <div className="flex flex-col gap-2">
-                <label
-                  className="text-[14px] text-[#2D2D2D]"
-                  style={{
-                    fontFamily: "IBM Plex Sans Devanagari",
-                    fontWeight: 400,
-                    lineHeight: "100%",
-                    letterSpacing: "0%",
-                  }}
-                >
-                  {t.mobile}
-                </label>
-
-                <input
-                  type="text"
-                  placeholder={t.mobilePlaceholder}
-                  className="
-                    w-full
-                    h-[46px]
-                    border
-                    border-[#C1C1C1]
-                    rounded-[8px]
-                    px-4
-                    outline-none
-                    text-[14px]
-                  "
-                />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex flex-col gap-1.5">
+                <label className="text-xs sm:text-[14px] text-gray-500">{t.mobile}</label>
+                <input name="mobile" type="text" value={formData.mobile} onChange={handleChange} placeholder={t.mobilePlaceholder} className={`w-full h-11 border ${errors.mobile ? 'border-red-500' : 'border-gray-300'} rounded-md px-4 text-sm outline-none focus:border-[#C85D1F]`} />
+                {errors.mobile && <span className="text-red-500 text-[10px]">{errors.mobile}</span>}
               </div>
-
-              {/* EMAIL */}
-              <div className="flex flex-col gap-2">
-                <label
-                  className="text-[14px] text-[#2D2D2D]"
-                  style={{
-                    fontFamily: "IBM Plex Sans Devanagari",
-                    fontWeight: 400,
-                    lineHeight: "100%",
-                    letterSpacing: "0%",
-                  }}
-                >
-                  {t.emailLabel}
-                </label>
-
-                <input
-                  type="email"
-                  placeholder={t.emailPlaceholder}
-                  className="
-                    w-full
-                    h-[46px]
-                    border
-                    border-[#C1C1C1]
-                    rounded-[8px]
-                    px-4
-                    outline-none
-                    text-[14px]
-                  "
-                />
+              <div className="flex flex-col gap-1.5">
+                <label className="text-xs sm:text-[14px] text-gray-500">{t.emailLabel}</label>
+                <input name="email" type="email" value={formData.email} onChange={handleChange} placeholder={t.emailPlaceholder} className={`w-full h-11 border ${errors.email ? 'border-red-500' : 'border-gray-300'} rounded-md px-4 text-sm outline-none focus:border-[#C85D1F]`} />
+                {errors.email && <span className="text-red-500 text-[10px]">{errors.email}</span>}
               </div>
             </div>
-
-            {/* MESSAGE */}
-            <div className="flex flex-col gap-2">
-              <label
-                className="text-[14px] text-[#2D2D2D]"
-                style={{
-                  fontFamily: "IBM Plex Sans Devanagari",
-                  fontWeight: 400,
-                  lineHeight: "100%",
-                  letterSpacing: "0%",
-                }}
-              >
-                {t.message}
-              </label>
-
-              <textarea
-                rows={7}
-                placeholder={t.messagePlaceholder}
-                className="
-                  w-full
-                  border
-                  border-[#C1C1C1]
-                  rounded-[8px]
-                  px-4
-                  py-4
-                  outline-none
-                  resize-none
-                  text-[14px]
-                "
-              />
+            <div className="flex flex-col gap-1.5">
+              <label className="text-xs sm:text-[14px] text-gray-500">{t.message}</label>
+              <textarea name="message" rows={5} value={formData.message} onChange={handleChange} placeholder={t.messagePlaceholder} className={`w-full border ${errors.message ? 'border-red-500' : 'border-gray-300'} rounded-md p-4 text-sm outline-none resize-none focus:border-[#C85D1F]`} />
+              {errors.message && <span className="text-red-500 text-[10px]">{errors.message}</span>}
             </div>
-
-            {/* BUTTON */}
-            <button
-              type="submit"
-              className="
-                w-full
-                h-[52px]
-                rounded-[8px]
-                bg-[#C85D1F]
-                text-white
-                text-[16px]
-                font-medium
-                mt-2
-                hover:bg-[#a84d18]
-                transition-colors
-                cursor-pointer
-              "
-              style={{
-                fontFamily: "IBM Plex Sans Devanagari",
-              }}
-            >
-              {t.submit}
-            </button>
+            <button type="submit" className="w-full h-12 rounded-md bg-[#C85D1F] text-white text-lg font-bold hover:bg-[#a84d18] transition-colors shadow-md mt-2">{t.submit}</button>
           </form>
         </div>
-
-        {/* ================= MAP IMAGE ================= */}
-        <div className="w-full flex justify-center lg:justify-end">
-          <div
-            className="
-              relative
-              w-full
-              max-w-[516px]
-              h-[290px]
-              rounded-[12px]
-              overflow-hidden
-              shadow-xl
-            "
-          >
-            <Image
-              src="/location-map.jpg"
-              alt="Location Map"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div>
+        <div className="w-full flex justify-center h-[320px] lg:h-auto"><div className="relative w-full rounded-[14px] overflow-hidden"><Image src="/location-map.svg" alt="Map" fill className="object-cover" /></div></div>
       </div>
     </main>
   );
