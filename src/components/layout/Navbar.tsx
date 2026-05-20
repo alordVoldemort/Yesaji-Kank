@@ -56,7 +56,23 @@ export default function Navbar() {
             className="rounded-full object-contain"
             priority
           />
-          <span className="font-semibold text-[13px] xl:text-base leading-tight text-gray-800 hidden xl:block whitespace-nowrap">
+          <span
+            className="
+    hidden xl:block whitespace-nowrap
+    text-[#1F2937]
+    font-devanagari
+    font-semibold
+    text-[14px]
+    leading-[100%]
+    tracking-[0]
+  "
+            style={{
+              fontFamily: "'IBM Plex Sans Devanagari', sans-serif",
+              fontWeight: 600,
+              lineHeight: "100%",
+              letterSpacing: "0%",
+            }}
+          >
             सरनोबत येसाजी कंक ट्रस्ट
           </span>
         </Link>
@@ -139,53 +155,64 @@ export default function Navbar() {
         {/* Right: language toggle + hamburger */}
         <div className="flex items-center gap-2 lg:gap-3 shrink-0">
           {/* Language toggle — desktop */}
-          <div className="text-sm hidden lg:flex items-center gap-2 text-gray-700 shrink-0">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-4 h-4 text-gray-500 shrink-0"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={1.8}
-            >
-              <circle cx="12" cy="12" r="10" />
-              <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-            </svg>
+          <div className="hidden lg:flex items-center gap-2 shrink-0">
+            {/* Globe Icon */}
+            <div className="flex items-center justify-center w-[18px] h-[18px]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-[18px] h-[18px] text-gray-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={1.8}
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+              </svg>
+            </div>
+
+            {/* Marathi Button */}
             <button
               onClick={() => setLang("mr")}
-              className="flex flex-col items-center gap-[3px] transition duration-300 hover:text-orange-500"
+              className="flex flex-col items-center transition duration-300 hover:text-orange-500"
             >
               <span
-                className={
+                className={`text-[16px] leading-none ${
                   lang === "mr"
                     ? "text-gray-900 font-semibold"
                     : "text-gray-500"
-                }
+                }`}
               >
                 मराठी
               </span>
               <span
-                className={`h-[3px] rounded-full bg-orange-500 transition-all duration-300 ${
+                className={`mt-[4px] h-[2px] rounded-full bg-orange-500 transition-all duration-300 ${
                   lang === "mr" ? "w-full" : "w-0"
                 }`}
               />
             </button>
-            <span className="w-[2px] h-4 bg-gray-700 rounded-full" />
+
+            {/* Divider */}
+            <span className="text-gray-400 text-[18px] leading-none">|</span>
+
+            {/* English Button */}
             <button
               onClick={() => setLang("en")}
-              className="flex flex-col items-center gap-[3px] transition duration-300 hover:text-orange-500"
+              className="flex flex-col items-center transition duration-300 hover:text-orange-500"
             >
               <span
-                className={
+
+                className={`text-[16px] leading-none ${
                   lang === "en"
                     ? "text-gray-900 font-semibold"
                     : "text-gray-500"
-                }
+                }`}
               >
                 English
               </span>
+
               <span
-                className={`h-[3px] rounded-full bg-orange-500 transition-all duration-300 ${
+                className={`mt-[4px] h-[2px] rounded-full bg-orange-500 transition-all duration-300 ${
                   lang === "en" ? "w-full" : "w-0"
                 }`}
               />
